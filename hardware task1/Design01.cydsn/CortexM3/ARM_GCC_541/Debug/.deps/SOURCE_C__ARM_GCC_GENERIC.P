@@ -1,0 +1,94 @@
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/CortexM3/ARM_GCC_541/Debug/main.o : //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/ADC_SAR_1.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/ADC_SAR_1_Bypass.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/ADC_SAR_1_Bypass_aliases.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/ADC_SAR_1_IRQ.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/ADC_SAR_1_theACLK.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/CyDmac.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/CyFlash.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/CyLib.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/CySpc.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/Pin_1.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/Pin_1_aliases.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/Pin_2.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/Pin_2_aliases.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/Timer_1.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_Dm.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_Dm_aliases.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_Dp.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_Dp_aliases.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_audio.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_cdc.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_cydmac.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_hid.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_midi.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_msc.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_pvt.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/VDAC8_1.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cmsis_armcc.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cmsis_compiler.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cmsis_gcc.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/core_cm3.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cyPm.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cydevice.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cydevice_trm.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cydisabledsheets.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cyfitter.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cypins.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cytypes.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/isr_1.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/project.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/timer_clock.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/cyapicallbacks.h //files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/main.c 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/ADC_SAR_1.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/ADC_SAR_1_Bypass.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/ADC_SAR_1_Bypass_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/ADC_SAR_1_IRQ.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/ADC_SAR_1_theACLK.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/CyDmac.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/CyFlash.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/CyLib.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/CySpc.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/Pin_1.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/Pin_1_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/Pin_2.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/Pin_2_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/Timer_1.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_Dm.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_Dm_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_Dp.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_Dp_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_audio.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_cdc.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_cydmac.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_hid.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_midi.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_msc.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/USBUART_1_pvt.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/VDAC8_1.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cmsis_armcc.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cmsis_compiler.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cmsis_gcc.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/core_cm3.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cyPm.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cydevice.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cydevice_trm.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cydisabledsheets.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cyfitter.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cypins.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/cytypes.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/isr_1.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/project.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/Generated_Source/PSoC5/timer_clock.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/cyapicallbacks.h : 
+
+//files.auckland.ac.nz/myhome/Documents/PSoC\ Creator/hardware\ task1/Design01.cydsn/main.c : 
+

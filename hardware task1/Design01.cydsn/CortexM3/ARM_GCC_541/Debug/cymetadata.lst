@@ -1,0 +1,740 @@
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccSWJiHG.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 248
+  28              	cy_meta_configecc:
+  29 0000 01       		.byte	1
+  30 0001 45       		.byte	69
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 01       		.byte	1
+  34 0005 4F       		.byte	79
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 01       		.byte	1
+  38 0009 52       		.byte	82
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 01       		.byte	1
+  42 000d 01       		.byte	1
+  43 000e 01       		.byte	1
+  44 000f 40       		.byte	64
+  45 0010 01       		.byte	1
+  46 0011 03       		.byte	3
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 01       		.byte	1
+  50 0015 07       		.byte	7
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 02       		.byte	2
+  54 0019 09       		.byte	9
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 04       		.byte	4
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccSWJiHG.s 			page 2
+
+
+  58 001d 0A       		.byte	10
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 01       		.byte	1
+  62 0021 0B       		.byte	11
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 01       		.byte	1
+  66 0025 0D       		.byte	13
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 01       		.byte	1
+  70 0029 0F       		.byte	15
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 01       		.byte	1
+  74 002d 17       		.byte	23
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 01       		.byte	1
+  78 0031 19       		.byte	25
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 07       		.byte	7
+  82 0035 40       		.byte	64
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 05       		.byte	5
+  86 0039 41       		.byte	65
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 04       		.byte	4
+  90 003d 42       		.byte	66
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 04       		.byte	4
+  94 0041 43       		.byte	67
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 01       		.byte	1
+  98 0045 44       		.byte	68
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 02       		.byte	2
+ 102 0049 45       		.byte	69
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 04       		.byte	4
+ 106 004d 46       		.byte	70
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 07       		.byte	7
+ 110 0051 47       		.byte	71
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 02       		.byte	2
+ 114 0055 48       		.byte	72
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccSWJiHG.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 01       		.byte	1
+ 118 0059 4C       		.byte	76
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 01       		.byte	1
+ 122 005d 51       		.byte	81
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 7E       		.byte	126
+ 126 0061 02       		.byte	2
+ 127 0062 0A       		.byte	10
+ 128 0063 4B       		.byte	75
+ 129 0064 7C       		.byte	124
+ 130 0065 40       		.byte	64
+ 131 0066 E2       		.byte	-30
+ 132 0067 04       		.byte	4
+ 133 0068 E6       		.byte	-26
+ 134 0069 02       		.byte	2
+ 135 006a EE       		.byte	-18
+ 136 006b 0C       		.byte	12
+ 137 006c AF       		.byte	-81
+ 138 006d 20       		.byte	32
+ 139 006e EE       		.byte	-18
+ 140 006f 04       		.byte	4
+ 141 0070 B8       		.byte	-72
+ 142 0071 20       		.byte	32
+ 143 0072 BE       		.byte	-66
+ 144 0073 10       		.byte	16
+ 145 0074 D8       		.byte	-40
+ 146 0075 04       		.byte	4
+ 147 0076 DF       		.byte	-33
+ 148 0077 01       		.byte	1
+ 149 0078 1F       		.byte	31
+ 150 0079 20       		.byte	32
+ 151 007a E6       		.byte	-26
+ 152 007b 02       		.byte	2
+ 153 007c E2       		.byte	-30
+ 154 007d 04       		.byte	4
+ 155 007e EE       		.byte	-18
+ 156 007f 02       		.byte	2
+ 157 0080 EE       		.byte	-18
+ 158 0081 02       		.byte	2
+ 159 0082 30       		.byte	48
+ 160 0083 02       		.byte	2
+ 161 0084 33       		.byte	51
+ 162 0085 20       		.byte	32
+ 163 0086 34       		.byte	52
+ 164 0087 02       		.byte	2
+ 165 0088 36       		.byte	54
+ 166 0089 40       		.byte	64
+ 167 008a 80       		.byte	-128
+ 168 008b 02       		.byte	2
+ 169 008c CC       		.byte	-52
+ 170 008d F0       		.byte	-16
+ 171 008e E2       		.byte	-30
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccSWJiHG.s 			page 4
+
+
+ 172 008f 20       		.byte	32
+ 173 0090 84       		.byte	-124
+ 174 0091 02       		.byte	2
+ 175 0092 9C       		.byte	-100
+ 176 0093 02       		.byte	2
+ 177 0094 A6       		.byte	-90
+ 178 0095 40       		.byte	64
+ 179 0096 A7       		.byte	-89
+ 180 0097 20       		.byte	32
+ 181 0098 E6       		.byte	-26
+ 182 0099 40       		.byte	64
+ 183 009a 63       		.byte	99
+ 184 009b 02       		.byte	2
+ 185 009c A6       		.byte	-90
+ 186 009d 40       		.byte	64
+ 187 009e A7       		.byte	-89
+ 188 009f 20       		.byte	32
+ 189 00a0 D6       		.byte	-42
+ 190 00a1 40       		.byte	64
+ 191 00a2 A6       		.byte	-90
+ 192 00a3 40       		.byte	64
+ 193 00a4 AB       		.byte	-85
+ 194 00a5 20       		.byte	32
+ 195 00a6 AF       		.byte	-81
+ 196 00a7 01       		.byte	1
+ 197 00a8 EE       		.byte	-18
+ 198 00a9 30       		.byte	48
+ 199 00aa 82       		.byte	-126
+ 200 00ab 40       		.byte	64
+ 201 00ac 84       		.byte	-124
+ 202 00ad 80       		.byte	-128
+ 203 00ae 96       		.byte	-106
+ 204 00af 40       		.byte	64
+ 205 00b0 1B       		.byte	27
+ 206 00b1 04       		.byte	4
+ 207 00b2 96       		.byte	-106
+ 208 00b3 40       		.byte	64
+ 209 00b4 9C       		.byte	-100
+ 210 00b5 80       		.byte	-128
+ 211 00b6 C6       		.byte	-58
+ 212 00b7 08       		.byte	8
+ 213 00b8 08       		.byte	8
+ 214 00b9 80       		.byte	-128
+ 215 00ba 0B       		.byte	11
+ 216 00bb 40       		.byte	64
+ 217 00bc 0E       		.byte	14
+ 218 00bd 40       		.byte	64
+ 219 00be 96       		.byte	-106
+ 220 00bf 40       		.byte	64
+ 221 00c0 9C       		.byte	-100
+ 222 00c1 80       		.byte	-128
+ 223 00c2 AB       		.byte	-85
+ 224 00c3 04       		.byte	4
+ 225 00c4 C2       		.byte	-62
+ 226 00c5 0E       		.byte	14
+ 227 00c6 AE       		.byte	-82
+ 228 00c7 40       		.byte	64
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccSWJiHG.s 			page 5
+
+
+ 229 00c8 EE       		.byte	-18
+ 230 00c9 40       		.byte	64
+ 231 00ca AF       		.byte	-81
+ 232 00cb 40       		.byte	64
+ 233 00cc 00       		.byte	0
+ 234 00cd AB       		.byte	-85
+ 235 00ce 00       		.byte	0
+ 236 00cf 00       		.byte	0
+ 237 00d0 00       		.byte	0
+ 238 00d1 00       		.byte	0
+ 239 00d2 00       		.byte	0
+ 240 00d3 00       		.byte	0
+ 241 00d4 00       		.byte	0
+ 242 00d5 00       		.byte	0
+ 243 00d6 30       		.byte	48
+ 244 00d7 00       		.byte	0
+ 245 00d8 40       		.byte	64
+ 246 00d9 00       		.byte	0
+ 247 00da 00       		.byte	0
+ 248 00db 00       		.byte	0
+ 249 00dc 00       		.byte	0
+ 250 00dd 00       		.byte	0
+ 251 00de 00       		.byte	0
+ 252 00df 00       		.byte	0
+ 253 00e0 C0       		.byte	-64
+ 254 00e1 00       		.byte	0
+ 255 00e2 00       		.byte	0
+ 256 00e3 00       		.byte	0
+ 257 00e4 00       		.byte	0
+ 258 00e5 0B       		.byte	11
+ 259 00e6 0B       		.byte	11
+ 260 00e7 00       		.byte	0
+ 261 00e8 00       		.byte	0
+ 262 00e9 00       		.byte	0
+ 263 00ea 00       		.byte	0
+ 264 00eb 00       		.byte	0
+ 265 00ec 00       		.byte	0
+ 266 00ed 00       		.byte	0
+ 267 00ee 00       		.byte	0
+ 268 00ef 00       		.byte	0
+ 269 00f0 00       		.byte	0
+ 270 00f1 00       		.byte	0
+ 271 00f2 80       		.byte	-128
+ 272 00f3 00       		.byte	0
+ 273 00f4 17       		.byte	23
+ 274 00f5 00       		.byte	0
+ 275 00f6 18       		.byte	24
+ 276 00f7 01       		.byte	1
+ 277              		.section	.cywolatch,"a",%progbits
+ 278              		.align	2
+ 279              		.type	cy_meta_wonvl, %object
+ 280              		.size	cy_meta_wonvl, 4
+ 281              	cy_meta_wonvl:
+ 282 0000 BC       		.byte	-68
+ 283 0001 90       		.byte	-112
+ 284 0002 AC       		.byte	-84
+ 285 0003 AF       		.byte	-81
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccSWJiHG.s 			page 6
+
+
+ 286              		.section	.cycustnvl,"a",%progbits
+ 287              		.align	2
+ 288              		.type	cy_meta_custnvl, %object
+ 289              		.size	cy_meta_custnvl, 4
+ 290              	cy_meta_custnvl:
+ 291 0000 00       		.byte	0
+ 292 0001 00       		.byte	0
+ 293 0002 40       		.byte	64
+ 294 0003 05       		.byte	5
+ 295              		.section	.cymeta,"a",%progbits
+ 296              		.align	2
+ 297              		.type	cy_metadata, %object
+ 298              		.size	cy_metadata, 12
+ 299              	cy_metadata:
+ 300 0000 00       		.byte	0
+ 301 0001 01       		.byte	1
+ 302 0002 2E       		.byte	46
+ 303 0003 16       		.byte	22
+ 304 0004 10       		.byte	16
+ 305 0005 69       		.byte	105
+ 306 0006 00       		.byte	0
+ 307 0007 01       		.byte	1
+ 308 0008 00       		.byte	0
+ 309 0009 00       		.byte	0
+ 310 000a 00       		.byte	0
+ 311 000b 00       		.byte	0
+ 312              		.section	.cyflashprotect,"a",%progbits
+ 313              		.align	2
+ 314              		.type	cy_meta_flashprotect, %object
+ 315              		.size	cy_meta_flashprotect, 256
+ 316              	cy_meta_flashprotect:
+ 317 0000 00000000 		.space	256
+ 317      00000000 
+ 317      00000000 
+ 317      00000000 
+ 317      00000000 
+ 318              		.text
+ 319              	.Letext0:
+ 320              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 321              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 322              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 323              		.section	.debug_info,"",%progbits
+ 324              	.Ldebug_info0:
+ 325 0000 30010000 		.4byte	0x130
+ 326 0004 0400     		.2byte	0x4
+ 327 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 328 000a 04       		.byte	0x4
+ 329 000b 01       		.uleb128 0x1
+ 330 000c 24000000 		.4byte	.LASF17
+ 331 0010 0C       		.byte	0xc
+ 332 0011 D1010000 		.4byte	.LASF18
+ 333 0015 D7000000 		.4byte	.LASF19
+ 334 0019 00000000 		.4byte	.Ldebug_line0
+ 335 001d 02       		.uleb128 0x2
+ 336 001e 01       		.byte	0x1
+ 337 001f 06       		.byte	0x6
+ 338 0020 C5010000 		.4byte	.LASF0
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccSWJiHG.s 			page 7
+
+
+ 339 0024 03       		.uleb128 0x3
+ 340 0025 00000000 		.4byte	.LASF9
+ 341 0029 01       		.byte	0x1
+ 342 002a 1D       		.byte	0x1d
+ 343 002b 2F000000 		.4byte	0x2f
+ 344 002f 02       		.uleb128 0x2
+ 345 0030 01       		.byte	0x1
+ 346 0031 08       		.byte	0x8
+ 347 0032 16000000 		.4byte	.LASF1
+ 348 0036 02       		.uleb128 0x2
+ 349 0037 02       		.byte	0x2
+ 350 0038 05       		.byte	0x5
+ 351 0039 B2010000 		.4byte	.LASF2
+ 352 003d 02       		.uleb128 0x2
+ 353 003e 02       		.byte	0x2
+ 354 003f 07       		.byte	0x7
+ 355 0040 C4000000 		.4byte	.LASF3
+ 356 0044 02       		.uleb128 0x2
+ 357 0045 04       		.byte	0x4
+ 358 0046 05       		.byte	0x5
+ 359 0047 BC010000 		.4byte	.LASF4
+ 360 004b 02       		.uleb128 0x2
+ 361 004c 04       		.byte	0x4
+ 362 004d 07       		.byte	0x7
+ 363 004e B2000000 		.4byte	.LASF5
+ 364 0052 02       		.uleb128 0x2
+ 365 0053 08       		.byte	0x8
+ 366 0054 05       		.byte	0x5
+ 367 0055 A4010000 		.4byte	.LASF6
+ 368 0059 02       		.uleb128 0x2
+ 369 005a 08       		.byte	0x8
+ 370 005b 07       		.byte	0x7
+ 371 005c 59010000 		.4byte	.LASF7
+ 372 0060 04       		.uleb128 0x4
+ 373 0061 04       		.byte	0x4
+ 374 0062 05       		.byte	0x5
+ 375 0063 696E7400 		.ascii	"int\000"
+ 376 0067 02       		.uleb128 0x2
+ 377 0068 04       		.byte	0x4
+ 378 0069 07       		.byte	0x7
+ 379 006a 4C010000 		.4byte	.LASF8
+ 380 006e 03       		.uleb128 0x3
+ 381 006f 70010000 		.4byte	.LASF10
+ 382 0073 02       		.byte	0x2
+ 383 0074 18       		.byte	0x18
+ 384 0075 24000000 		.4byte	0x24
+ 385 0079 05       		.uleb128 0x5
+ 386 007a 90000000 		.4byte	0x90
+ 387 007e 89000000 		.4byte	0x89
+ 388 0082 06       		.uleb128 0x6
+ 389 0083 89000000 		.4byte	0x89
+ 390 0087 F7       		.byte	0xf7
+ 391 0088 00       		.byte	0
+ 392 0089 02       		.uleb128 0x2
+ 393 008a 04       		.byte	0x4
+ 394 008b 07       		.byte	0x7
+ 395 008c 9B010000 		.4byte	.LASF11
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccSWJiHG.s 			page 8
+
+
+ 396 0090 07       		.uleb128 0x7
+ 397 0091 6E000000 		.4byte	0x6e
+ 398 0095 08       		.uleb128 0x8
+ 399 0096 3A010000 		.4byte	.LASF12
+ 400 009a 03       		.byte	0x3
+ 401 009b 1F       		.byte	0x1f
+ 402 009c A6000000 		.4byte	0xa6
+ 403 00a0 05       		.uleb128 0x5
+ 404 00a1 03       		.byte	0x3
+ 405 00a2 00000000 		.4byte	cy_meta_configecc
+ 406 00a6 07       		.uleb128 0x7
+ 407 00a7 79000000 		.4byte	0x79
+ 408 00ab 05       		.uleb128 0x5
+ 409 00ac 90000000 		.4byte	0x90
+ 410 00b0 BB000000 		.4byte	0xbb
+ 411 00b4 06       		.uleb128 0x6
+ 412 00b5 89000000 		.4byte	0x89
+ 413 00b9 03       		.byte	0x3
+ 414 00ba 00       		.byte	0
+ 415 00bb 08       		.uleb128 0x8
+ 416 00bc 2A010000 		.4byte	.LASF13
+ 417 00c0 03       		.byte	0x3
+ 418 00c1 4B       		.byte	0x4b
+ 419 00c2 CC000000 		.4byte	0xcc
+ 420 00c6 05       		.uleb128 0x5
+ 421 00c7 03       		.byte	0x3
+ 422 00c8 00000000 		.4byte	cy_meta_custnvl
+ 423 00cc 07       		.uleb128 0x7
+ 424 00cd AB000000 		.4byte	0xab
+ 425 00d1 08       		.uleb128 0x8
+ 426 00d2 8D010000 		.4byte	.LASF14
+ 427 00d6 03       		.byte	0x3
+ 428 00d7 59       		.byte	0x59
+ 429 00d8 E2000000 		.4byte	0xe2
+ 430 00dc 05       		.uleb128 0x5
+ 431 00dd 03       		.byte	0x3
+ 432 00de 00000000 		.4byte	cy_meta_wonvl
+ 433 00e2 07       		.uleb128 0x7
+ 434 00e3 AB000000 		.4byte	0xab
+ 435 00e7 05       		.uleb128 0x5
+ 436 00e8 90000000 		.4byte	0x90
+ 437 00ec F7000000 		.4byte	0xf7
+ 438 00f0 06       		.uleb128 0x6
+ 439 00f1 89000000 		.4byte	0x89
+ 440 00f5 FF       		.byte	0xff
+ 441 00f6 00       		.byte	0
+ 442 00f7 08       		.uleb128 0x8
+ 443 00f8 78010000 		.4byte	.LASF15
+ 444 00fc 03       		.byte	0x3
+ 445 00fd 67       		.byte	0x67
+ 446 00fe 08010000 		.4byte	0x108
+ 447 0102 05       		.uleb128 0x5
+ 448 0103 03       		.byte	0x3
+ 449 0104 00000000 		.4byte	cy_meta_flashprotect
+ 450 0108 07       		.uleb128 0x7
+ 451 0109 E7000000 		.4byte	0xe7
+ 452 010d 05       		.uleb128 0x5
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccSWJiHG.s 			page 9
+
+
+ 453 010e 90000000 		.4byte	0x90
+ 454 0112 1D010000 		.4byte	0x11d
+ 455 0116 06       		.uleb128 0x6
+ 456 0117 89000000 		.4byte	0x89
+ 457 011b 0B       		.byte	0xb
+ 458 011c 00       		.byte	0
+ 459 011d 08       		.uleb128 0x8
+ 460 011e 0A000000 		.4byte	.LASF16
+ 461 0122 03       		.byte	0x3
+ 462 0123 94       		.byte	0x94
+ 463 0124 2E010000 		.4byte	0x12e
+ 464 0128 05       		.uleb128 0x5
+ 465 0129 03       		.byte	0x3
+ 466 012a 00000000 		.4byte	cy_metadata
+ 467 012e 07       		.uleb128 0x7
+ 468 012f 0D010000 		.4byte	0x10d
+ 469 0133 00       		.byte	0
+ 470              		.section	.debug_abbrev,"",%progbits
+ 471              	.Ldebug_abbrev0:
+ 472 0000 01       		.uleb128 0x1
+ 473 0001 11       		.uleb128 0x11
+ 474 0002 01       		.byte	0x1
+ 475 0003 25       		.uleb128 0x25
+ 476 0004 0E       		.uleb128 0xe
+ 477 0005 13       		.uleb128 0x13
+ 478 0006 0B       		.uleb128 0xb
+ 479 0007 03       		.uleb128 0x3
+ 480 0008 0E       		.uleb128 0xe
+ 481 0009 1B       		.uleb128 0x1b
+ 482 000a 0E       		.uleb128 0xe
+ 483 000b 10       		.uleb128 0x10
+ 484 000c 17       		.uleb128 0x17
+ 485 000d 00       		.byte	0
+ 486 000e 00       		.byte	0
+ 487 000f 02       		.uleb128 0x2
+ 488 0010 24       		.uleb128 0x24
+ 489 0011 00       		.byte	0
+ 490 0012 0B       		.uleb128 0xb
+ 491 0013 0B       		.uleb128 0xb
+ 492 0014 3E       		.uleb128 0x3e
+ 493 0015 0B       		.uleb128 0xb
+ 494 0016 03       		.uleb128 0x3
+ 495 0017 0E       		.uleb128 0xe
+ 496 0018 00       		.byte	0
+ 497 0019 00       		.byte	0
+ 498 001a 03       		.uleb128 0x3
+ 499 001b 16       		.uleb128 0x16
+ 500 001c 00       		.byte	0
+ 501 001d 03       		.uleb128 0x3
+ 502 001e 0E       		.uleb128 0xe
+ 503 001f 3A       		.uleb128 0x3a
+ 504 0020 0B       		.uleb128 0xb
+ 505 0021 3B       		.uleb128 0x3b
+ 506 0022 0B       		.uleb128 0xb
+ 507 0023 49       		.uleb128 0x49
+ 508 0024 13       		.uleb128 0x13
+ 509 0025 00       		.byte	0
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccSWJiHG.s 			page 10
+
+
+ 510 0026 00       		.byte	0
+ 511 0027 04       		.uleb128 0x4
+ 512 0028 24       		.uleb128 0x24
+ 513 0029 00       		.byte	0
+ 514 002a 0B       		.uleb128 0xb
+ 515 002b 0B       		.uleb128 0xb
+ 516 002c 3E       		.uleb128 0x3e
+ 517 002d 0B       		.uleb128 0xb
+ 518 002e 03       		.uleb128 0x3
+ 519 002f 08       		.uleb128 0x8
+ 520 0030 00       		.byte	0
+ 521 0031 00       		.byte	0
+ 522 0032 05       		.uleb128 0x5
+ 523 0033 01       		.uleb128 0x1
+ 524 0034 01       		.byte	0x1
+ 525 0035 49       		.uleb128 0x49
+ 526 0036 13       		.uleb128 0x13
+ 527 0037 01       		.uleb128 0x1
+ 528 0038 13       		.uleb128 0x13
+ 529 0039 00       		.byte	0
+ 530 003a 00       		.byte	0
+ 531 003b 06       		.uleb128 0x6
+ 532 003c 21       		.uleb128 0x21
+ 533 003d 00       		.byte	0
+ 534 003e 49       		.uleb128 0x49
+ 535 003f 13       		.uleb128 0x13
+ 536 0040 2F       		.uleb128 0x2f
+ 537 0041 0B       		.uleb128 0xb
+ 538 0042 00       		.byte	0
+ 539 0043 00       		.byte	0
+ 540 0044 07       		.uleb128 0x7
+ 541 0045 26       		.uleb128 0x26
+ 542 0046 00       		.byte	0
+ 543 0047 49       		.uleb128 0x49
+ 544 0048 13       		.uleb128 0x13
+ 545 0049 00       		.byte	0
+ 546 004a 00       		.byte	0
+ 547 004b 08       		.uleb128 0x8
+ 548 004c 34       		.uleb128 0x34
+ 549 004d 00       		.byte	0
+ 550 004e 03       		.uleb128 0x3
+ 551 004f 0E       		.uleb128 0xe
+ 552 0050 3A       		.uleb128 0x3a
+ 553 0051 0B       		.uleb128 0xb
+ 554 0052 3B       		.uleb128 0x3b
+ 555 0053 0B       		.uleb128 0xb
+ 556 0054 49       		.uleb128 0x49
+ 557 0055 13       		.uleb128 0x13
+ 558 0056 3F       		.uleb128 0x3f
+ 559 0057 19       		.uleb128 0x19
+ 560 0058 02       		.uleb128 0x2
+ 561 0059 18       		.uleb128 0x18
+ 562 005a 00       		.byte	0
+ 563 005b 00       		.byte	0
+ 564 005c 00       		.byte	0
+ 565              		.section	.debug_aranges,"",%progbits
+ 566 0000 14000000 		.4byte	0x14
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccSWJiHG.s 			page 11
+
+
+ 567 0004 0200     		.2byte	0x2
+ 568 0006 00000000 		.4byte	.Ldebug_info0
+ 569 000a 04       		.byte	0x4
+ 570 000b 00       		.byte	0
+ 571 000c 0000     		.2byte	0
+ 572 000e 0000     		.2byte	0
+ 573 0010 00000000 		.4byte	0
+ 574 0014 00000000 		.4byte	0
+ 575              		.section	.debug_line,"",%progbits
+ 576              	.Ldebug_line0:
+ 577 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 577      02003701 
+ 577      00000201 
+ 577      FB0E0D00 
+ 577      01010101 
+ 578              	.LASF9:
+ 579 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 579      6E74385F 
+ 579      7400
+ 580              	.LASF16:
+ 581 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 581      65746164 
+ 581      61746100 
+ 582              	.LASF1:
+ 583 0016 756E7369 		.ascii	"unsigned char\000"
+ 583      676E6564 
+ 583      20636861 
+ 583      7200
+ 584              	.LASF17:
+ 585 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 585      43313120 
+ 585      352E342E 
+ 585      31203230 
+ 585      31363036 
+ 586 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 586      20726576 
+ 586      6973696F 
+ 586      6E203233 
+ 586      37373135 
+ 587 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 587      66756E63 
+ 587      74696F6E 
+ 587      2D736563 
+ 587      74696F6E 
+ 588              	.LASF5:
+ 589 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 589      20756E73 
+ 589      69676E65 
+ 589      6420696E 
+ 589      7400
+ 590              	.LASF3:
+ 591 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 591      7420756E 
+ 591      7369676E 
+ 591      65642069 
+ 591      6E7400
+ 592              	.LASF19:
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccSWJiHG.s 			page 12
+
+
+ 593 00d7 5C5C6669 		.ascii	"\\\\files.auckland.ac.nz\\myhome\\Documents\\PSoC C"
+ 593      6C65732E 
+ 593      6175636B 
+ 593      6C616E64 
+ 593      2E61632E 
+ 594 0105 72656174 		.ascii	"reator\\hardware task1\\Design01.cydsn\000"
+ 594      6F725C68 
+ 594      61726477 
+ 594      61726520 
+ 594      7461736B 
+ 595              	.LASF13:
+ 596 012a 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 596      6574615F 
+ 596      63757374 
+ 596      6E766C00 
+ 597              	.LASF12:
+ 598 013a 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 598      6574615F 
+ 598      636F6E66 
+ 598      69676563 
+ 598      6300
+ 599              	.LASF8:
+ 600 014c 756E7369 		.ascii	"unsigned int\000"
+ 600      676E6564 
+ 600      20696E74 
+ 600      00
+ 601              	.LASF7:
+ 602 0159 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 602      206C6F6E 
+ 602      6720756E 
+ 602      7369676E 
+ 602      65642069 
+ 603              	.LASF10:
+ 604 0170 75696E74 		.ascii	"uint8_t\000"
+ 604      385F7400 
+ 605              	.LASF15:
+ 606 0178 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 606      6574615F 
+ 606      666C6173 
+ 606      6870726F 
+ 606      74656374 
+ 607              	.LASF14:
+ 608 018d 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 608      6574615F 
+ 608      776F6E76 
+ 608      6C00
+ 609              	.LASF11:
+ 610 019b 73697A65 		.ascii	"sizetype\000"
+ 610      74797065 
+ 610      00
+ 611              	.LASF6:
+ 612 01a4 6C6F6E67 		.ascii	"long long int\000"
+ 612      206C6F6E 
+ 612      6720696E 
+ 612      7400
+ 613              	.LASF2:
+ 614 01b2 73686F72 		.ascii	"short int\000"
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccSWJiHG.s 			page 13
+
+
+ 614      7420696E 
+ 614      7400
+ 615              	.LASF4:
+ 616 01bc 6C6F6E67 		.ascii	"long int\000"
+ 616      20696E74 
+ 616      00
+ 617              	.LASF0:
+ 618 01c5 7369676E 		.ascii	"signed char\000"
+ 618      65642063 
+ 618      68617200 
+ 619              	.LASF18:
+ 620 01d1 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 620      72617465 
+ 620      645F536F 
+ 620      75726365 
+ 620      5C50536F 
+ 621              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

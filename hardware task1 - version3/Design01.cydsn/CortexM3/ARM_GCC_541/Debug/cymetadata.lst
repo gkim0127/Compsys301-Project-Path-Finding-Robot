@@ -1,0 +1,860 @@
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 348
+  28              	cy_meta_configecc:
+  29 0000 01       		.byte	1
+  30 0001 45       		.byte	69
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 03       		.byte	3
+  34 0005 4F       		.byte	79
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 01       		.byte	1
+  38 0009 52       		.byte	82
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 01       		.byte	1
+  42 000d 5B       		.byte	91
+  43 000e 00       		.byte	0
+  44 000f 40       		.byte	64
+  45 0010 01       		.byte	1
+  46 0011 03       		.byte	3
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 02       		.byte	2
+  50 0015 05       		.byte	5
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 01       		.byte	1
+  54 0019 07       		.byte	7
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 03       		.byte	3
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 2
+
+
+  58 001d 09       		.byte	9
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 04       		.byte	4
+  62 0021 0A       		.byte	10
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 03       		.byte	3
+  66 0025 0B       		.byte	11
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 01       		.byte	1
+  70 0029 0D       		.byte	13
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 01       		.byte	1
+  74 002d 15       		.byte	21
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 02       		.byte	2
+  78 0031 17       		.byte	23
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 02       		.byte	2
+  82 0035 19       		.byte	25
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 01       		.byte	1
+  86 0039 1B       		.byte	27
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 06       		.byte	6
+  90 003d 40       		.byte	64
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 0A       		.byte	10
+  94 0041 41       		.byte	65
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 0C       		.byte	12
+  98 0045 42       		.byte	66
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 06       		.byte	6
+ 102 0049 43       		.byte	67
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 03       		.byte	3
+ 106 004d 45       		.byte	69
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 07       		.byte	7
+ 110 0051 46       		.byte	70
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 0B       		.byte	11
+ 114 0055 47       		.byte	71
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 05       		.byte	5
+ 118 0059 48       		.byte	72
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 02       		.byte	2
+ 122 005d 49       		.byte	73
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 09       		.byte	9
+ 126 0061 4C       		.byte	76
+ 127 0062 01       		.byte	1
+ 128 0063 40       		.byte	64
+ 129 0064 01       		.byte	1
+ 130 0065 4D       		.byte	77
+ 131 0066 01       		.byte	1
+ 132 0067 40       		.byte	64
+ 133 0068 02       		.byte	2
+ 134 0069 51       		.byte	81
+ 135 006a 01       		.byte	1
+ 136 006b 40       		.byte	64
+ 137 006c 7E       		.byte	126
+ 138 006d 02       		.byte	2
+ 139 006e 01       		.byte	1
+ 140 006f 10       		.byte	16
+ 141 0070 0A       		.byte	10
+ 142 0071 4B       		.byte	75
+ 143 0072 16       		.byte	22
+ 144 0073 4B       		.byte	75
+ 145 0074 7C       		.byte	124
+ 146 0075 40       		.byte	64
+ 147 0076 2F       		.byte	47
+ 148 0077 21       		.byte	33
+ 149 0078 E2       		.byte	-30
+ 150 0079 48       		.byte	72
+ 151 007a E0       		.byte	-32
+ 152 007b 04       		.byte	4
+ 153 007c E4       		.byte	-28
+ 154 007d 80       		.byte	-128
+ 155 007e EE       		.byte	-18
+ 156 007f 0D       		.byte	13
+ 157 0080 AB       		.byte	-85
+ 158 0081 20       		.byte	32
+ 159 0082 AF       		.byte	-81
+ 160 0083 20       		.byte	32
+ 161 0084 EE       		.byte	-18
+ 162 0085 01       		.byte	1
+ 163 0086 B8       		.byte	-72
+ 164 0087 20       		.byte	32
+ 165 0088 BE       		.byte	-66
+ 166 0089 10       		.byte	16
+ 167 008a D8       		.byte	-40
+ 168 008b 04       		.byte	4
+ 169 008c DF       		.byte	-33
+ 170 008d 01       		.byte	1
+ 171 008e 1F       		.byte	31
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 4
+
+
+ 172 008f 20       		.byte	32
+ 173 0090 E0       		.byte	-32
+ 174 0091 04       		.byte	4
+ 175 0092 E4       		.byte	-28
+ 176 0093 80       		.byte	-128
+ 177 0094 E2       		.byte	-30
+ 178 0095 48       		.byte	72
+ 179 0096 EE       		.byte	-18
+ 180 0097 08       		.byte	8
+ 181 0098 E2       		.byte	-30
+ 182 0099 80       		.byte	-128
+ 183 009a EA       		.byte	-22
+ 184 009b 02       		.byte	2
+ 185 009c E2       		.byte	-30
+ 186 009d 80       		.byte	-128
+ 187 009e EA       		.byte	-22
+ 188 009f 02       		.byte	2
+ 189 00a0 EE       		.byte	-18
+ 190 00a1 08       		.byte	8
+ 191 00a2 33       		.byte	51
+ 192 00a3 21       		.byte	33
+ 193 00a4 36       		.byte	54
+ 194 00a5 08       		.byte	8
+ 195 00a6 37       		.byte	55
+ 196 00a7 40       		.byte	64
+ 197 00a8 39       		.byte	57
+ 198 00a9 40       		.byte	64
+ 199 00aa CC       		.byte	-52
+ 200 00ab F0       		.byte	-16
+ 201 00ac CE       		.byte	-50
+ 202 00ad 10       		.byte	16
+ 203 00ae 32       		.byte	50
+ 204 00af 80       		.byte	-128
+ 205 00b0 37       		.byte	55
+ 206 00b1 40       		.byte	64
+ 207 00b2 86       		.byte	-122
+ 208 00b3 08       		.byte	8
+ 209 00b4 8D       		.byte	-115
+ 210 00b5 40       		.byte	64
+ 211 00b6 95       		.byte	-107
+ 212 00b7 40       		.byte	64
+ 213 00b8 9F       		.byte	-97
+ 214 00b9 41       		.byte	65
+ 215 00ba A6       		.byte	-90
+ 216 00bb 08       		.byte	8
+ 217 00bc A7       		.byte	-89
+ 218 00bd 20       		.byte	32
+ 219 00be CC       		.byte	-52
+ 220 00bf 30       		.byte	48
+ 221 00c0 E2       		.byte	-30
+ 222 00c1 10       		.byte	16
+ 223 00c2 10       		.byte	16
+ 224 00c3 80       		.byte	-128
+ 225 00c4 17       		.byte	23
+ 226 00c5 08       		.byte	8
+ 227 00c6 63       		.byte	99
+ 228 00c7 02       		.byte	2
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 5
+
+
+ 229 00c8 67       		.byte	103
+ 230 00c9 02       		.byte	2
+ 231 00ca 83       		.byte	-125
+ 232 00cb 08       		.byte	8
+ 233 00cc 88       		.byte	-120
+ 234 00cd 80       		.byte	-128
+ 235 00ce 9F       		.byte	-97
+ 236 00cf 41       		.byte	65
+ 237 00d0 A6       		.byte	-90
+ 238 00d1 80       		.byte	-128
+ 239 00d2 A7       		.byte	-89
+ 240 00d3 20       		.byte	32
+ 241 00d4 C4       		.byte	-60
+ 242 00d5 30       		.byte	48
+ 243 00d6 D6       		.byte	-42
+ 244 00d7 C0       		.byte	-64
+ 245 00d8 E0       		.byte	-32
+ 246 00d9 20       		.byte	32
+ 247 00da 9F       		.byte	-97
+ 248 00db 01       		.byte	1
+ 249 00dc A6       		.byte	-90
+ 250 00dd 80       		.byte	-128
+ 251 00de A7       		.byte	-89
+ 252 00df 20       		.byte	32
+ 253 00e0 AB       		.byte	-85
+ 254 00e1 41       		.byte	65
+ 255 00e2 AF       		.byte	-81
+ 256 00e3 01       		.byte	1
+ 257 00e4 EE       		.byte	-18
+ 258 00e5 B0       		.byte	-80
+ 259 00e6 85       		.byte	-123
+ 260 00e7 04       		.byte	4
+ 261 00e8 8F       		.byte	-113
+ 262 00e9 01       		.byte	1
+ 263 00ea E2       		.byte	-30
+ 264 00eb 02       		.byte	2
+ 265 00ec 1A       		.byte	26
+ 266 00ed 80       		.byte	-128
+ 267 00ee 83       		.byte	-125
+ 268 00ef 02       		.byte	2
+ 269 00f0 8A       		.byte	-118
+ 270 00f1 20       		.byte	32
+ 271 00f2 95       		.byte	-107
+ 272 00f3 08       		.byte	8
+ 273 00f4 97       		.byte	-105
+ 274 00f5 02       		.byte	2
+ 275 00f6 C6       		.byte	-58
+ 276 00f7 08       		.byte	8
+ 277 00f8 E4       		.byte	-28
+ 278 00f9 01       		.byte	1
+ 279 00fa 09       		.byte	9
+ 280 00fb 08       		.byte	8
+ 281 00fc 0B       		.byte	11
+ 282 00fd 02       		.byte	2
+ 283 00fe 0D       		.byte	13
+ 284 00ff 04       		.byte	4
+ 285 0100 43       		.byte	67
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 6
+
+
+ 286 0101 02       		.byte	2
+ 287 0102 95       		.byte	-107
+ 288 0103 08       		.byte	8
+ 289 0104 97       		.byte	-105
+ 290 0105 02       		.byte	2
+ 291 0106 9A       		.byte	-102
+ 292 0107 20       		.byte	32
+ 293 0108 A3       		.byte	-93
+ 294 0109 02       		.byte	2
+ 295 010a AA       		.byte	-86
+ 296 010b 40       		.byte	64
+ 297 010c C2       		.byte	-62
+ 298 010d 0E       		.byte	14
+ 299 010e D0       		.byte	-48
+ 300 010f 02       		.byte	2
+ 301 0110 8A       		.byte	-118
+ 302 0111 80       		.byte	-128
+ 303 0112 A6       		.byte	-90
+ 304 0113 80       		.byte	-128
+ 305 0114 A7       		.byte	-89
+ 306 0115 20       		.byte	32
+ 307 0116 AF       		.byte	-81
+ 308 0117 01       		.byte	1
+ 309 0118 EA       		.byte	-22
+ 310 0119 40       		.byte	64
+ 311 011a AF       		.byte	-81
+ 312 011b 20       		.byte	32
+ 313 011c EE       		.byte	-18
+ 314 011d 10       		.byte	16
+ 315 011e 1C       		.byte	28
+ 316 011f 02       		.byte	2
+ 317 0120 1F       		.byte	31
+ 318 0121 80       		.byte	-128
+ 319 0122 3A       		.byte	58
+ 320 0123 20       		.byte	32
+ 321 0124 88       		.byte	-120
+ 322 0125 01       		.byte	1
+ 323 0126 9A       		.byte	-102
+ 324 0127 20       		.byte	32
+ 325 0128 AD       		.byte	-83
+ 326 0129 08       		.byte	8
+ 327 012a C6       		.byte	-58
+ 328 012b 01       		.byte	1
+ 329 012c CE       		.byte	-50
+ 330 012d 08       		.byte	8
+ 331 012e E2       		.byte	-30
+ 332 012f 01       		.byte	1
+ 333 0130 AF       		.byte	-81
+ 334 0131 80       		.byte	-128
+ 335 0132 00       		.byte	0
+ 336 0133 AF       		.byte	-81
+ 337 0134 01       		.byte	1
+ 338 0135 3E       		.byte	62
+ 339 0136 00       		.byte	0
+ 340 0137 00       		.byte	0
+ 341 0138 40       		.byte	64
+ 342 0139 00       		.byte	0
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 7
+
+
+ 343 013a 00       		.byte	0
+ 344 013b 00       		.byte	0
+ 345 013c 00       		.byte	0
+ 346 013d 00       		.byte	0
+ 347 013e 00       		.byte	0
+ 348 013f 00       		.byte	0
+ 349 0140 C1       		.byte	-63
+ 350 0141 00       		.byte	0
+ 351 0142 00       		.byte	0
+ 352 0143 00       		.byte	0
+ 353 0144 00       		.byte	0
+ 354 0145 0B       		.byte	11
+ 355 0146 0B       		.byte	11
+ 356 0147 00       		.byte	0
+ 357 0148 00       		.byte	0
+ 358 0149 00       		.byte	0
+ 359 014a 00       		.byte	0
+ 360 014b 00       		.byte	0
+ 361 014c 00       		.byte	0
+ 362 014d 14       		.byte	20
+ 363 014e 14       		.byte	20
+ 364 014f 00       		.byte	0
+ 365 0150 00       		.byte	0
+ 366 0151 00       		.byte	0
+ 367 0152 C0       		.byte	-64
+ 368 0153 00       		.byte	0
+ 369 0154 0E       		.byte	14
+ 370 0155 00       		.byte	0
+ 371 0156 18       		.byte	24
+ 372 0157 01       		.byte	1
+ 373 0158 0E       		.byte	14
+ 374 0159 00       		.byte	0
+ 375 015a 18       		.byte	24
+ 376 015b 01       		.byte	1
+ 377              		.section	.cywolatch,"a",%progbits
+ 378              		.align	2
+ 379              		.type	cy_meta_wonvl, %object
+ 380              		.size	cy_meta_wonvl, 4
+ 381              	cy_meta_wonvl:
+ 382 0000 BC       		.byte	-68
+ 383 0001 90       		.byte	-112
+ 384 0002 AC       		.byte	-84
+ 385 0003 AF       		.byte	-81
+ 386              		.section	.cycustnvl,"a",%progbits
+ 387              		.align	2
+ 388              		.type	cy_meta_custnvl, %object
+ 389              		.size	cy_meta_custnvl, 4
+ 390              	cy_meta_custnvl:
+ 391 0000 00       		.byte	0
+ 392 0001 00       		.byte	0
+ 393 0002 40       		.byte	64
+ 394 0003 05       		.byte	5
+ 395              		.section	.cymeta,"a",%progbits
+ 396              		.align	2
+ 397              		.type	cy_metadata, %object
+ 398              		.size	cy_metadata, 12
+ 399              	cy_metadata:
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 8
+
+
+ 400 0000 00       		.byte	0
+ 401 0001 01       		.byte	1
+ 402 0002 2E       		.byte	46
+ 403 0003 16       		.byte	22
+ 404 0004 10       		.byte	16
+ 405 0005 69       		.byte	105
+ 406 0006 00       		.byte	0
+ 407 0007 01       		.byte	1
+ 408 0008 00       		.byte	0
+ 409 0009 00       		.byte	0
+ 410 000a 00       		.byte	0
+ 411 000b 00       		.byte	0
+ 412              		.section	.cyflashprotect,"a",%progbits
+ 413              		.align	2
+ 414              		.type	cy_meta_flashprotect, %object
+ 415              		.size	cy_meta_flashprotect, 256
+ 416              	cy_meta_flashprotect:
+ 417 0000 00000000 		.space	256
+ 417      00000000 
+ 417      00000000 
+ 417      00000000 
+ 417      00000000 
+ 418              		.text
+ 419              	.Letext0:
+ 420              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 421              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 422              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 423              		.section	.debug_info,"",%progbits
+ 424              	.Ldebug_info0:
+ 425 0000 31010000 		.4byte	0x131
+ 426 0004 0400     		.2byte	0x4
+ 427 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 428 000a 04       		.byte	0x4
+ 429 000b 01       		.uleb128 0x1
+ 430 000c 95000000 		.4byte	.LASF17
+ 431 0010 0C       		.byte	0xc
+ 432 0011 EF010000 		.4byte	.LASF18
+ 433 0015 0A000000 		.4byte	.LASF19
+ 434 0019 00000000 		.4byte	.Ldebug_line0
+ 435 001d 02       		.uleb128 0x2
+ 436 001e 01       		.byte	0x1
+ 437 001f 06       		.byte	0x6
+ 438 0020 E3010000 		.4byte	.LASF0
+ 439 0024 03       		.uleb128 0x3
+ 440 0025 00000000 		.4byte	.LASF9
+ 441 0029 01       		.byte	0x1
+ 442 002a 1D       		.byte	0x1d
+ 443 002b 2F000000 		.4byte	0x2f
+ 444 002f 02       		.uleb128 0x2
+ 445 0030 01       		.byte	0x1
+ 446 0031 08       		.byte	0x8
+ 447 0032 87000000 		.4byte	.LASF1
+ 448 0036 02       		.uleb128 0x2
+ 449 0037 02       		.byte	0x2
+ 450 0038 05       		.byte	0x5
+ 451 0039 D0010000 		.4byte	.LASF2
+ 452 003d 02       		.uleb128 0x2
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 9
+
+
+ 453 003e 02       		.byte	0x2
+ 454 003f 07       		.byte	0x7
+ 455 0040 35010000 		.4byte	.LASF3
+ 456 0044 02       		.uleb128 0x2
+ 457 0045 04       		.byte	0x4
+ 458 0046 05       		.byte	0x5
+ 459 0047 DA010000 		.4byte	.LASF4
+ 460 004b 02       		.uleb128 0x2
+ 461 004c 04       		.byte	0x4
+ 462 004d 07       		.byte	0x7
+ 463 004e 23010000 		.4byte	.LASF5
+ 464 0052 02       		.uleb128 0x2
+ 465 0053 08       		.byte	0x8
+ 466 0054 05       		.byte	0x5
+ 467 0055 C2010000 		.4byte	.LASF6
+ 468 0059 02       		.uleb128 0x2
+ 469 005a 08       		.byte	0x8
+ 470 005b 07       		.byte	0x7
+ 471 005c 77010000 		.4byte	.LASF7
+ 472 0060 04       		.uleb128 0x4
+ 473 0061 04       		.byte	0x4
+ 474 0062 05       		.byte	0x5
+ 475 0063 696E7400 		.ascii	"int\000"
+ 476 0067 02       		.uleb128 0x2
+ 477 0068 04       		.byte	0x4
+ 478 0069 07       		.byte	0x7
+ 479 006a 6A010000 		.4byte	.LASF8
+ 480 006e 03       		.uleb128 0x3
+ 481 006f 8E010000 		.4byte	.LASF10
+ 482 0073 02       		.byte	0x2
+ 483 0074 18       		.byte	0x18
+ 484 0075 24000000 		.4byte	0x24
+ 485 0079 05       		.uleb128 0x5
+ 486 007a 91000000 		.4byte	0x91
+ 487 007e 8A000000 		.4byte	0x8a
+ 488 0082 06       		.uleb128 0x6
+ 489 0083 8A000000 		.4byte	0x8a
+ 490 0087 5B01     		.2byte	0x15b
+ 491 0089 00       		.byte	0
+ 492 008a 02       		.uleb128 0x2
+ 493 008b 04       		.byte	0x4
+ 494 008c 07       		.byte	0x7
+ 495 008d B9010000 		.4byte	.LASF11
+ 496 0091 07       		.uleb128 0x7
+ 497 0092 6E000000 		.4byte	0x6e
+ 498 0096 08       		.uleb128 0x8
+ 499 0097 58010000 		.4byte	.LASF12
+ 500 009b 03       		.byte	0x3
+ 501 009c 1F       		.byte	0x1f
+ 502 009d A7000000 		.4byte	0xa7
+ 503 00a1 05       		.uleb128 0x5
+ 504 00a2 03       		.byte	0x3
+ 505 00a3 00000000 		.4byte	cy_meta_configecc
+ 506 00a7 07       		.uleb128 0x7
+ 507 00a8 79000000 		.4byte	0x79
+ 508 00ac 05       		.uleb128 0x5
+ 509 00ad 91000000 		.4byte	0x91
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 10
+
+
+ 510 00b1 BC000000 		.4byte	0xbc
+ 511 00b5 09       		.uleb128 0x9
+ 512 00b6 8A000000 		.4byte	0x8a
+ 513 00ba 03       		.byte	0x3
+ 514 00bb 00       		.byte	0
+ 515 00bc 08       		.uleb128 0x8
+ 516 00bd 48010000 		.4byte	.LASF13
+ 517 00c1 03       		.byte	0x3
+ 518 00c2 58       		.byte	0x58
+ 519 00c3 CD000000 		.4byte	0xcd
+ 520 00c7 05       		.uleb128 0x5
+ 521 00c8 03       		.byte	0x3
+ 522 00c9 00000000 		.4byte	cy_meta_custnvl
+ 523 00cd 07       		.uleb128 0x7
+ 524 00ce AC000000 		.4byte	0xac
+ 525 00d2 08       		.uleb128 0x8
+ 526 00d3 AB010000 		.4byte	.LASF14
+ 527 00d7 03       		.byte	0x3
+ 528 00d8 66       		.byte	0x66
+ 529 00d9 E3000000 		.4byte	0xe3
+ 530 00dd 05       		.uleb128 0x5
+ 531 00de 03       		.byte	0x3
+ 532 00df 00000000 		.4byte	cy_meta_wonvl
+ 533 00e3 07       		.uleb128 0x7
+ 534 00e4 AC000000 		.4byte	0xac
+ 535 00e8 05       		.uleb128 0x5
+ 536 00e9 91000000 		.4byte	0x91
+ 537 00ed F8000000 		.4byte	0xf8
+ 538 00f1 09       		.uleb128 0x9
+ 539 00f2 8A000000 		.4byte	0x8a
+ 540 00f6 FF       		.byte	0xff
+ 541 00f7 00       		.byte	0
+ 542 00f8 08       		.uleb128 0x8
+ 543 00f9 96010000 		.4byte	.LASF15
+ 544 00fd 03       		.byte	0x3
+ 545 00fe 74       		.byte	0x74
+ 546 00ff 09010000 		.4byte	0x109
+ 547 0103 05       		.uleb128 0x5
+ 548 0104 03       		.byte	0x3
+ 549 0105 00000000 		.4byte	cy_meta_flashprotect
+ 550 0109 07       		.uleb128 0x7
+ 551 010a E8000000 		.4byte	0xe8
+ 552 010e 05       		.uleb128 0x5
+ 553 010f 91000000 		.4byte	0x91
+ 554 0113 1E010000 		.4byte	0x11e
+ 555 0117 09       		.uleb128 0x9
+ 556 0118 8A000000 		.4byte	0x8a
+ 557 011c 0B       		.byte	0xb
+ 558 011d 00       		.byte	0
+ 559 011e 08       		.uleb128 0x8
+ 560 011f 7B000000 		.4byte	.LASF16
+ 561 0123 03       		.byte	0x3
+ 562 0124 A1       		.byte	0xa1
+ 563 0125 2F010000 		.4byte	0x12f
+ 564 0129 05       		.uleb128 0x5
+ 565 012a 03       		.byte	0x3
+ 566 012b 00000000 		.4byte	cy_metadata
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 11
+
+
+ 567 012f 07       		.uleb128 0x7
+ 568 0130 0E010000 		.4byte	0x10e
+ 569 0134 00       		.byte	0
+ 570              		.section	.debug_abbrev,"",%progbits
+ 571              	.Ldebug_abbrev0:
+ 572 0000 01       		.uleb128 0x1
+ 573 0001 11       		.uleb128 0x11
+ 574 0002 01       		.byte	0x1
+ 575 0003 25       		.uleb128 0x25
+ 576 0004 0E       		.uleb128 0xe
+ 577 0005 13       		.uleb128 0x13
+ 578 0006 0B       		.uleb128 0xb
+ 579 0007 03       		.uleb128 0x3
+ 580 0008 0E       		.uleb128 0xe
+ 581 0009 1B       		.uleb128 0x1b
+ 582 000a 0E       		.uleb128 0xe
+ 583 000b 10       		.uleb128 0x10
+ 584 000c 17       		.uleb128 0x17
+ 585 000d 00       		.byte	0
+ 586 000e 00       		.byte	0
+ 587 000f 02       		.uleb128 0x2
+ 588 0010 24       		.uleb128 0x24
+ 589 0011 00       		.byte	0
+ 590 0012 0B       		.uleb128 0xb
+ 591 0013 0B       		.uleb128 0xb
+ 592 0014 3E       		.uleb128 0x3e
+ 593 0015 0B       		.uleb128 0xb
+ 594 0016 03       		.uleb128 0x3
+ 595 0017 0E       		.uleb128 0xe
+ 596 0018 00       		.byte	0
+ 597 0019 00       		.byte	0
+ 598 001a 03       		.uleb128 0x3
+ 599 001b 16       		.uleb128 0x16
+ 600 001c 00       		.byte	0
+ 601 001d 03       		.uleb128 0x3
+ 602 001e 0E       		.uleb128 0xe
+ 603 001f 3A       		.uleb128 0x3a
+ 604 0020 0B       		.uleb128 0xb
+ 605 0021 3B       		.uleb128 0x3b
+ 606 0022 0B       		.uleb128 0xb
+ 607 0023 49       		.uleb128 0x49
+ 608 0024 13       		.uleb128 0x13
+ 609 0025 00       		.byte	0
+ 610 0026 00       		.byte	0
+ 611 0027 04       		.uleb128 0x4
+ 612 0028 24       		.uleb128 0x24
+ 613 0029 00       		.byte	0
+ 614 002a 0B       		.uleb128 0xb
+ 615 002b 0B       		.uleb128 0xb
+ 616 002c 3E       		.uleb128 0x3e
+ 617 002d 0B       		.uleb128 0xb
+ 618 002e 03       		.uleb128 0x3
+ 619 002f 08       		.uleb128 0x8
+ 620 0030 00       		.byte	0
+ 621 0031 00       		.byte	0
+ 622 0032 05       		.uleb128 0x5
+ 623 0033 01       		.uleb128 0x1
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 12
+
+
+ 624 0034 01       		.byte	0x1
+ 625 0035 49       		.uleb128 0x49
+ 626 0036 13       		.uleb128 0x13
+ 627 0037 01       		.uleb128 0x1
+ 628 0038 13       		.uleb128 0x13
+ 629 0039 00       		.byte	0
+ 630 003a 00       		.byte	0
+ 631 003b 06       		.uleb128 0x6
+ 632 003c 21       		.uleb128 0x21
+ 633 003d 00       		.byte	0
+ 634 003e 49       		.uleb128 0x49
+ 635 003f 13       		.uleb128 0x13
+ 636 0040 2F       		.uleb128 0x2f
+ 637 0041 05       		.uleb128 0x5
+ 638 0042 00       		.byte	0
+ 639 0043 00       		.byte	0
+ 640 0044 07       		.uleb128 0x7
+ 641 0045 26       		.uleb128 0x26
+ 642 0046 00       		.byte	0
+ 643 0047 49       		.uleb128 0x49
+ 644 0048 13       		.uleb128 0x13
+ 645 0049 00       		.byte	0
+ 646 004a 00       		.byte	0
+ 647 004b 08       		.uleb128 0x8
+ 648 004c 34       		.uleb128 0x34
+ 649 004d 00       		.byte	0
+ 650 004e 03       		.uleb128 0x3
+ 651 004f 0E       		.uleb128 0xe
+ 652 0050 3A       		.uleb128 0x3a
+ 653 0051 0B       		.uleb128 0xb
+ 654 0052 3B       		.uleb128 0x3b
+ 655 0053 0B       		.uleb128 0xb
+ 656 0054 49       		.uleb128 0x49
+ 657 0055 13       		.uleb128 0x13
+ 658 0056 3F       		.uleb128 0x3f
+ 659 0057 19       		.uleb128 0x19
+ 660 0058 02       		.uleb128 0x2
+ 661 0059 18       		.uleb128 0x18
+ 662 005a 00       		.byte	0
+ 663 005b 00       		.byte	0
+ 664 005c 09       		.uleb128 0x9
+ 665 005d 21       		.uleb128 0x21
+ 666 005e 00       		.byte	0
+ 667 005f 49       		.uleb128 0x49
+ 668 0060 13       		.uleb128 0x13
+ 669 0061 2F       		.uleb128 0x2f
+ 670 0062 0B       		.uleb128 0xb
+ 671 0063 00       		.byte	0
+ 672 0064 00       		.byte	0
+ 673 0065 00       		.byte	0
+ 674              		.section	.debug_aranges,"",%progbits
+ 675 0000 14000000 		.4byte	0x14
+ 676 0004 0200     		.2byte	0x2
+ 677 0006 00000000 		.4byte	.Ldebug_info0
+ 678 000a 04       		.byte	0x4
+ 679 000b 00       		.byte	0
+ 680 000c 0000     		.2byte	0
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 13
+
+
+ 681 000e 0000     		.2byte	0
+ 682 0010 00000000 		.4byte	0
+ 683 0014 00000000 		.4byte	0
+ 684              		.section	.debug_line,"",%progbits
+ 685              	.Ldebug_line0:
+ 686 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 686      02003701 
+ 686      00000201 
+ 686      FB0E0D00 
+ 686      01010101 
+ 687              	.LASF9:
+ 688 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 688      6E74385F 
+ 688      7400
+ 689              	.LASF19:
+ 690 000a 5C5C6669 		.ascii	"\\\\files.auckland.ac.nz\\myhome\\Documents\\GitHub"
+ 690      6C65732E 
+ 690      6175636B 
+ 690      6C616E64 
+ 690      2E61632E 
+ 691 0038 5C70726F 		.ascii	"\\project-project_group_15\\hardware task1 - versio"
+ 691      6A656374 
+ 691      2D70726F 
+ 691      6A656374 
+ 691      5F67726F 
+ 692 0069 6E335C44 		.ascii	"n3\\Design01.cydsn\000"
+ 692      65736967 
+ 692      6E30312E 
+ 692      63796473 
+ 692      6E00
+ 693              	.LASF16:
+ 694 007b 63795F6D 		.ascii	"cy_metadata\000"
+ 694      65746164 
+ 694      61746100 
+ 695              	.LASF1:
+ 696 0087 756E7369 		.ascii	"unsigned char\000"
+ 696      676E6564 
+ 696      20636861 
+ 696      7200
+ 697              	.LASF17:
+ 698 0095 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 698      43313120 
+ 698      352E342E 
+ 698      31203230 
+ 698      31363036 
+ 699 00c8 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 699      20726576 
+ 699      6973696F 
+ 699      6E203233 
+ 699      37373135 
+ 700 00fb 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 700      66756E63 
+ 700      74696F6E 
+ 700      2D736563 
+ 700      74696F6E 
+ 701              	.LASF5:
+ 702 0123 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 14
+
+
+ 702      20756E73 
+ 702      69676E65 
+ 702      6420696E 
+ 702      7400
+ 703              	.LASF3:
+ 704 0135 73686F72 		.ascii	"short unsigned int\000"
+ 704      7420756E 
+ 704      7369676E 
+ 704      65642069 
+ 704      6E7400
+ 705              	.LASF13:
+ 706 0148 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 706      6574615F 
+ 706      63757374 
+ 706      6E766C00 
+ 707              	.LASF12:
+ 708 0158 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 708      6574615F 
+ 708      636F6E66 
+ 708      69676563 
+ 708      6300
+ 709              	.LASF8:
+ 710 016a 756E7369 		.ascii	"unsigned int\000"
+ 710      676E6564 
+ 710      20696E74 
+ 710      00
+ 711              	.LASF7:
+ 712 0177 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 712      206C6F6E 
+ 712      6720756E 
+ 712      7369676E 
+ 712      65642069 
+ 713              	.LASF10:
+ 714 018e 75696E74 		.ascii	"uint8_t\000"
+ 714      385F7400 
+ 715              	.LASF15:
+ 716 0196 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 716      6574615F 
+ 716      666C6173 
+ 716      6870726F 
+ 716      74656374 
+ 717              	.LASF14:
+ 718 01ab 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 718      6574615F 
+ 718      776F6E76 
+ 718      6C00
+ 719              	.LASF11:
+ 720 01b9 73697A65 		.ascii	"sizetype\000"
+ 720      74797065 
+ 720      00
+ 721              	.LASF6:
+ 722 01c2 6C6F6E67 		.ascii	"long long int\000"
+ 722      206C6F6E 
+ 722      6720696E 
+ 722      7400
+ 723              	.LASF2:
+ 724 01d0 73686F72 		.ascii	"short int\000"
+ARM GAS  C:\Users\xliu430\AppData\Local\Temp\ccZOK8Za.s 			page 15
+
+
+ 724      7420696E 
+ 724      7400
+ 725              	.LASF4:
+ 726 01da 6C6F6E67 		.ascii	"long int\000"
+ 726      20696E74 
+ 726      00
+ 727              	.LASF0:
+ 728 01e3 7369676E 		.ascii	"signed char\000"
+ 728      65642063 
+ 728      68617200 
+ 729              	.LASF18:
+ 730 01ef 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 730      72617465 
+ 730      645F536F 
+ 730      75726365 
+ 730      5C50536F 
+ 731              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

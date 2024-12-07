@@ -1,0 +1,6 @@
+\\files.auckland.ac.nz\myhome\Documents\GitHub\project-project_group_15\WorkspacemotorBT1\Hardware2.cydsn\Hardware2.cyprj|e472588c-0dec-4fcf-a1d4-20917b1bcf35
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|904fcc7a-5728-4b90-869c-8e164366dc46
+\\files.auckland.ac.nz\myhome\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|ec3699fb-37b8-4c59-84ac-48437d6a8875
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|cdb032e2-29a5-46d4-a89c-0f2eaffb3e77
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|a1433552-5e70-4913-8d9d-f1d2c37a66b3
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|7075e28a-8a6d-4c70-a2e4-4ade91c8d804

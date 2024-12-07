@@ -1,0 +1,162 @@
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/CortexM3/ARM_GCC_541/Debug/main.o : //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1_FinalBuf_dma.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1_IRQ.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1_IntClock.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1_SAR.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1_SAR_Bypass.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1_SAR_Bypass_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1_TempBuf_dma.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/CYDMAC.H //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/CYFITTER.H //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Clock_PWM.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Clock_QENC.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/CyDmac.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/CyFlash.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/CyLib.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/CySpc.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ENCO1.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ENCO1_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ENCO2.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ENCO2_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/LED.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/LED_1.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/LED_1_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/LED_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/PWM_leftmotor.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/PWM_rightmotor.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_1.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_1_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_2.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_2_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_3.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_3_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_4.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_4_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_5.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_5_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q2.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q2_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q3.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q3_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q4.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q4_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q5.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q5_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q6.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q6_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/QuadDec_1.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/QuadDec_1_Cnt16.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Timer.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Timer_2.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Timer_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_Dm.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_Dm_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_Dp.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_Dp_aliases.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_audio.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_cdc.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_cydmac.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_hid.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_midi.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_msc.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_pvt.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cmsis_armcc.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cmsis_compiler.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cmsis_gcc.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/core_cm3.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cyPm.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cydevice.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cydevice_trm.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cydisabledsheets.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cyfitter.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cypins.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cytypes.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/isr_EOC_3.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/project.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/timer_clock_2.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/cyapicallbacks.h //files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/main.c 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1_FinalBuf_dma.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1_IRQ.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1_IntClock.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1_SAR.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1_SAR_Bypass.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1_SAR_Bypass_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ADC_SAR_Seq_1_TempBuf_dma.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/CYDMAC.H : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/CYFITTER.H : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Clock_PWM.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Clock_QENC.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/CyFlash.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/CyLib.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/CySpc.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ENCO1.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ENCO1_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ENCO2.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/ENCO2_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/LED.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/LED_1.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/LED_1_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/LED_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/PWM_leftmotor.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/PWM_rightmotor.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_1.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_1_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_2.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_2_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_3.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_3_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_4.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_4_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_5.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_5_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q2.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q2_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q3.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q3_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q4.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q4_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q5.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q5_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q6.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Pin_Q6_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/QuadDec_1.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/QuadDec_1_Cnt16.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Timer.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Timer_2.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/Timer_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_Dm.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_Dm_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_Dp.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_Dp_aliases.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_audio.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_cdc.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_cydmac.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_hid.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_midi.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_msc.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/USBUART_1_pvt.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cmsis_armcc.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cmsis_compiler.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cmsis_gcc.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/core_cm3.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/core_cm3_psoc5.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cyPm.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cy_em_eeprom.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cydevice.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cydevice_trm.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cydisabledsheets.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cypins.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/cytypes.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/isr_EOC_3.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/project.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/Generated_Source/PSoC5/timer_clock_2.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/cyapicallbacks.h : 
+
+//files.auckland.ac.nz/myhome/Documents/GitHub/project-project_group_15/WorkspacemotorBT1/Hardware2.cydsn/main.c : 
+

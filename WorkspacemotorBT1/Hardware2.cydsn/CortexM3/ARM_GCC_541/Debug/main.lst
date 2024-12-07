@@ -1,0 +1,5249 @@
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.eoc1,"ax",%progbits
+  20              		.align	2
+  21              		.global	eoc1
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	eoc1, %function
+  25              	eoc1:
+  26              	.LFB67:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** #include <project.h>
+  15:main.c        **** #include <string.h>
+  16:main.c        **** 
+  17:main.c        **** #define LIGHT_CMP_VALUE 200
+  18:main.c        **** 
+  19:main.c        **** int flag=0;
+  20:main.c        **** int flag2=0;
+  21:main.c        **** int flag3=0;
+  22:main.c        **** int flag4=0;
+  23:main.c        **** int flag5=0;
+  24:main.c        **** int flag6=0;
+  25:main.c        **** 
+  26:main.c        **** int turnLock =0;
+  27:main.c        **** 
+  28:main.c        **** int count1 =0;
+  29:main.c        **** int count2 =0;
+  30:main.c        **** int count3 = 0;
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 2
+
+
+  31:main.c        **** int count4 = 0;
+  32:main.c        **** int count5 = 0;
+  33:main.c        **** int count6 = 0;
+  34:main.c        **** 
+  35:main.c        **** 
+  36:main.c        **** int array[10] ={0};
+  37:main.c        **** int array2[10] ={0};
+  38:main.c        **** int array3[10] ={0};
+  39:main.c        **** int array4[10] ={0};
+  40:main.c        **** int array5[10] ={0};
+  41:main.c        **** int array6[10] ={0};
+  42:main.c        **** 
+  43:main.c        **** 
+  44:main.c        **** int motor1 = 0;
+  45:main.c        **** int motor2 = 0;
+  46:main.c        **** int motor3 = 0;
+  47:main.c        **** int motor4 = 0;
+  48:main.c        **** int motor5 = 0;
+  49:main.c        **** int motor6 = 0;
+  50:main.c        **** 
+  51:main.c        **** 
+  52:main.c        **** 
+  53:main.c        **** int speed=0;
+  54:main.c        **** int flag33=0;
+  55:main.c        **** 
+  56:main.c        **** int offset = 5;
+  57:main.c        **** 
+  58:main.c        **** int startDuty = 90;
+  59:main.c        **** int leftDuty = 97;
+  60:main.c        **** int rightDuty = 0;
+  61:main.c        **** 
+  62:main.c        **** 
+  63:main.c        **** int leftTurn = 0;  //0  means no turns 
+  64:main.c        **** int rightTurn = 0;
+  65:main.c        **** int finishTurn = 0; // 0 means turn not finished
+  66:main.c        **** 
+  67:main.c        **** enum States {left_turn, right_turn, straight, stop, straight_left_adjust, straight_right_adjust};
+  68:main.c        **** 
+  69:main.c        **** 
+  70:main.c        **** 
+  71:main.c        **** int findMaximum(int array[10]){
+  72:main.c        **** int maximum = 0;
+  73:main.c        ****     for(int i = 0; i < 10; i ++){
+  74:main.c        ****         if (array[i]> maximum){
+  75:main.c        ****          maximum = array[i];
+  76:main.c        ****         }  
+  77:main.c        ****     }
+  78:main.c        ****     return maximum;
+  79:main.c        **** }
+  80:main.c        **** 
+  81:main.c        **** int findMinimum(int array[10]){
+  82:main.c        **** int minimum = 10000;
+  83:main.c        ****     for(int i = 0; i < 10; i ++){
+  84:main.c        ****         if (array[i] < minimum){
+  85:main.c        ****          minimum = array[i];
+  86:main.c        ****         }  
+  87:main.c        ****     }
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 3
+
+
+  88:main.c        ****     return minimum;
+  89:main.c        **** }   
+  90:main.c        **** 
+  91:main.c        **** int getSensor(int result){            
+  92:main.c        ****     // Using as a comparator / trigger
+  93:main.c        ****    
+  94:main.c        ****                     if(result < 200){
+  95:main.c        ****                         return 1;
+  96:main.c        ****                     }
+  97:main.c        ****                     else{
+  98:main.c        ****                         return 0;
+  99:main.c        ****                     }
+ 100:main.c        ****             
+ 101:main.c        ****                     count1 = 0;
+ 102:main.c        ****                     memset(array,0,sizeof(array));
+ 103:main.c        ****                     flag = 0;
+ 104:main.c        **** }
+ 105:main.c        **** 
+ 106:main.c        **** 
+ 107:main.c        **** CY_ISR(eoc1){
+  28              		.loc 1 107 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+ 108:main.c        ****     
+ 109:main.c        **** //    for(int i = 0; i < 5; i++) { // 5 is max ADC Channel
+ 110:main.c        **** //        int16 val = ADC_SAR_Seq_1_GetResult16(i);
+ 111:main.c        **** //        
+ 112:main.c        **** //        array[i] = ADC_SAR_Seq_1_CountsTo_mVolts(val);
+ 113:main.c        **** //    }
+ 114:main.c        **** // 
+ 115:main.c        ****     
+ 116:main.c        ****     
+ 117:main.c        ****     if(count1 < 9){
+  36              		.loc 1 117 0
+  37 0002 444B     		ldr	r3, .L15
+  38 0004 1B68     		ldr	r3, [r3]
+  39 0006 082B     		cmp	r3, #8
+  40 0008 0CDC     		bgt	.L2
+  41              	.LBB2:
+ 118:main.c        ****         int  val= ADC_SAR_Seq_1_GetResult16(0);
+  42              		.loc 1 118 0
+  43 000a 0020     		movs	r0, #0
+  44 000c FFF7FEFF 		bl	ADC_SAR_Seq_1_GetResult16
+  45              	.LVL0:
+ 119:main.c        ****         
+ 120:main.c        ****         int mVolts = ADC_SAR_Seq_1_CountsTo_mVolts(val);
+  46              		.loc 1 120 0
+  47 0010 FFF7FEFF 		bl	ADC_SAR_Seq_1_CountsTo_mVolts
+  48              	.LVL1:
+ 121:main.c        ****         array[count1] = mVolts;
+  49              		.loc 1 121 0
+  50 0014 3F4A     		ldr	r2, .L15
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 4
+
+
+  51 0016 1368     		ldr	r3, [r2]
+  52 0018 02EB8301 		add	r1, r2, r3, lsl #2
+  53 001c 4860     		str	r0, [r1, #4]
+ 122:main.c        ****         count1++;
+  54              		.loc 1 122 0
+  55 001e 0133     		adds	r3, r3, #1
+  56 0020 1360     		str	r3, [r2]
+  57              	.LBE2:
+  58 0022 02E0     		b	.L3
+  59              	.LVL2:
+  60              	.L2:
+ 123:main.c        ****         }
+ 124:main.c        ****     else{
+ 125:main.c        ****         //Timer_1_Stop();
+ 126:main.c        ****         count1 = 0;
+  61              		.loc 1 126 0
+  62 0024 0022     		movs	r2, #0
+  63 0026 3B4B     		ldr	r3, .L15
+  64 0028 1A60     		str	r2, [r3]
+  65              	.L3:
+ 127:main.c        ****     }
+ 128:main.c        ****     
+ 129:main.c        ****     if(count2 < 9){
+  66              		.loc 1 129 0
+  67 002a 3A4B     		ldr	r3, .L15
+  68 002c DB6A     		ldr	r3, [r3, #44]
+  69 002e 082B     		cmp	r3, #8
+  70 0030 0CDC     		bgt	.L4
+  71              	.LBB3:
+ 130:main.c        ****         int  val2=ADC_SAR_Seq_1_GetResult16(1);
+  72              		.loc 1 130 0
+  73 0032 0120     		movs	r0, #1
+  74 0034 FFF7FEFF 		bl	ADC_SAR_Seq_1_GetResult16
+  75              	.LVL3:
+ 131:main.c        ****         int mVolts2 = ADC_SAR_Seq_1_CountsTo_mVolts(val2);
+  76              		.loc 1 131 0
+  77 0038 FFF7FEFF 		bl	ADC_SAR_Seq_1_CountsTo_mVolts
+  78              	.LVL4:
+ 132:main.c        ****         
+ 133:main.c        ****         array2[count2] = mVolts2;
+  79              		.loc 1 133 0
+  80 003c 354A     		ldr	r2, .L15
+  81 003e D36A     		ldr	r3, [r2, #44]
+  82 0040 02EB8301 		add	r1, r2, r3, lsl #2
+  83 0044 0863     		str	r0, [r1, #48]
+ 134:main.c        ****         count2++;
+  84              		.loc 1 134 0
+  85 0046 0133     		adds	r3, r3, #1
+  86 0048 D362     		str	r3, [r2, #44]
+  87              	.LBE3:
+  88 004a 02E0     		b	.L5
+  89              	.LVL5:
+  90              	.L4:
+ 135:main.c        ****         }
+ 136:main.c        ****     else{
+ 137:main.c        ****         //Timer_2_Stop();
+ 138:main.c        ****         count2 = 0;
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 5
+
+
+  91              		.loc 1 138 0
+  92 004c 0022     		movs	r2, #0
+  93 004e 314B     		ldr	r3, .L15
+  94 0050 DA62     		str	r2, [r3, #44]
+  95              	.L5:
+ 139:main.c        ****     }
+ 140:main.c        ****     
+ 141:main.c        ****     if(count3 < 9){
+  96              		.loc 1 141 0
+  97 0052 304B     		ldr	r3, .L15
+  98 0054 9B6D     		ldr	r3, [r3, #88]
+  99 0056 082B     		cmp	r3, #8
+ 100 0058 0CDC     		bgt	.L6
+ 101              	.LBB4:
+ 142:main.c        ****         int  val3=ADC_SAR_Seq_1_GetResult16(2);
+ 102              		.loc 1 142 0
+ 103 005a 0220     		movs	r0, #2
+ 104 005c FFF7FEFF 		bl	ADC_SAR_Seq_1_GetResult16
+ 105              	.LVL6:
+ 143:main.c        ****         int mVolts3 = ADC_SAR_Seq_1_CountsTo_mVolts(val3);
+ 106              		.loc 1 143 0
+ 107 0060 FFF7FEFF 		bl	ADC_SAR_Seq_1_CountsTo_mVolts
+ 108              	.LVL7:
+ 144:main.c        ****         
+ 145:main.c        ****         array3[count3] = mVolts3;
+ 109              		.loc 1 145 0
+ 110 0064 2B4A     		ldr	r2, .L15
+ 111 0066 936D     		ldr	r3, [r2, #88]
+ 112 0068 02EB8301 		add	r1, r2, r3, lsl #2
+ 113 006c C865     		str	r0, [r1, #92]
+ 146:main.c        ****         count3++;
+ 114              		.loc 1 146 0
+ 115 006e 0133     		adds	r3, r3, #1
+ 116 0070 9365     		str	r3, [r2, #88]
+ 117              	.LBE4:
+ 118 0072 02E0     		b	.L7
+ 119              	.LVL8:
+ 120              	.L6:
+ 147:main.c        ****         }
+ 148:main.c        ****     else{
+ 149:main.c        ****         //Timer_2_Stop();
+ 150:main.c        ****         count3 = 0;
+ 121              		.loc 1 150 0
+ 122 0074 0022     		movs	r2, #0
+ 123 0076 274B     		ldr	r3, .L15
+ 124 0078 9A65     		str	r2, [r3, #88]
+ 125              	.L7:
+ 151:main.c        ****     }
+ 152:main.c        ****     if(count4 < 9){
+ 126              		.loc 1 152 0
+ 127 007a 264B     		ldr	r3, .L15
+ 128 007c D3F88430 		ldr	r3, [r3, #132]
+ 129 0080 082B     		cmp	r3, #8
+ 130 0082 0FDC     		bgt	.L8
+ 131              	.LBB5:
+ 153:main.c        ****         int  val4=ADC_SAR_Seq_1_GetResult16(3);
+ 132              		.loc 1 153 0
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 6
+
+
+ 133 0084 0320     		movs	r0, #3
+ 134 0086 FFF7FEFF 		bl	ADC_SAR_Seq_1_GetResult16
+ 135              	.LVL9:
+ 154:main.c        ****         int mVolts4 = ADC_SAR_Seq_1_CountsTo_mVolts(val4);
+ 136              		.loc 1 154 0
+ 137 008a FFF7FEFF 		bl	ADC_SAR_Seq_1_CountsTo_mVolts
+ 138              	.LVL10:
+ 155:main.c        ****         
+ 156:main.c        ****         array4[count4] = mVolts4;
+ 139              		.loc 1 156 0
+ 140 008e 214A     		ldr	r2, .L15
+ 141 0090 D2F88430 		ldr	r3, [r2, #132]
+ 142 0094 02EB8301 		add	r1, r2, r3, lsl #2
+ 143 0098 C1F88800 		str	r0, [r1, #136]
+ 157:main.c        ****         count4++;
+ 144              		.loc 1 157 0
+ 145 009c 0133     		adds	r3, r3, #1
+ 146 009e C2F88430 		str	r3, [r2, #132]
+ 147              	.LBE5:
+ 148 00a2 03E0     		b	.L9
+ 149              	.LVL11:
+ 150              	.L8:
+ 158:main.c        ****         }
+ 159:main.c        ****     else{
+ 160:main.c        ****         //Timer_2_Stop();
+ 161:main.c        ****         count4 = 0;
+ 151              		.loc 1 161 0
+ 152 00a4 0022     		movs	r2, #0
+ 153 00a6 1B4B     		ldr	r3, .L15
+ 154 00a8 C3F88420 		str	r2, [r3, #132]
+ 155              	.L9:
+ 162:main.c        ****     }
+ 163:main.c        ****     
+ 164:main.c        ****     if(count5 < 9){
+ 156              		.loc 1 164 0
+ 157 00ac 194B     		ldr	r3, .L15
+ 158 00ae D3F8B030 		ldr	r3, [r3, #176]
+ 159 00b2 082B     		cmp	r3, #8
+ 160 00b4 0FDC     		bgt	.L10
+ 161              	.LBB6:
+ 165:main.c        ****         int  val5=ADC_SAR_Seq_1_GetResult16(4);
+ 162              		.loc 1 165 0
+ 163 00b6 0420     		movs	r0, #4
+ 164 00b8 FFF7FEFF 		bl	ADC_SAR_Seq_1_GetResult16
+ 165              	.LVL12:
+ 166:main.c        ****         int mVolts5 = ADC_SAR_Seq_1_CountsTo_mVolts(val5);
+ 166              		.loc 1 166 0
+ 167 00bc FFF7FEFF 		bl	ADC_SAR_Seq_1_CountsTo_mVolts
+ 168              	.LVL13:
+ 167:main.c        ****         
+ 168:main.c        ****         array5[count5] = mVolts5;
+ 169              		.loc 1 168 0
+ 170 00c0 144A     		ldr	r2, .L15
+ 171 00c2 D2F8B030 		ldr	r3, [r2, #176]
+ 172 00c6 02EB8301 		add	r1, r2, r3, lsl #2
+ 173 00ca C1F8B400 		str	r0, [r1, #180]
+ 169:main.c        ****         count5++;
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 7
+
+
+ 174              		.loc 1 169 0
+ 175 00ce 0133     		adds	r3, r3, #1
+ 176 00d0 C2F8B030 		str	r3, [r2, #176]
+ 177              	.LBE6:
+ 178 00d4 03E0     		b	.L11
+ 179              	.LVL14:
+ 180              	.L10:
+ 170:main.c        ****         }
+ 171:main.c        ****     else{
+ 172:main.c        ****         //Timer_2_Stop();
+ 173:main.c        ****         count5 = 0;
+ 181              		.loc 1 173 0
+ 182 00d6 0022     		movs	r2, #0
+ 183 00d8 0E4B     		ldr	r3, .L15
+ 184 00da C3F8B020 		str	r2, [r3, #176]
+ 185              	.L11:
+ 174:main.c        ****     }
+ 175:main.c        ****     
+ 176:main.c        ****     if(count6 < 9){
+ 186              		.loc 1 176 0
+ 187 00de 0D4B     		ldr	r3, .L15
+ 188 00e0 D3F8DC30 		ldr	r3, [r3, #220]
+ 189 00e4 082B     		cmp	r3, #8
+ 190 00e6 0FDC     		bgt	.L12
+ 191              	.LBB7:
+ 177:main.c        ****         int  val6=ADC_SAR_Seq_1_GetResult16(5);
+ 192              		.loc 1 177 0
+ 193 00e8 0520     		movs	r0, #5
+ 194 00ea FFF7FEFF 		bl	ADC_SAR_Seq_1_GetResult16
+ 195              	.LVL15:
+ 178:main.c        ****         int mVolts6 = ADC_SAR_Seq_1_CountsTo_mVolts(val6);
+ 196              		.loc 1 178 0
+ 197 00ee FFF7FEFF 		bl	ADC_SAR_Seq_1_CountsTo_mVolts
+ 198              	.LVL16:
+ 179:main.c        ****         
+ 180:main.c        ****         array6[count6] = mVolts6;
+ 199              		.loc 1 180 0
+ 200 00f2 084A     		ldr	r2, .L15
+ 201 00f4 D2F8DC30 		ldr	r3, [r2, #220]
+ 202 00f8 02EB8301 		add	r1, r2, r3, lsl #2
+ 203 00fc C1F8E000 		str	r0, [r1, #224]
+ 181:main.c        ****         count6++;
+ 204              		.loc 1 181 0
+ 205 0100 0133     		adds	r3, r3, #1
+ 206 0102 C2F8DC30 		str	r3, [r2, #220]
+ 207              	.LBE7:
+ 208 0106 08BD     		pop	{r3, pc}
+ 209              	.LVL17:
+ 210              	.L12:
+ 182:main.c        ****         }
+ 183:main.c        ****     else{
+ 184:main.c        ****         //Timer_2_Stop();
+ 185:main.c        ****         count6 = 0;
+ 211              		.loc 1 185 0
+ 212 0108 0022     		movs	r2, #0
+ 213 010a 024B     		ldr	r3, .L15
+ 214 010c C3F8DC20 		str	r2, [r3, #220]
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 8
+
+
+ 215 0110 08BD     		pop	{r3, pc}
+ 216              	.L16:
+ 217 0112 00BF     		.align	2
+ 218              	.L15:
+ 219 0114 00000000 		.word	.LANCHOR0
+ 220              		.cfi_endproc
+ 221              	.LFE67:
+ 222              		.size	eoc1, .-eoc1
+ 223              		.section	.text.findMaximum,"ax",%progbits
+ 224              		.align	2
+ 225              		.global	findMaximum
+ 226              		.thumb
+ 227              		.thumb_func
+ 228              		.type	findMaximum, %function
+ 229              	findMaximum:
+ 230              	.LFB64:
+  71:main.c        **** int maximum = 0;
+ 231              		.loc 1 71 0
+ 232              		.cfi_startproc
+ 233              		@ args = 0, pretend = 0, frame = 0
+ 234              		@ frame_needed = 0, uses_anonymous_args = 0
+ 235              		@ link register save eliminated.
+ 236              	.LVL18:
+ 237              	.LBB8:
+  73:main.c        ****         if (array[i]> maximum){
+ 238              		.loc 1 73 0
+ 239 0000 0023     		movs	r3, #0
+ 240              	.LBE8:
+  72:main.c        ****     for(int i = 0; i < 10; i ++){
+ 241              		.loc 1 72 0
+ 242 0002 1946     		mov	r1, r3
+ 243              	.LBB9:
+  73:main.c        ****         if (array[i]> maximum){
+ 244              		.loc 1 73 0
+ 245 0004 05E0     		b	.L18
+ 246              	.LVL19:
+ 247              	.L20:
+  74:main.c        ****          maximum = array[i];
+ 248              		.loc 1 74 0
+ 249 0006 50F82320 		ldr	r2, [r0, r3, lsl #2]
+ 250 000a 9142     		cmp	r1, r2
+ 251 000c 00DA     		bge	.L19
+  75:main.c        ****         }  
+ 252              		.loc 1 75 0
+ 253 000e 1146     		mov	r1, r2
+ 254              	.LVL20:
+ 255              	.L19:
+  73:main.c        ****         if (array[i]> maximum){
+ 256              		.loc 1 73 0 discriminator 2
+ 257 0010 0133     		adds	r3, r3, #1
+ 258              	.LVL21:
+ 259              	.L18:
+  73:main.c        ****         if (array[i]> maximum){
+ 260              		.loc 1 73 0 is_stmt 0 discriminator 1
+ 261 0012 092B     		cmp	r3, #9
+ 262 0014 F7DD     		ble	.L20
+ 263              	.LBE9:
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 9
+
+
+  79:main.c        **** 
+ 264              		.loc 1 79 0 is_stmt 1
+ 265 0016 0846     		mov	r0, r1
+ 266              	.LVL22:
+ 267 0018 7047     		bx	lr
+ 268              		.cfi_endproc
+ 269              	.LFE64:
+ 270              		.size	findMaximum, .-findMaximum
+ 271 001a 00BF     		.section	.text.findMinimum,"ax",%progbits
+ 272              		.align	2
+ 273              		.global	findMinimum
+ 274              		.thumb
+ 275              		.thumb_func
+ 276              		.type	findMinimum, %function
+ 277              	findMinimum:
+ 278              	.LFB65:
+  81:main.c        **** int minimum = 10000;
+ 279              		.loc 1 81 0
+ 280              		.cfi_startproc
+ 281              		@ args = 0, pretend = 0, frame = 0
+ 282              		@ frame_needed = 0, uses_anonymous_args = 0
+ 283              		@ link register save eliminated.
+ 284              	.LVL23:
+ 285              	.LBB10:
+  83:main.c        ****         if (array[i] < minimum){
+ 286              		.loc 1 83 0
+ 287 0000 0023     		movs	r3, #0
+ 288              	.LBE10:
+  82:main.c        ****     for(int i = 0; i < 10; i ++){
+ 289              		.loc 1 82 0
+ 290 0002 42F21071 		movw	r1, #10000
+ 291              	.LBB11:
+  83:main.c        ****         if (array[i] < minimum){
+ 292              		.loc 1 83 0
+ 293 0006 05E0     		b	.L23
+ 294              	.LVL24:
+ 295              	.L25:
+  84:main.c        ****          minimum = array[i];
+ 296              		.loc 1 84 0
+ 297 0008 50F82320 		ldr	r2, [r0, r3, lsl #2]
+ 298 000c 9142     		cmp	r1, r2
+ 299 000e 00DD     		ble	.L24
+  85:main.c        ****         }  
+ 300              		.loc 1 85 0
+ 301 0010 1146     		mov	r1, r2
+ 302              	.LVL25:
+ 303              	.L24:
+  83:main.c        ****         if (array[i] < minimum){
+ 304              		.loc 1 83 0 discriminator 2
+ 305 0012 0133     		adds	r3, r3, #1
+ 306              	.LVL26:
+ 307              	.L23:
+  83:main.c        ****         if (array[i] < minimum){
+ 308              		.loc 1 83 0 is_stmt 0 discriminator 1
+ 309 0014 092B     		cmp	r3, #9
+ 310 0016 F7DD     		ble	.L25
+ 311              	.LBE11:
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 10
+
+
+  89:main.c        **** 
+ 312              		.loc 1 89 0 is_stmt 1
+ 313 0018 0846     		mov	r0, r1
+ 314              	.LVL27:
+ 315 001a 7047     		bx	lr
+ 316              		.cfi_endproc
+ 317              	.LFE65:
+ 318              		.size	findMinimum, .-findMinimum
+ 319              		.section	.text.getSensor,"ax",%progbits
+ 320              		.align	2
+ 321              		.global	getSensor
+ 322              		.thumb
+ 323              		.thumb_func
+ 324              		.type	getSensor, %function
+ 325              	getSensor:
+ 326              	.LFB66:
+  91:main.c        ****     // Using as a comparator / trigger
+ 327              		.loc 1 91 0
+ 328              		.cfi_startproc
+ 329              		@ args = 0, pretend = 0, frame = 0
+ 330              		@ frame_needed = 0, uses_anonymous_args = 0
+ 331              		@ link register save eliminated.
+ 332              	.LVL28:
+  94:main.c        ****                         return 1;
+ 333              		.loc 1 94 0
+ 334 0000 C728     		cmp	r0, #199
+ 335 0002 01DC     		bgt	.L29
+  95:main.c        ****                     }
+ 336              		.loc 1 95 0
+ 337 0004 0120     		movs	r0, #1
+ 338              	.LVL29:
+ 339 0006 7047     		bx	lr
+ 340              	.LVL30:
+ 341              	.L29:
+  98:main.c        ****                     }
+ 342              		.loc 1 98 0
+ 343 0008 0020     		movs	r0, #0
+ 344              	.LVL31:
+ 104:main.c        **** 
+ 345              		.loc 1 104 0
+ 346 000a 7047     		bx	lr
+ 347              		.cfi_endproc
+ 348              	.LFE66:
+ 349              		.size	getSensor, .-getSensor
+ 350              		.section	.text.usbPutString,"ax",%progbits
+ 351              		.align	2
+ 352              		.global	usbPutString
+ 353              		.thumb
+ 354              		.thumb_func
+ 355              		.type	usbPutString, %function
+ 356              	usbPutString:
+ 357              	.LFB68:
+ 186:main.c        ****     }
+ 187:main.c        **** }
+ 188:main.c        **** 
+ 189:main.c        **** 
+ 190:main.c        **** 
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 11
+
+
+ 191:main.c        **** 
+ 192:main.c        **** 
+ 193:main.c        **** void usbPutString(char *s)
+ 194:main.c        **** {
+ 358              		.loc 1 194 0
+ 359              		.cfi_startproc
+ 360              		@ args = 0, pretend = 0, frame = 0
+ 361              		@ frame_needed = 0, uses_anonymous_args = 0
+ 362              	.LVL32:
+ 363 0000 10B5     		push	{r4, lr}
+ 364              		.cfi_def_cfa_offset 8
+ 365              		.cfi_offset 4, -8
+ 366              		.cfi_offset 14, -4
+ 367 0002 0446     		mov	r4, r0
+ 368              	.LVL33:
+ 369              	.L31:
+ 195:main.c        **** // !! Assumes that *s is a string with allocated space >=64 chars     
+ 196:main.c        **** //  Since USB implementation retricts data packets to 64 chars, this function truncates the
+ 197:main.c        **** //  length to 62 char (63rd char is a '!')
+ 198:main.c        ****     
+ 199:main.c        ****     while (USBUART_1_CDCIsReady() == 0);
+ 370              		.loc 1 199 0 discriminator 1
+ 371 0004 FFF7FEFF 		bl	USBUART_1_CDCIsReady
+ 372              	.LVL34:
+ 373 0008 0028     		cmp	r0, #0
+ 374 000a FBD0     		beq	.L31
+ 200:main.c        ****     s[63]='\0';
+ 375              		.loc 1 200 0
+ 376 000c 0023     		movs	r3, #0
+ 377 000e 84F83F30 		strb	r3, [r4, #63]
+ 201:main.c        ****     s[62]='!';
+ 378              		.loc 1 201 0
+ 379 0012 2123     		movs	r3, #33
+ 380 0014 84F83E30 		strb	r3, [r4, #62]
+ 202:main.c        ****     USBUART_1_PutData((uint8*)s,strlen(s));
+ 381              		.loc 1 202 0
+ 382 0018 2046     		mov	r0, r4
+ 383 001a FFF7FEFF 		bl	strlen
+ 384              	.LVL35:
+ 385 001e 81B2     		uxth	r1, r0
+ 386 0020 2046     		mov	r0, r4
+ 387 0022 FFF7FEFF 		bl	USBUART_1_PutData
+ 388              	.LVL36:
+ 389 0026 10BD     		pop	{r4, pc}
+ 390              		.cfi_endproc
+ 391              	.LFE68:
+ 392              		.size	usbPutString, .-usbPutString
+ 393              		.section	.text.DoLeftTurn,"ax",%progbits
+ 394              		.align	2
+ 395              		.global	DoLeftTurn
+ 396              		.thumb
+ 397              		.thumb_func
+ 398              		.type	DoLeftTurn, %function
+ 399              	DoLeftTurn:
+ 400              	.LFB69:
+ 203:main.c        **** }
+ 204:main.c        **** 
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 12
+
+
+ 205:main.c        **** 
+ 206:main.c        **** void DoLeftTurn(){
+ 401              		.loc 1 206 0
+ 402              		.cfi_startproc
+ 403              		@ args = 0, pretend = 0, frame = 0
+ 404              		@ frame_needed = 0, uses_anonymous_args = 0
+ 405 0000 08B5     		push	{r3, lr}
+ 406              		.cfi_def_cfa_offset 8
+ 407              		.cfi_offset 3, -8
+ 408              		.cfi_offset 14, -4
+ 207:main.c        ****     PWM_leftmotor_Start();
+ 409              		.loc 1 207 0
+ 410 0002 FFF7FEFF 		bl	PWM_leftmotor_Start
+ 411              	.LVL37:
+ 208:main.c        ****     PWM_rightmotor_Start();
+ 412              		.loc 1 208 0
+ 413 0006 FFF7FEFF 		bl	PWM_rightmotor_Start
+ 414              	.LVL38:
+ 209:main.c        ****     
+ 210:main.c        ****     //PWM_leftmotor_WriteCompare1(80);
+ 211:main.c        ****     PWM_leftmotor_WriteCompare1(180);
+ 415              		.loc 1 211 0
+ 416 000a B420     		movs	r0, #180
+ 417 000c FFF7FEFF 		bl	PWM_leftmotor_WriteCompare1
+ 418              	.LVL39:
+ 212:main.c        ****     PWM_leftmotor_WriteCompare2(0);
+ 419              		.loc 1 212 0
+ 420 0010 0020     		movs	r0, #0
+ 421 0012 FFF7FEFF 		bl	PWM_leftmotor_WriteCompare2
+ 422              	.LVL40:
+ 213:main.c        ****     
+ 214:main.c        ****     //PWM_rightmotor_WriteCompare1(60);
+ 215:main.c        ****     PWM_rightmotor_WriteCompare1(180);      // prev value = 120
+ 423              		.loc 1 215 0
+ 424 0016 B420     		movs	r0, #180
+ 425 0018 FFF7FEFF 		bl	PWM_rightmotor_WriteCompare1
+ 426              	.LVL41:
+ 216:main.c        ****     PWM_rightmotor_WriteCompare2(0);
+ 427              		.loc 1 216 0
+ 428 001c 0020     		movs	r0, #0
+ 429 001e FFF7FEFF 		bl	PWM_rightmotor_WriteCompare2
+ 430              	.LVL42:
+ 431 0022 08BD     		pop	{r3, pc}
+ 432              		.cfi_endproc
+ 433              	.LFE69:
+ 434              		.size	DoLeftTurn, .-DoLeftTurn
+ 435              		.section	.text.DoRightTurn,"ax",%progbits
+ 436              		.align	2
+ 437              		.global	DoRightTurn
+ 438              		.thumb
+ 439              		.thumb_func
+ 440              		.type	DoRightTurn, %function
+ 441              	DoRightTurn:
+ 442              	.LFB70:
+ 217:main.c        **** }
+ 218:main.c        **** 
+ 219:main.c        **** //void DoRightTurn(int rightTurn){ // COULD MODIFY TO TAKE INPUT PARAMETERS
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 13
+
+
+ 220:main.c        ****   void DoRightTurn() {
+ 443              		.loc 1 220 0
+ 444              		.cfi_startproc
+ 445              		@ args = 0, pretend = 0, frame = 0
+ 446              		@ frame_needed = 0, uses_anonymous_args = 0
+ 447 0000 08B5     		push	{r3, lr}
+ 448              		.cfi_def_cfa_offset 8
+ 449              		.cfi_offset 3, -8
+ 450              		.cfi_offset 14, -4
+ 221:main.c        ****     PWM_leftmotor_Start();
+ 451              		.loc 1 221 0
+ 452 0002 FFF7FEFF 		bl	PWM_leftmotor_Start
+ 453              	.LVL43:
+ 222:main.c        ****     PWM_rightmotor_Start();
+ 454              		.loc 1 222 0
+ 455 0006 FFF7FEFF 		bl	PWM_rightmotor_Start
+ 456              	.LVL44:
+ 223:main.c        ****     
+ 224:main.c        ****         // initiate right turn
+ 225:main.c        ****         // right turn; left motor forward
+ 226:main.c        ****         PWM_leftmotor_WriteCompare1(0);
+ 457              		.loc 1 226 0
+ 458 000a 0020     		movs	r0, #0
+ 459 000c FFF7FEFF 		bl	PWM_leftmotor_WriteCompare1
+ 460              	.LVL45:
+ 227:main.c        ****         //PWM_leftmotor_WriteCompare2(60);
+ 228:main.c        ****         PWM_leftmotor_WriteCompare2(200);       // going forward -> 140 works 
+ 461              		.loc 1 228 0
+ 462 0010 C820     		movs	r0, #200
+ 463 0012 FFF7FEFF 		bl	PWM_leftmotor_WriteCompare2
+ 464              	.LVL46:
+ 229:main.c        ****         
+ 230:main.c        ****         // right turn; right motor reverse
+ 231:main.c        ****         PWM_rightmotor_WriteCompare1(0);
+ 465              		.loc 1 231 0
+ 466 0016 0020     		movs	r0, #0
+ 467 0018 FFF7FEFF 		bl	PWM_rightmotor_WriteCompare1
+ 468              	.LVL47:
+ 232:main.c        ****         PWM_rightmotor_WriteCompare2(200);    // reverse
+ 469              		.loc 1 232 0
+ 470 001c C820     		movs	r0, #200
+ 471 001e FFF7FEFF 		bl	PWM_rightmotor_WriteCompare2
+ 472              	.LVL48:
+ 473 0022 08BD     		pop	{r3, pc}
+ 474              		.cfi_endproc
+ 475              	.LFE70:
+ 476              		.size	DoRightTurn, .-DoRightTurn
+ 477              		.section	.text.GoStraight,"ax",%progbits
+ 478              		.align	2
+ 479              		.global	GoStraight
+ 480              		.thumb
+ 481              		.thumb_func
+ 482              		.type	GoStraight, %function
+ 483              	GoStraight:
+ 484              	.LFB71:
+ 233:main.c        ****     
+ 234:main.c        ****     
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 14
+
+
+ 235:main.c        ****     /*if (rightTurn == 1) {
+ 236:main.c        ****         // initiate right turn
+ 237:main.c        ****         // right turn; left motor forward
+ 238:main.c        ****         PWM_leftmotor_WriteCompare1(0);
+ 239:main.c        ****         //PWM_leftmotor_WriteCompare2(60);
+ 240:main.c        ****         PWM_leftmotor_WriteCompare2(70);
+ 241:main.c        ****         
+ 242:main.c        ****         // right turn; right motor reverse
+ 243:main.c        ****         PWM_rightmotor_WriteCompare1(0);
+ 244:main.c        ****         PWM_rightmotor_WriteCompare2(100);
+ 245:main.c        ****     }*/
+ 246:main.c        **** }
+ 247:main.c        **** 
+ 248:main.c        **** void GoStraight(){
+ 485              		.loc 1 248 0
+ 486              		.cfi_startproc
+ 487              		@ args = 0, pretend = 0, frame = 0
+ 488              		@ frame_needed = 0, uses_anonymous_args = 0
+ 489 0000 08B5     		push	{r3, lr}
+ 490              		.cfi_def_cfa_offset 8
+ 491              		.cfi_offset 3, -8
+ 492              		.cfi_offset 14, -4
+ 249:main.c        ****     PWM_leftmotor_Start();
+ 493              		.loc 1 249 0
+ 494 0002 FFF7FEFF 		bl	PWM_leftmotor_Start
+ 495              	.LVL49:
+ 250:main.c        ****     PWM_rightmotor_Start();
+ 496              		.loc 1 250 0
+ 497 0006 FFF7FEFF 		bl	PWM_rightmotor_Start
+ 498              	.LVL50:
+ 251:main.c        ****     PWM_leftmotor_WriteCompare1(0);
+ 499              		.loc 1 251 0
+ 500 000a 0020     		movs	r0, #0
+ 501 000c FFF7FEFF 		bl	PWM_leftmotor_WriteCompare1
+ 502              	.LVL51:
+ 252:main.c        ****     PWM_leftmotor_WriteCompare2(97);
+ 503              		.loc 1 252 0
+ 504 0010 6120     		movs	r0, #97
+ 505 0012 FFF7FEFF 		bl	PWM_leftmotor_WriteCompare2
+ 506              	.LVL52:
+ 253:main.c        **** 
+ 254:main.c        ****     PWM_rightmotor_WriteCompare1(90);
+ 507              		.loc 1 254 0
+ 508 0016 5A20     		movs	r0, #90
+ 509 0018 FFF7FEFF 		bl	PWM_rightmotor_WriteCompare1
+ 510              	.LVL53:
+ 255:main.c        ****     PWM_rightmotor_WriteCompare2(0);
+ 511              		.loc 1 255 0
+ 512 001c 0020     		movs	r0, #0
+ 513 001e FFF7FEFF 		bl	PWM_rightmotor_WriteCompare2
+ 514              	.LVL54:
+ 515 0022 08BD     		pop	{r3, pc}
+ 516              		.cfi_endproc
+ 517              	.LFE71:
+ 518              		.size	GoStraight, .-GoStraight
+ 519              		.section	.text.Stop,"ax",%progbits
+ 520              		.align	2
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 15
+
+
+ 521              		.global	Stop
+ 522              		.thumb
+ 523              		.thumb_func
+ 524              		.type	Stop, %function
+ 525              	Stop:
+ 526              	.LFB72:
+ 256:main.c        **** }
+ 257:main.c        **** void Stop(){
+ 527              		.loc 1 257 0
+ 528              		.cfi_startproc
+ 529              		@ args = 0, pretend = 0, frame = 0
+ 530              		@ frame_needed = 0, uses_anonymous_args = 0
+ 531 0000 08B5     		push	{r3, lr}
+ 532              		.cfi_def_cfa_offset 8
+ 533              		.cfi_offset 3, -8
+ 534              		.cfi_offset 14, -4
+ 258:main.c        ****     PWM_leftmotor_WriteCompare1(140);
+ 535              		.loc 1 258 0
+ 536 0002 8C20     		movs	r0, #140
+ 537 0004 FFF7FEFF 		bl	PWM_leftmotor_WriteCompare1
+ 538              	.LVL55:
+ 259:main.c        ****     PWM_leftmotor_WriteCompare2(140);
+ 539              		.loc 1 259 0
+ 540 0008 8C20     		movs	r0, #140
+ 541 000a FFF7FEFF 		bl	PWM_leftmotor_WriteCompare2
+ 542              	.LVL56:
+ 260:main.c        **** 
+ 261:main.c        ****     PWM_rightmotor_WriteCompare1(140);
+ 543              		.loc 1 261 0
+ 544 000e 8C20     		movs	r0, #140
+ 545 0010 FFF7FEFF 		bl	PWM_rightmotor_WriteCompare1
+ 546              	.LVL57:
+ 262:main.c        ****     PWM_rightmotor_WriteCompare2(140);
+ 547              		.loc 1 262 0
+ 548 0014 8C20     		movs	r0, #140
+ 549 0016 FFF7FEFF 		bl	PWM_rightmotor_WriteCompare2
+ 550              	.LVL58:
+ 551 001a 08BD     		pop	{r3, pc}
+ 552              		.cfi_endproc
+ 553              	.LFE72:
+ 554              		.size	Stop, .-Stop
+ 555              		.section	.text.ArrangeToLeft,"ax",%progbits
+ 556              		.align	2
+ 557              		.global	ArrangeToLeft
+ 558              		.thumb
+ 559              		.thumb_func
+ 560              		.type	ArrangeToLeft, %function
+ 561              	ArrangeToLeft:
+ 562              	.LFB73:
+ 263:main.c        **** }
+ 264:main.c        **** 
+ 265:main.c        **** void ArrangeToLeft(){
+ 563              		.loc 1 265 0
+ 564              		.cfi_startproc
+ 565              		@ args = 0, pretend = 0, frame = 0
+ 566              		@ frame_needed = 0, uses_anonymous_args = 0
+ 567 0000 10B5     		push	{r4, lr}
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 16
+
+
+ 568              		.cfi_def_cfa_offset 8
+ 569              		.cfi_offset 4, -8
+ 570              		.cfi_offset 14, -4
+ 266:main.c        ****     PWM_leftmotor_Start();
+ 571              		.loc 1 266 0
+ 572 0002 FFF7FEFF 		bl	PWM_leftmotor_Start
+ 573              	.LVL59:
+ 267:main.c        ****     PWM_rightmotor_Start();
+ 574              		.loc 1 267 0
+ 575 0006 FFF7FEFF 		bl	PWM_rightmotor_Start
+ 576              	.LVL60:
+ 268:main.c        ****     PWM_leftmotor_WriteCompare1(0);
+ 577              		.loc 1 268 0
+ 578 000a 0020     		movs	r0, #0
+ 579 000c FFF7FEFF 		bl	PWM_leftmotor_WriteCompare1
+ 580              	.LVL61:
+ 269:main.c        ****     
+ 270:main.c        ****     leftDuty = leftDuty+ offset;
+ 581              		.loc 1 270 0
+ 582 0010 0A4C     		ldr	r4, .L43
+ 583 0012 2068     		ldr	r0, [r4]
+ 584 0014 6368     		ldr	r3, [r4, #4]
+ 585 0016 1844     		add	r0, r0, r3
+ 586 0018 2060     		str	r0, [r4]
+ 271:main.c        ****     PWM_leftmotor_WriteCompare2(leftDuty);
+ 587              		.loc 1 271 0
+ 588 001a C0B2     		uxtb	r0, r0
+ 589 001c FFF7FEFF 		bl	PWM_leftmotor_WriteCompare2
+ 590              	.LVL62:
+ 272:main.c        ****     
+ 273:main.c        ****     
+ 274:main.c        ****     PWM_rightmotor_WriteCompare1(startDuty);
+ 591              		.loc 1 274 0
+ 592 0020 207A     		ldrb	r0, [r4, #8]	@ zero_extendqisi2
+ 593 0022 FFF7FEFF 		bl	PWM_rightmotor_WriteCompare1
+ 594              	.LVL63:
+ 275:main.c        ****     
+ 276:main.c        ****     rightDuty = rightDuty+ offset;
+ 595              		.loc 1 276 0
+ 596 0026 064A     		ldr	r2, .L43+4
+ 597 0028 D2F80801 		ldr	r0, [r2, #264]
+ 598 002c 6368     		ldr	r3, [r4, #4]
+ 599 002e 1844     		add	r0, r0, r3
+ 600 0030 C2F80801 		str	r0, [r2, #264]
+ 277:main.c        ****     PWM_rightmotor_WriteCompare2(rightDuty);
+ 601              		.loc 1 277 0
+ 602 0034 C0B2     		uxtb	r0, r0
+ 603 0036 FFF7FEFF 		bl	PWM_rightmotor_WriteCompare2
+ 604              	.LVL64:
+ 605 003a 10BD     		pop	{r4, pc}
+ 606              	.L44:
+ 607              		.align	2
+ 608              	.L43:
+ 609 003c 00000000 		.word	.LANCHOR1
+ 610 0040 00000000 		.word	.LANCHOR0
+ 611              		.cfi_endproc
+ 612              	.LFE73:
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 17
+
+
+ 613              		.size	ArrangeToLeft, .-ArrangeToLeft
+ 614              		.section	.text.ArrangeToRight,"ax",%progbits
+ 615              		.align	2
+ 616              		.global	ArrangeToRight
+ 617              		.thumb
+ 618              		.thumb_func
+ 619              		.type	ArrangeToRight, %function
+ 620              	ArrangeToRight:
+ 621              	.LFB74:
+ 278:main.c        **** }
+ 279:main.c        **** 
+ 280:main.c        **** void ArrangeToRight(){
+ 622              		.loc 1 280 0
+ 623              		.cfi_startproc
+ 624              		@ args = 0, pretend = 0, frame = 0
+ 625              		@ frame_needed = 0, uses_anonymous_args = 0
+ 626 0000 10B5     		push	{r4, lr}
+ 627              		.cfi_def_cfa_offset 8
+ 628              		.cfi_offset 4, -8
+ 629              		.cfi_offset 14, -4
+ 281:main.c        ****     PWM_leftmotor_Start();
+ 630              		.loc 1 281 0
+ 631 0002 FFF7FEFF 		bl	PWM_leftmotor_Start
+ 632              	.LVL65:
+ 282:main.c        ****     PWM_rightmotor_Start();
+ 633              		.loc 1 282 0
+ 634 0006 FFF7FEFF 		bl	PWM_rightmotor_Start
+ 635              	.LVL66:
+ 283:main.c        ****     PWM_leftmotor_WriteCompare1(0+offset);
+ 636              		.loc 1 283 0
+ 637 000a 084C     		ldr	r4, .L47
+ 638 000c 2079     		ldrb	r0, [r4, #4]	@ zero_extendqisi2
+ 639 000e FFF7FEFF 		bl	PWM_leftmotor_WriteCompare1
+ 640              	.LVL67:
+ 284:main.c        ****     PWM_leftmotor_WriteCompare2(startDuty);
+ 641              		.loc 1 284 0
+ 642 0012 207A     		ldrb	r0, [r4, #8]	@ zero_extendqisi2
+ 643 0014 FFF7FEFF 		bl	PWM_leftmotor_WriteCompare2
+ 644              	.LVL68:
+ 285:main.c        **** 
+ 286:main.c        ****     PWM_rightmotor_WriteCompare1(startDuty+offset);
+ 645              		.loc 1 286 0
+ 646 0018 A068     		ldr	r0, [r4, #8]
+ 647 001a 6368     		ldr	r3, [r4, #4]
+ 648 001c 1844     		add	r0, r0, r3
+ 649 001e C0B2     		uxtb	r0, r0
+ 650 0020 FFF7FEFF 		bl	PWM_rightmotor_WriteCompare1
+ 651              	.LVL69:
+ 287:main.c        ****     PWM_rightmotor_WriteCompare2(0);
+ 652              		.loc 1 287 0
+ 653 0024 0020     		movs	r0, #0
+ 654 0026 FFF7FEFF 		bl	PWM_rightmotor_WriteCompare2
+ 655              	.LVL70:
+ 656 002a 10BD     		pop	{r4, pc}
+ 657              	.L48:
+ 658              		.align	2
+ 659              	.L47:
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 18
+
+
+ 660 002c 00000000 		.word	.LANCHOR1
+ 661              		.cfi_endproc
+ 662              	.LFE74:
+ 663              		.size	ArrangeToRight, .-ArrangeToRight
+ 664              		.section	.text.updateMotorSpeed_Right,"ax",%progbits
+ 665              		.align	2
+ 666              		.global	updateMotorSpeed_Right
+ 667              		.thumb
+ 668              		.thumb_func
+ 669              		.type	updateMotorSpeed_Right, %function
+ 670              	updateMotorSpeed_Right:
+ 671              	.LFB75:
+ 288:main.c        **** }
+ 289:main.c        **** 
+ 290:main.c        **** void updateMotorSpeed_Right(int speed) {    
+ 672              		.loc 1 290 0
+ 673              		.cfi_startproc
+ 674              		@ args = 0, pretend = 0, frame = 0
+ 675              		@ frame_needed = 0, uses_anonymous_args = 0
+ 676              	.LVL71:
+ 677 0000 10B5     		push	{r4, lr}
+ 678              		.cfi_def_cfa_offset 8
+ 679              		.cfi_offset 4, -8
+ 680              		.cfi_offset 14, -4
+ 291:main.c        ****     PWM_rightmotor_WriteCompare1(255 - speed);
+ 681              		.loc 1 291 0
+ 682 0002 C4B2     		uxtb	r4, r0
+ 683 0004 E043     		mvns	r0, r4
+ 684              	.LVL72:
+ 685 0006 C0B2     		uxtb	r0, r0
+ 686 0008 FFF7FEFF 		bl	PWM_rightmotor_WriteCompare1
+ 687              	.LVL73:
+ 292:main.c        ****     PWM_rightmotor_WriteCompare2(255-(255-speed));
+ 688              		.loc 1 292 0
+ 689 000c 2046     		mov	r0, r4
+ 690 000e FFF7FEFF 		bl	PWM_rightmotor_WriteCompare2
+ 691              	.LVL74:
+ 692 0012 10BD     		pop	{r4, pc}
+ 693              		.cfi_endproc
+ 694              	.LFE75:
+ 695              		.size	updateMotorSpeed_Right, .-updateMotorSpeed_Right
+ 696              		.section	.text.updateMotorSpeed_Left,"ax",%progbits
+ 697              		.align	2
+ 698              		.global	updateMotorSpeed_Left
+ 699              		.thumb
+ 700              		.thumb_func
+ 701              		.type	updateMotorSpeed_Left, %function
+ 702              	updateMotorSpeed_Left:
+ 703              	.LFB76:
+ 293:main.c        **** }
+ 294:main.c        **** 
+ 295:main.c        **** void updateMotorSpeed_Left(int speed) {    
+ 704              		.loc 1 295 0
+ 705              		.cfi_startproc
+ 706              		@ args = 0, pretend = 0, frame = 0
+ 707              		@ frame_needed = 0, uses_anonymous_args = 0
+ 708              	.LVL75:
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 19
+
+
+ 709 0000 10B5     		push	{r4, lr}
+ 710              		.cfi_def_cfa_offset 8
+ 711              		.cfi_offset 4, -8
+ 712              		.cfi_offset 14, -4
+ 296:main.c        ****     PWM_leftmotor_WriteCompare2(255 - speed);
+ 713              		.loc 1 296 0
+ 714 0002 C4B2     		uxtb	r4, r0
+ 715 0004 E043     		mvns	r0, r4
+ 716              	.LVL76:
+ 717 0006 C0B2     		uxtb	r0, r0
+ 718 0008 FFF7FEFF 		bl	PWM_leftmotor_WriteCompare2
+ 719              	.LVL77:
+ 297:main.c        ****     PWM_leftmotor_WriteCompare1(255-(255-speed));
+ 720              		.loc 1 297 0
+ 721 000c 2046     		mov	r0, r4
+ 722 000e FFF7FEFF 		bl	PWM_leftmotor_WriteCompare1
+ 723              	.LVL78:
+ 724 0012 10BD     		pop	{r4, pc}
+ 725              		.cfi_endproc
+ 726              	.LFE76:
+ 727              		.size	updateMotorSpeed_Left, .-updateMotorSpeed_Left
+ 728              		.section	.text.updateMotorSpeed,"ax",%progbits
+ 729              		.align	2
+ 730              		.global	updateMotorSpeed
+ 731              		.thumb
+ 732              		.thumb_func
+ 733              		.type	updateMotorSpeed, %function
+ 734              	updateMotorSpeed:
+ 735              	.LFB77:
+ 298:main.c        **** }
+ 299:main.c        **** 
+ 300:main.c        **** void updateMotorSpeed(int speed) {
+ 736              		.loc 1 300 0
+ 737              		.cfi_startproc
+ 738              		@ args = 0, pretend = 0, frame = 0
+ 739              		@ frame_needed = 0, uses_anonymous_args = 0
+ 740              	.LVL79:
+ 741 0000 10B5     		push	{r4, lr}
+ 742              		.cfi_def_cfa_offset 8
+ 743              		.cfi_offset 4, -8
+ 744              		.cfi_offset 14, -4
+ 745 0002 0446     		mov	r4, r0
+ 301:main.c        ****     updateMotorSpeed_Right(speed);
+ 746              		.loc 1 301 0
+ 747 0004 FFF7FEFF 		bl	updateMotorSpeed_Right
+ 748              	.LVL80:
+ 302:main.c        ****     updateMotorSpeed_Left(speed);   
+ 749              		.loc 1 302 0
+ 750 0008 2046     		mov	r0, r4
+ 751 000a FFF7FEFF 		bl	updateMotorSpeed_Left
+ 752              	.LVL81:
+ 753 000e 10BD     		pop	{r4, pc}
+ 754              		.cfi_endproc
+ 755              	.LFE77:
+ 756              		.size	updateMotorSpeed, .-updateMotorSpeed
+ 757              		.section	.text.main,"ax",%progbits
+ 758              		.align	2
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 20
+
+
+ 759              		.global	main
+ 760              		.thumb
+ 761              		.thumb_func
+ 762              		.type	main, %function
+ 763              	main:
+ 764              	.LFB78:
+ 303:main.c        **** }
+ 304:main.c        **** 
+ 305:main.c        **** int main(void) 
+ 306:main.c        **** {
+ 765              		.loc 1 306 0
+ 766              		.cfi_startproc
+ 767              		@ args = 0, pretend = 0, frame = 0
+ 768              		@ frame_needed = 0, uses_anonymous_args = 0
+ 769 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 770              		.cfi_def_cfa_offset 32
+ 771              		.cfi_offset 4, -32
+ 772              		.cfi_offset 5, -28
+ 773              		.cfi_offset 6, -24
+ 774              		.cfi_offset 7, -20
+ 775              		.cfi_offset 8, -16
+ 776              		.cfi_offset 9, -12
+ 777              		.cfi_offset 10, -8
+ 778              		.cfi_offset 14, -4
+ 307:main.c        ****     isr_EOC_3_StartEx(eoc1);
+ 779              		.loc 1 307 0
+ 780 0004 6B48     		ldr	r0, .L103
+ 781 0006 FFF7FEFF 		bl	isr_EOC_3_StartEx
+ 782              	.LVL82:
+ 308:main.c        **** 
+ 309:main.c        ****   
+ 310:main.c        **** 
+ 311:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 783              		.loc 1 311 0
+ 784              		.syntax unified
+ 785              	@ 311 "main.c" 1
+ 786 000a 62B6     		CPSIE   i
+ 787              	@ 0 "" 2
+ 312:main.c        **** 
+ 313:main.c        ****     USBUART_1_Start(0,USBUART_1_5V_OPERATION);
+ 788              		.loc 1 313 0
+ 789              		.thumb
+ 790              		.syntax unified
+ 791 000c 0121     		movs	r1, #1
+ 792 000e 0020     		movs	r0, #0
+ 793 0010 FFF7FEFF 		bl	USBUART_1_Start
+ 794              	.LVL83:
+ 314:main.c        **** 
+ 315:main.c        ****     
+ 316:main.c        ****     
+ 317:main.c        ****     
+ 318:main.c        ****   
+ 319:main.c        ****     ADC_SAR_Seq_1_Start();
+ 795              		.loc 1 319 0
+ 796 0014 FFF7FEFF 		bl	ADC_SAR_Seq_1_Start
+ 797              	.LVL84:
+ 320:main.c        ****     
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 21
+
+
+ 321:main.c        ****     Timer_2_Start();
+ 798              		.loc 1 321 0
+ 799 0018 FFF7FEFF 		bl	Timer_2_Start
+ 800              	.LVL85:
+ 801              	.L56:
+ 802              	.LBB12:
+ 322:main.c        ****     
+ 323:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+ 324:main.c        ****     
+ 325:main.c        ****     
+ 326:main.c        ****     //enum States FSM = right_turn;
+ 327:main.c        ****     //PWM_rightmotor_Start();
+ 328:main.c        ****     //PWM_leftmotor_Start();
+ 329:main.c        ****     
+ 330:main.c        ****     
+ 331:main.c        ****     enum States FSM;
+ 332:main.c        ****     
+ 333:main.c        ****     //updateMotorSpeed(50);
+ 334:main.c        ****     
+ 335:main.c        ****     
+ 336:main.c        ****     //CyDelay(1000);
+ 337:main.c        **** 
+ 338:main.c        ****     for(;;)
+ 339:main.c        ****     {
+ 340:main.c        ****         
+ 341:main.c        ****         /* Place your application code here. */
+ 342:main.c        ****         /*
+ 343:main.c        ****         int result=  522;
+ 344:main.c        ****         char send[100];
+ 345:main.c        ****         sprintf(send,"%d\r\n",result);
+ 346:main.c        ****         usbPutString(send);
+ 347:main.c        ****         CyDelay(100);
+ 348:main.c        ****         */
+ 349:main.c        ****         
+ 350:main.c        ****         /*
+ 351:main.c        ****         if(flag == 1){
+ 352:main.c        ****             flag = 0;`
+ 353:main.c        ****             char send[100];
+ 354:main.c        ****             sprintf(send,"%d\r\n",speed);
+ 355:main.c        ****             usbPutString(send);
+ 356:main.c        ****         }
+ 357:main.c        ****         */
+ 358:main.c        **** //        CyDelay(5000);
+ 359:main.c        ****         // Update FSM state based on LEDS
+ 360:main.c        ****         
+ 361:main.c        ****         
+ 362:main.c        ****         
+ 363:main.c        **** //        //if front, left, right, back (1,2,3,6) sensors 1, go straight 
+ 364:main.c        **** //        if ((front < LIGHT_CMP_VALUE) && (left < LIGHT_CMP_VALUE) && (right < LIGHT_CMP_VALUE) &&
+ 365:main.c        **** //            FSM = straight;
+ 366:main.c        **** //        }
+ 367:main.c        **** //            // If front =0, left,right,back (2,3,
+ 368:main.c        **** //        if ((front > LIGHT_CMP_VALUE) && (far_left < LIGHT_CMP_VALUE)) {
+ 369:main.c        **** //            FSM = left_turn;
+ 370:main.c        **** //        }
+ 371:main.c        **** //        
+ 372:main.c        **** //        if ((far_right < LIGHT_CMP_VALUE) && (front > LIGHT_CMP_VALUE)) {
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 22
+
+
+ 373:main.c        **** //            FSM = right_turn;
+ 374:main.c        **** //        }
+ 375:main.c        **** //        
+ 376:main.c        **** //        if ((right < LIGHT_CMP_VALUE) && (left > LIGHT_CMP_VALUE) && (back < LIGHT_CMP_VALUE)){
+ 377:main.c        **** //            FSM = arrange_toleft; 
+ 378:main.c        **** //        }
+ 379:main.c        **** //        
+ 380:main.c        **** //        if((right > LIGHT_CMP_VALUE) && (left < LIGHT_CMP_VALUE) &&  (back < LIGHT_CMP_VALUE)){
+ 381:main.c        **** //            FSM = arrange_toRight;
+ 382:main.c        **** //        }
+ 383:main.c        **** 
+ 384:main.c        ****         int front = findMaximum(array);
+ 803              		.loc 1 384 0
+ 804 001c 664C     		ldr	r4, .L103+4
+ 805 001e 201D     		adds	r0, r4, #4
+ 806 0020 FFF7FEFF 		bl	findMaximum
+ 807              	.LVL86:
+ 808 0024 8246     		mov	r10, r0
+ 809              	.LVL87:
+ 385:main.c        ****         int left = findMaximum(array2);
+ 810              		.loc 1 385 0
+ 811 0026 04F13000 		add	r0, r4, #48
+ 812              	.LVL88:
+ 813 002a FFF7FEFF 		bl	findMaximum
+ 814              	.LVL89:
+ 815 002e 0746     		mov	r7, r0
+ 816              	.LVL90:
+ 386:main.c        ****         int right = findMaximum(array3);
+ 817              		.loc 1 386 0
+ 818 0030 04F15C00 		add	r0, r4, #92
+ 819              	.LVL91:
+ 820 0034 FFF7FEFF 		bl	findMaximum
+ 821              	.LVL92:
+ 822 0038 8146     		mov	r9, r0
+ 823              	.LVL93:
+ 387:main.c        ****         int far_left = findMaximum(array4);
+ 824              		.loc 1 387 0
+ 825 003a 04F18800 		add	r0, r4, #136
+ 826              	.LVL94:
+ 827 003e FFF7FEFF 		bl	findMaximum
+ 828              	.LVL95:
+ 829 0042 0646     		mov	r6, r0
+ 830              	.LVL96:
+ 388:main.c        ****         int far_right = findMaximum(array5);
+ 831              		.loc 1 388 0
+ 832 0044 04F1B400 		add	r0, r4, #180
+ 833              	.LVL97:
+ 834 0048 FFF7FEFF 		bl	findMaximum
+ 835              	.LVL98:
+ 836 004c 8046     		mov	r8, r0
+ 837              	.LVL99:
+ 389:main.c        ****         int back = findMaximum(array6);
+ 838              		.loc 1 389 0
+ 839 004e 04F1E000 		add	r0, r4, #224
+ 840              	.LVL100:
+ 841 0052 FFF7FEFF 		bl	findMaximum
+ 842              	.LVL101:
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 23
+
+
+ 390:main.c        ****         
+ 391:main.c        ****         int cmp_val = 500;
+ 392:main.c        ****         
+ 393:main.c        **** //        char temp[100];
+ 394:main.c        **** //    
+ 395:main.c        **** //        sprintf(temp, "Array %d = %d \n", 1, front);
+ 396:main.c        **** //        usbPutString(temp);
+ 397:main.c        **** //        
+ 398:main.c        **** //        sprintf(temp, "Array %d = %d \n", 2, left);
+ 399:main.c        **** //        usbPutString(temp);
+ 400:main.c        **** //
+ 401:main.c        **** //        
+ 402:main.c        **** //        sprintf(temp, "Array %d = %d \n", 3, right);
+ 403:main.c        **** //        usbPutString(temp);
+ 404:main.c        **** //
+ 405:main.c        **** //        
+ 406:main.c        **** //        sprintf(temp, "Array %d = %d \n", 4, far_left);
+ 407:main.c        **** //        usbPutString(temp);
+ 408:main.c        **** //
+ 409:main.c        **** //        
+ 410:main.c        **** //        sprintf(temp, "Array %d = %d \n", 5, far_right);
+ 411:main.c        **** //        usbPutString(temp);
+ 412:main.c        **** //
+ 413:main.c        **** //        
+ 414:main.c        **** //        sprintf(temp, "Array %d = %d \n", 6, back);
+ 415:main.c        **** //        usbPutString(temp);
+ 416:main.c        ****         
+ 417:main.c        **** 
+ 418:main.c        ****         /**
+ 419:main.c        ****         *   x < cmp_val means that sensor x is INSIDE the projector path
+ 420:main.c        ****         *
+ 421:main.c        ****         *   x > cmp_val means that sensor x is OUTSIDE the projector path
+ 422:main.c        ****         */
+ 423:main.c        **** 
+ 424:main.c        ****         
+ 425:main.c        ****         //if( (far_left < cmp_val) && (left<cmp_val) && (right<cmp_val)) { // GO LEFT        PRIORI
+ 426:main.c        ****         //if( (far_left < cmp_val) && (right < cmp_val)   ) { // GO LEFT
+ 427:main.c        ****         if (far_left < cmp_val) {
+ 843              		.loc 1 427 0
+ 844 0056 B6F5FA7F 		cmp	r6, #500
+ 845 005a 04DA     		bge	.L58
+ 428:main.c        ****             leftTurn = 1;
+ 846              		.loc 1 428 0
+ 847 005c 0122     		movs	r2, #1
+ 848 005e C4F80C21 		str	r2, [r4, #268]
+ 849              	.LVL102:
+ 429:main.c        ****             FSM = left_turn;
+ 850              		.loc 1 429 0
+ 851 0062 0025     		movs	r5, #0
+ 852 0064 7BE0     		b	.L59
+ 853              	.LVL103:
+ 854              	.L58:
+ 430:main.c        ****         
+ 431:main.c        ****         
+ 432:main.c        ****         //} else if( (far_right < cmp_val) ) {// GO RIGHT        PRIORITY 1
+ 433:main.c        ****         //} else if( (far_right < cmp_val) && (left<cmp_val) && (right<cmp_val) && (back<cmp_val)) 
+ 434:main.c        ****         //} else if( (far_right < cmp_val) && (back < cmp_val)) {
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 24
+
+
+ 435:main.c        ****           } else if (far_right < cmp_val) {  
+ 855              		.loc 1 435 0
+ 856 0066 B8F5FA7F 		cmp	r8, #500
+ 857 006a 04DA     		bge	.L60
+ 436:main.c        ****             rightTurn = 1;
+ 858              		.loc 1 436 0
+ 859 006c 0125     		movs	r5, #1
+ 860              	.LVL104:
+ 861 006e 524B     		ldr	r3, .L103+4
+ 862 0070 C3F81051 		str	r5, [r3, #272]
+ 863              	.LVL105:
+ 864 0074 73E0     		b	.L59
+ 865              	.LVL106:
+ 866              	.L60:
+ 437:main.c        ****             FSM = right_turn;
+ 438:main.c        ****         
+ 439:main.c        ****         //} else if( (front < cmp_val ) || (left < cmp_val) || ( right < cmp_val) || (back < cmp_va
+ 440:main.c        ****         //    FSM = straight;
+ 441:main.c        ****             
+ 442:main.c        **** 
+ 443:main.c        ****             
+ 444:main.c        ****            // straight ony - 2, 3, 6 are in path
+ 445:main.c        ****         } else if ((left < cmp_val) && (right < cmp_val) && (back<cmp_val)   ) {
+ 867              		.loc 1 445 0
+ 868 0076 B7F5FA7F 		cmp	r7, #500
+ 869 007a 05DA     		bge	.L61
+ 870              		.loc 1 445 0 is_stmt 0 discriminator 1
+ 871 007c B9F5FA7F 		cmp	r9, #500
+ 872 0080 02DA     		bge	.L61
+ 873              		.loc 1 445 0 discriminator 2
+ 874 0082 B0F5FA7F 		cmp	r0, #500
+ 875 0086 51DB     		blt	.L81
+ 876              	.L61:
+ 446:main.c        ****             //rightTurn = 0;
+ 447:main.c        ****             //leftTurn = 0;
+ 448:main.c        ****             FSM = straight; // go straight only
+ 449:main.c        ****         
+ 450:main.c        ****             
+ 451:main.c        ****             
+ 452:main.c        ****             
+ 453:main.c        ****         // straight - left sensor is out of path
+ 454:main.c        ****         //}   else if (   ((left > cmp_val) && (right < cmp_val) && (back<cmp_val)) || ((left > cmp
+ 455:main.c        ****         }   else if (   ((left > cmp_val) && (right < cmp_val) && (back<cmp_val)) || ((left > cmp_v
+ 877              		.loc 1 455 0 is_stmt 1
+ 878 0088 B7F5FA7F 		cmp	r7, #500
+ 879 008c 05DD     		ble	.L62
+ 880              		.loc 1 455 0 is_stmt 0 discriminator 1
+ 881 008e B9F5FA7F 		cmp	r9, #500
+ 882 0092 02DA     		bge	.L62
+ 883              		.loc 1 455 0 discriminator 3
+ 884 0094 B0F5FA7F 		cmp	r0, #500
+ 885 0098 4ADB     		blt	.L82
+ 886              	.L62:
+ 887              		.loc 1 455 0 discriminator 5
+ 888 009a B7F5FA7F 		cmp	r7, #500
+ 889 009e 02DD     		ble	.L63
+ 890              		.loc 1 455 0 discriminator 6
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 25
+
+
+ 891 00a0 B9F5FA7F 		cmp	r9, #500
+ 892 00a4 46DB     		blt	.L83
+ 893              	.L63:
+ 456:main.c        ****         
+ 457:main.c        ****             FSM = straight_left_adjust;
+ 458:main.c        ****             
+ 459:main.c        ****             
+ 460:main.c        ****         // straight - right sensor is out of path
+ 461:main.c        ****         //} else if (((left < cmp_val) && (right > cmp_val) && (back<cmp_val))|| ((left < cmp_val) 
+ 462:main.c        ****         }else if (((left < cmp_val) && (right > cmp_val) && (back<cmp_val))|| ((left < cmp_val) && 
+ 894              		.loc 1 462 0 is_stmt 1
+ 895 00a6 B7F5FA7F 		cmp	r7, #500
+ 896 00aa 05DA     		bge	.L64
+ 897              		.loc 1 462 0 is_stmt 0 discriminator 1
+ 898 00ac B9F5FA7F 		cmp	r9, #500
+ 899 00b0 02DD     		ble	.L64
+ 900              		.loc 1 462 0 discriminator 3
+ 901 00b2 B0F5FA7F 		cmp	r0, #500
+ 902 00b6 3FDB     		blt	.L84
+ 903              	.L64:
+ 904              		.loc 1 462 0 discriminator 5
+ 905 00b8 B7F5FA7F 		cmp	r7, #500
+ 906 00bc 02DA     		bge	.L65
+ 907              		.loc 1 462 0 discriminator 6
+ 908 00be B9F5FA7F 		cmp	r9, #500
+ 909 00c2 3BDC     		bgt	.L85
+ 910              	.L65:
+ 463:main.c        ****         
+ 464:main.c        ****             FSM = straight_right_adjust;
+ 465:main.c        ****             
+ 466:main.c        ****             
+ 467:main.c        ****         // check for INCOMPLETE LEFT turn    
+ 468:main.c        ****         //} else if ((leftTurn == 1)&&(back<cmp_val)) {
+ 469:main.c        ****         } else if ( (leftTurn == 1) && ((left<cmp_val) || (right<cmp_val) || (back<cmp_val)) ) {
+ 911              		.loc 1 469 0 is_stmt 1
+ 912 00c4 3C4B     		ldr	r3, .L103+4
+ 913 00c6 D3F80C31 		ldr	r3, [r3, #268]
+ 914 00ca 012B     		cmp	r3, #1
+ 915 00cc 08D1     		bne	.L66
+ 916              		.loc 1 469 0 is_stmt 0 discriminator 1
+ 917 00ce B7F5FA7F 		cmp	r7, #500
+ 918 00d2 35DB     		blt	.L86
+ 919              		.loc 1 469 0 discriminator 2
+ 920 00d4 B9F5FA7F 		cmp	r9, #500
+ 921 00d8 34DB     		blt	.L87
+ 922              		.loc 1 469 0 discriminator 3
+ 923 00da B0F5FA7F 		cmp	r0, #500
+ 924 00de 33DB     		blt	.L88
+ 925              	.L66:
+ 470:main.c        ****           //} else if (leftTurn == 1) {
+ 471:main.c        ****             // continue left turn
+ 472:main.c        ****             //if ((left<cmp_val) || (right<cmp_val) || (back<cmp_val)) {
+ 473:main.c        ****                 FSM = left_turn;             
+ 474:main.c        ****             //}
+ 475:main.c        ****             
+ 476:main.c        ****         // check for INCOMPLETE RIGHT turn  
+ 477:main.c        ****         //} else if ( (rightTurn == 1) && ((left<cmp_val) || (right<cmp_val) || (back<cmp_val)) ) {
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 26
+
+
+ 478:main.c        ****          } else if (rightTurn == 1) {
+ 926              		.loc 1 478 0 is_stmt 1
+ 927 00e0 354A     		ldr	r2, .L103+4
+ 928 00e2 D2F81021 		ldr	r2, [r2, #272]
+ 929 00e6 012A     		cmp	r2, #1
+ 930 00e8 09D1     		bne	.L67
+ 479:main.c        ****             
+ 480:main.c        ****             if ((left<cmp_val) || (right<cmp_val) || (back<cmp_val)) {
+ 931              		.loc 1 480 0
+ 932 00ea B7F5FA7F 		cmp	r7, #500
+ 933 00ee 2DDB     		blt	.L89
+ 934              		.loc 1 480 0 is_stmt 0 discriminator 1
+ 935 00f0 B9F5FA7F 		cmp	r9, #500
+ 936 00f4 2CDB     		blt	.L90
+ 937              		.loc 1 480 0 discriminator 2
+ 938 00f6 B0F5FA7F 		cmp	r0, #500
+ 939 00fa 2BDB     		blt	.L91
+ 940 00fc 2FE0     		b	.L59
+ 941              	.L67:
+ 481:main.c        ****             // continue right turn
+ 482:main.c        ****             FSM = right_turn;
+ 483:main.c        ****             
+ 484:main.c        ****             }
+ 485:main.c        ****             
+ 486:main.c        ****         // if no sensors are inside path, check which turn flag is currently high and adjust
+ 487:main.c        ****         } else if ( (far_left && left && right && far_right && front && back) > cmp_val  ) {
+ 488:main.c        ****             
+ 489:main.c        ****             if (leftTurn == 1) {
+ 490:main.c        ****                 FSM = left_turn;   
+ 491:main.c        ****             } else if (rightTurn == 1) {
+ 492:main.c        ****                 FSM = right_turn;
+ 493:main.c        ****             } else {
+ 494:main.c        ****                 FSM = straight;
+ 495:main.c        ****             }
+ 496:main.c        ****                        
+ 497:main.c        ****             
+ 498:main.c        ****         //} else if ( (front < cmp_val) && (left<cmp_val) && (right<cmp_val)) { //  CHECK IF TURN C
+ 499:main.c        ****         } else if ( (front < cmp_val)  && (  (left<cmp_val) || (right<cmp_val)   )) {    // TRY THI
+ 942              		.loc 1 499 0 is_stmt 1
+ 943 00fe BAF5FA7F 		cmp	r10, #500
+ 944 0102 0DDA     		bge	.L70
+ 945              		.loc 1 499 0 is_stmt 0 discriminator 1
+ 946 0104 B7F5FA7F 		cmp	r7, #500
+ 947 0108 02DB     		blt	.L71
+ 948              		.loc 1 499 0 discriminator 2
+ 949 010a B9F5FA7F 		cmp	r9, #500
+ 950 010e 07DA     		bge	.L70
+ 951              	.L71:
+ 500:main.c        ****         //} else if (front < cmp_val) {
+ 501:main.c        ****             
+ 502:main.c        ****             // turn is complete set both flags to 0
+ 503:main.c        ****             rightTurn = 0;
+ 952              		.loc 1 503 0 is_stmt 1
+ 953 0110 294B     		ldr	r3, .L103+4
+ 954 0112 0022     		movs	r2, #0
+ 955 0114 C3F81021 		str	r2, [r3, #272]
+ 504:main.c        ****             leftTurn = 0;
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 27
+
+
+ 956              		.loc 1 504 0
+ 957 0118 C3F80C21 		str	r2, [r3, #268]
+ 958              	.LVL107:
+ 505:main.c        ****             FSM = straight;
+ 959              		.loc 1 505 0
+ 960 011c 0225     		movs	r5, #2
+ 961 011e 1EE0     		b	.L59
+ 962              	.LVL108:
+ 963              	.L70:
+ 506:main.c        ****             
+ 507:main.c        ****            
+ 508:main.c        **** 
+ 509:main.c        ****         } else {// LOWEST PRIORITY (IDK STATE)
+ 510:main.c        ****             //FSM = stop;
+ 511:main.c        ****             
+ 512:main.c        ****             
+ 513:main.c        ****             if (leftTurn == 1) {
+ 964              		.loc 1 513 0
+ 965 0120 012B     		cmp	r3, #1
+ 966 0122 19D0     		beq	.L100
+ 514:main.c        ****                 FSM = left_turn;   
+ 515:main.c        ****             } else if (rightTurn == 1) {
+ 967              		.loc 1 515 0
+ 968 0124 012A     		cmp	r2, #1
+ 969 0126 19D1     		bne	.L101
+ 516:main.c        ****                 FSM = right_turn;
+ 970              		.loc 1 516 0
+ 971 0128 0125     		movs	r5, #1
+ 972              	.LVL109:
+ 973 012a 18E0     		b	.L59
+ 974              	.LVL110:
+ 975              	.L81:
+ 448:main.c        ****         
+ 976              		.loc 1 448 0
+ 977 012c 0225     		movs	r5, #2
+ 978              	.LVL111:
+ 979 012e 16E0     		b	.L59
+ 980              	.LVL112:
+ 981              	.L82:
+ 457:main.c        ****             
+ 982              		.loc 1 457 0
+ 983 0130 0425     		movs	r5, #4
+ 984              	.LVL113:
+ 985 0132 14E0     		b	.L59
+ 986              	.LVL114:
+ 987              	.L83:
+ 988 0134 0425     		movs	r5, #4
+ 989              	.LVL115:
+ 990 0136 12E0     		b	.L59
+ 991              	.LVL116:
+ 992              	.L84:
+ 464:main.c        ****             
+ 993              		.loc 1 464 0
+ 994 0138 0525     		movs	r5, #5
+ 995              	.LVL117:
+ 996 013a 10E0     		b	.L59
+ 997              	.LVL118:
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 28
+
+
+ 998              	.L85:
+ 999 013c 0525     		movs	r5, #5
+ 1000              	.LVL119:
+ 1001 013e 0EE0     		b	.L59
+ 1002              	.LVL120:
+ 1003              	.L86:
+ 473:main.c        ****             //}
+ 1004              		.loc 1 473 0
+ 1005 0140 0025     		movs	r5, #0
+ 1006              	.LVL121:
+ 1007 0142 0CE0     		b	.L59
+ 1008              	.LVL122:
+ 1009              	.L87:
+ 1010 0144 0025     		movs	r5, #0
+ 1011              	.LVL123:
+ 1012 0146 0AE0     		b	.L59
+ 1013              	.LVL124:
+ 1014              	.L88:
+ 1015 0148 0025     		movs	r5, #0
+ 1016              	.LVL125:
+ 1017 014a 08E0     		b	.L59
+ 1018              	.LVL126:
+ 1019              	.L89:
+ 482:main.c        ****             
+ 1020              		.loc 1 482 0
+ 1021 014c 0125     		movs	r5, #1
+ 1022              	.LVL127:
+ 1023 014e 06E0     		b	.L59
+ 1024              	.LVL128:
+ 1025              	.L90:
+ 1026 0150 0125     		movs	r5, #1
+ 1027              	.LVL129:
+ 1028 0152 04E0     		b	.L59
+ 1029              	.LVL130:
+ 1030              	.L91:
+ 1031 0154 0125     		movs	r5, #1
+ 1032              	.LVL131:
+ 1033 0156 02E0     		b	.L59
+ 1034              	.LVL132:
+ 1035              	.L100:
+ 514:main.c        ****             } else if (rightTurn == 1) {
+ 1036              		.loc 1 514 0
+ 1037 0158 0025     		movs	r5, #0
+ 1038              	.LVL133:
+ 1039 015a 00E0     		b	.L59
+ 1040              	.LVL134:
+ 1041              	.L101:
+ 517:main.c        ****             } else {
+ 518:main.c        ****                 FSM = stop;
+ 1042              		.loc 1 518 0
+ 1043 015c 0325     		movs	r5, #3
+ 1044              	.LVL135:
+ 1045              	.L59:
+ 519:main.c        ****             }
+ 520:main.c        ****         }
+ 521:main.c        ****         
+ 522:main.c        **** //        switch(FSM) {
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 29
+
+
+ 523:main.c        **** //            case straight:
+ 524:main.c        **** //                usbPutString("GOING STRAIGHT!!\n");
+ 525:main.c        **** //                break;
+ 526:main.c        **** //            case right_turn:
+ 527:main.c        **** //                usbPutString("GOING RIGHT!!\n");
+ 528:main.c        **** //                break;
+ 529:main.c        **** //            
+ 530:main.c        **** //            case left_turn:
+ 531:main.c        **** //                usbPutString("GOING LEFT!!\n");
+ 532:main.c        **** //                break;
+ 533:main.c        **** //                
+ 534:main.c        **** //            case stop:
+ 535:main.c        **** //                usbPutString("STOPPED!!\n");
+ 536:main.c        **** //                break;
+ 537:main.c        **** //        }
+ 538:main.c        **** 
+ 539:main.c        **** 
+ 540:main.c        **** 
+ 541:main.c        ****         
+ 542:main.c        ****         
+ 543:main.c        ****         switch(FSM) {
+ 1046              		.loc 1 543 0
+ 1047 015e 052D     		cmp	r5, #5
+ 1048 0160 3FF65CAF 		bhi	.L56
+ 1049 0164 DFE805F0 		tbb	[pc, r5]
+ 1050              	.L73:
+ 1051 0168 0C       		.byte	(.L72-.L73)/2
+ 1052 0169 17       		.byte	(.L74-.L73)/2
+ 1053 016a 03       		.byte	(.L75-.L73)/2
+ 1054 016b 22       		.byte	(.L76-.L73)/2
+ 1055 016c 06       		.byte	(.L77-.L73)/2
+ 1056 016d 09       		.byte	(.L78-.L73)/2
+ 1057              		.p2align 1
+ 1058              	.L75:
+ 544:main.c        ****          
+ 545:main.c        ****             case straight:
+ 546:main.c        ****                 //updateMotorSpeed(50);
+ 547:main.c        ****                 // speed compensation
+ 548:main.c        ****                 GoStraight();
+ 1059              		.loc 1 548 0
+ 1060 016e FFF7FEFF 		bl	GoStraight
+ 1061              	.LVL136:
+ 549:main.c        ****                 break;
+ 1062              		.loc 1 549 0
+ 1063 0172 53E7     		b	.L56
+ 1064              	.LVL137:
+ 1065              	.L77:
+ 550:main.c        ****                 
+ 551:main.c        ****                 
+ 552:main.c        ****             // adjust when left sensor is out of path
+ 553:main.c        ****             case straight_left_adjust:
+ 554:main.c        ****                 ArrangeToLeft();
+ 1066              		.loc 1 554 0
+ 1067 0174 FFF7FEFF 		bl	ArrangeToLeft
+ 1068              	.LVL138:
+ 555:main.c        ****                 break;
+ 1069              		.loc 1 555 0
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 30
+
+
+ 1070 0178 50E7     		b	.L56
+ 1071              	.LVL139:
+ 1072              	.L78:
+ 556:main.c        ****                 
+ 557:main.c        ****                 
+ 558:main.c        ****             // adjust when right sensor is out of path
+ 559:main.c        ****             case straight_right_adjust:
+ 560:main.c        ****                 ArrangeToRight();
+ 1073              		.loc 1 560 0
+ 1074 017a FFF7FEFF 		bl	ArrangeToRight
+ 1075              	.LVL140:
+ 561:main.c        ****                 break;
+ 1076              		.loc 1 561 0
+ 1077 017e 4DE7     		b	.L56
+ 1078              	.LVL141:
+ 1079              	.L72:
+ 562:main.c        ****                 
+ 563:main.c        **** 
+ 564:main.c        ****             case left_turn:
+ 565:main.c        ****                 
+ 566:main.c        ****                 /*
+ 567:main.c        ****                 // Set Motor Speeds ...
+ 568:main.c        ****                 updateMotorSpeed_Left(128);
+ 569:main.c        ****                 
+ 570:main.c        ****                 // Read front sensor into val 
+ 571:main.c        ****                 front = findMaximum(array);
+ 572:main.c        ****                 
+ 573:main.c        ****            
+ 574:main.c        ****                  while(front > cmp_val) {
+ 575:main.c        ****                     front = findMaximum(array);
+ 576:main.c        ****                 }
+ 577:main.c        ****                 
+ 578:main.c        ****                 updateMotorSpeed(128);
+ 579:main.c        ****                 //updateMotorSpeed_Left(40);
+ 580:main.c        ****                 */
+ 581:main.c        ****                 
+ 582:main.c        ****                 
+ 583:main.c        ****                 //updateMotorSpeed_Left(128);
+ 584:main.c        ****                 // normal speed
+ 585:main.c        ****                 //PWM_leftmotor_WriteCompare1(0);
+ 586:main.c        ****                 //PWM_leftmotor_WriteCompare2(87);
+ 587:main.c        ****                 
+ 588:main.c        ****                 
+ 589:main.c        ****                 //PWM_rightmotor_WriteCompare1(80);
+ 590:main.c        ****                 //PWM_rightmotor_WriteCompare2(0);       
+ 591:main.c        ****                 
+ 592:main.c        ****                 // while front sensor is out of path
+ 593:main.c        ****                 // need to update the data that is read into sensor 
+ 594:main.c        ****                 //front = findMaximum(array);
+ 595:main.c        ****                 //while(front > cmp_val) {
+ 596:main.c        ****                   
+ 597:main.c        ****                     //front = findMaximum(array);
+ 598:main.c        ****                     
+ 599:main.c        ****                     //if (front > cmp_val) {
+ 600:main.c        ****                     
+ 601:main.c        ****                     //    DoRightTurn();
+ 602:main.c        ****                     //}
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 31
+
+
+ 603:main.c        ****                     
+ 604:main.c        ****                     
+ 605:main.c        ****                 //}
+ 606:main.c        ****                 
+ 607:main.c        ****                 //updateMotorSpeed(128);
+ 608:main.c        ****                 if (leftTurn == 1) {
+ 1080              		.loc 1 608 0
+ 1081 0180 0D4B     		ldr	r3, .L103+4
+ 1082 0182 D3F80C31 		ldr	r3, [r3, #268]
+ 1083 0186 012B     		cmp	r3, #1
+ 1084 0188 02D1     		bne	.L79
+ 609:main.c        ****                     DoLeftTurn();
+ 1085              		.loc 1 609 0
+ 1086 018a FFF7FEFF 		bl	DoLeftTurn
+ 1087              	.LVL142:
+ 1088 018e 45E7     		b	.L56
+ 1089              	.LVL143:
+ 1090              	.L79:
+ 610:main.c        ****                 } else {
+ 611:main.c        ****                  GoStraight();   
+ 1091              		.loc 1 611 0
+ 1092 0190 FFF7FEFF 		bl	GoStraight
+ 1093              	.LVL144:
+ 1094 0194 42E7     		b	.L56
+ 1095              	.LVL145:
+ 1096              	.L74:
+ 612:main.c        ****                 }
+ 613:main.c        **** 
+ 614:main.c        ****    
+ 615:main.c        ****                 break;
+ 616:main.c        ****                 
+ 617:main.c        ****             case right_turn:
+ 618:main.c        ****                 //updateMotorSpeed(10);
+ 619:main.c        **** 
+ 620:main.c        ****                 //if ((left == 0)&&(right ==0)&&(back==0)) {
+ 621:main.c        ****                 
+ 622:main.c        ****                 //DoRightTurn();
+ 623:main.c        ****                                     // normal speed
+ 624:main.c        ****                 //PWM_leftmotor_WriteCompare1(0);
+ 625:main.c        ****                 //PWM_leftmotor_WriteCompare2(87);
+ 626:main.c        ****                 
+ 627:main.c        ****                 
+ 628:main.c        ****                 //PWM_rightmotor_WriteCompare1(80);
+ 629:main.c        ****                 //PWM_rightmotor_WriteCompare2(0);       
+ 630:main.c        ****                 
+ 631:main.c        ****                 // while front sensor is out of path
+ 632:main.c        ****                 // need to update the data that is read into sensor 
+ 633:main.c        ****                 //front = findMaximum(array);
+ 634:main.c        ****                 //left = findMaximum(array2);
+ 635:main.c        ****                 //right = findMaximum(array3);
+ 636:main.c        ****                 //while(front > cmp_val) {
+ 637:main.c        ****                     
+ 638:main.c        ****                 //    front = findMaximum(array);
+ 639:main.c        ****                     
+ 640:main.c        ****                     //if (front > cmp_val) {
+ 641:main.c        ****                     
+ 642:main.c        ****                     //    DoRightTurn();
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 32
+
+
+ 643:main.c        ****                     //}
+ 644:main.c        ****                 //}
+ 645:main.c        ****                 
+ 646:main.c        ****                 //while(left > cmp_val) {
+ 647:main.c        ****                 //    left = findMaximum(array2);
+ 648:main.c        ****                 //}
+ 649:main.c        ****                 
+ 650:main.c        ****                 //while(right > cmp_val) {
+ 651:main.c        ****                 //    right = findMaximum(array3);
+ 652:main.c        ****                 //}                
+ 653:main.c        ****                 
+ 654:main.c        ****                 if (rightTurn == 1) {
+ 1097              		.loc 1 654 0
+ 1098 0196 084B     		ldr	r3, .L103+4
+ 1099 0198 D3F81031 		ldr	r3, [r3, #272]
+ 1100 019c 012B     		cmp	r3, #1
+ 1101 019e 02D1     		bne	.L80
+ 655:main.c        ****                     //DoRightTurn(rightTurn);
+ 656:main.c        ****                     DoRightTurn();
+ 1102              		.loc 1 656 0
+ 1103 01a0 FFF7FEFF 		bl	DoRightTurn
+ 1104              	.LVL146:
+ 1105 01a4 3AE7     		b	.L56
+ 1106              	.LVL147:
+ 1107              	.L80:
+ 657:main.c        ****                 } else {
+ 658:main.c        ****                     GoStraight();
+ 1108              		.loc 1 658 0
+ 1109 01a6 FFF7FEFF 		bl	GoStraight
+ 1110              	.LVL148:
+ 1111 01aa 37E7     		b	.L56
+ 1112              	.LVL149:
+ 1113              	.L76:
+ 659:main.c        ****                 }
+ 660:main.c        ****                 break;
+ 661:main.c        ****                 
+ 662:main.c        ****                 //if ((left < cmp_val) && (right<cmp_val) && (front<cmp_val)) {
+ 663:main.c        ****                     
+ 664:main.c        ****                 // rightTurn = 0;   
+ 665:main.c        ****                     
+ 666:main.c        ****                 //}
+ 667:main.c        ****                 
+ 668:main.c        ****                 //} else {
+ 669:main.c        ****                    // normal speed
+ 670:main.c        ****                 //   PWM_leftmotor_WriteCompare1(0);
+ 671:main.c        ****                 //   PWM_leftmotor_WriteCompare2(87);
+ 672:main.c        ****                 
+ 673:main.c        ****                 
+ 674:main.c        ****                 //   PWM_rightmotor_WriteCompare1(80);
+ 675:main.c        ****                 //   PWM_rightmotor_WriteCompare2(0);  
+ 676:main.c        ****                     
+ 677:main.c        ****                 //}
+ 678:main.c        ****                 
+ 679:main.c        ****                 //DoRightTurn();
+ 680:main.c        ****                 
+ 681:main.c        ****                 //break;
+ 682:main.c        ****                 
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 33
+
+
+ 683:main.c        ****             case stop:
+ 684:main.c        ****                 //updateMotorSpeed_Left(10);
+ 685:main.c        ****                 Stop();
+ 1114              		.loc 1 685 0
+ 1115 01ac FFF7FEFF 		bl	Stop
+ 1116              	.LVL150:
+ 686:main.c        ****                 break;
+ 1117              		.loc 1 686 0
+ 1118 01b0 34E7     		b	.L56
+ 1119              	.L104:
+ 1120 01b2 00BF     		.align	2
+ 1121              	.L103:
+ 1122 01b4 00000000 		.word	eoc1
+ 1123 01b8 00000000 		.word	.LANCHOR0
+ 1124              	.LBE12:
+ 1125              		.cfi_endproc
+ 1126              	.LFE78:
+ 1127              		.size	main, .-main
+ 1128              		.global	finishTurn
+ 1129              		.global	rightTurn
+ 1130              		.global	leftTurn
+ 1131              		.global	rightDuty
+ 1132              		.global	leftDuty
+ 1133              		.global	startDuty
+ 1134              		.global	offset
+ 1135              		.global	flag33
+ 1136              		.global	speed
+ 1137              		.global	motor6
+ 1138              		.global	motor5
+ 1139              		.global	motor4
+ 1140              		.global	motor3
+ 1141              		.global	motor2
+ 1142              		.global	motor1
+ 1143              		.global	array6
+ 1144              		.global	array5
+ 1145              		.global	array4
+ 1146              		.global	array3
+ 1147              		.global	array2
+ 1148              		.global	array
+ 1149              		.global	count6
+ 1150              		.global	count5
+ 1151              		.global	count4
+ 1152              		.global	count3
+ 1153              		.global	count2
+ 1154              		.global	count1
+ 1155              		.global	turnLock
+ 1156              		.global	flag6
+ 1157              		.global	flag5
+ 1158              		.global	flag4
+ 1159              		.global	flag3
+ 1160              		.global	flag2
+ 1161              		.global	flag
+ 1162              		.data
+ 1163              		.align	2
+ 1164              		.set	.LANCHOR1,. + 0
+ 1165              		.type	leftDuty, %object
+ 1166              		.size	leftDuty, 4
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 34
+
+
+ 1167              	leftDuty:
+ 1168 0000 61000000 		.word	97
+ 1169              		.type	offset, %object
+ 1170              		.size	offset, 4
+ 1171              	offset:
+ 1172 0004 05000000 		.word	5
+ 1173              		.type	startDuty, %object
+ 1174              		.size	startDuty, 4
+ 1175              	startDuty:
+ 1176 0008 5A000000 		.word	90
+ 1177              		.bss
+ 1178              		.align	2
+ 1179              		.set	.LANCHOR0,. + 0
+ 1180              		.type	count1, %object
+ 1181              		.size	count1, 4
+ 1182              	count1:
+ 1183 0000 00000000 		.space	4
+ 1184              		.type	array, %object
+ 1185              		.size	array, 40
+ 1186              	array:
+ 1187 0004 00000000 		.space	40
+ 1187      00000000 
+ 1187      00000000 
+ 1187      00000000 
+ 1187      00000000 
+ 1188              		.type	count2, %object
+ 1189              		.size	count2, 4
+ 1190              	count2:
+ 1191 002c 00000000 		.space	4
+ 1192              		.type	array2, %object
+ 1193              		.size	array2, 40
+ 1194              	array2:
+ 1195 0030 00000000 		.space	40
+ 1195      00000000 
+ 1195      00000000 
+ 1195      00000000 
+ 1195      00000000 
+ 1196              		.type	count3, %object
+ 1197              		.size	count3, 4
+ 1198              	count3:
+ 1199 0058 00000000 		.space	4
+ 1200              		.type	array3, %object
+ 1201              		.size	array3, 40
+ 1202              	array3:
+ 1203 005c 00000000 		.space	40
+ 1203      00000000 
+ 1203      00000000 
+ 1203      00000000 
+ 1203      00000000 
+ 1204              		.type	count4, %object
+ 1205              		.size	count4, 4
+ 1206              	count4:
+ 1207 0084 00000000 		.space	4
+ 1208              		.type	array4, %object
+ 1209              		.size	array4, 40
+ 1210              	array4:
+ 1211 0088 00000000 		.space	40
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 35
+
+
+ 1211      00000000 
+ 1211      00000000 
+ 1211      00000000 
+ 1211      00000000 
+ 1212              		.type	count5, %object
+ 1213              		.size	count5, 4
+ 1214              	count5:
+ 1215 00b0 00000000 		.space	4
+ 1216              		.type	array5, %object
+ 1217              		.size	array5, 40
+ 1218              	array5:
+ 1219 00b4 00000000 		.space	40
+ 1219      00000000 
+ 1219      00000000 
+ 1219      00000000 
+ 1219      00000000 
+ 1220              		.type	count6, %object
+ 1221              		.size	count6, 4
+ 1222              	count6:
+ 1223 00dc 00000000 		.space	4
+ 1224              		.type	array6, %object
+ 1225              		.size	array6, 40
+ 1226              	array6:
+ 1227 00e0 00000000 		.space	40
+ 1227      00000000 
+ 1227      00000000 
+ 1227      00000000 
+ 1227      00000000 
+ 1228              		.type	rightDuty, %object
+ 1229              		.size	rightDuty, 4
+ 1230              	rightDuty:
+ 1231 0108 00000000 		.space	4
+ 1232              		.type	leftTurn, %object
+ 1233              		.size	leftTurn, 4
+ 1234              	leftTurn:
+ 1235 010c 00000000 		.space	4
+ 1236              		.type	rightTurn, %object
+ 1237              		.size	rightTurn, 4
+ 1238              	rightTurn:
+ 1239 0110 00000000 		.space	4
+ 1240              		.type	finishTurn, %object
+ 1241              		.size	finishTurn, 4
+ 1242              	finishTurn:
+ 1243 0114 00000000 		.space	4
+ 1244              		.type	flag33, %object
+ 1245              		.size	flag33, 4
+ 1246              	flag33:
+ 1247 0118 00000000 		.space	4
+ 1248              		.type	speed, %object
+ 1249              		.size	speed, 4
+ 1250              	speed:
+ 1251 011c 00000000 		.space	4
+ 1252              		.type	motor6, %object
+ 1253              		.size	motor6, 4
+ 1254              	motor6:
+ 1255 0120 00000000 		.space	4
+ 1256              		.type	motor5, %object
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 36
+
+
+ 1257              		.size	motor5, 4
+ 1258              	motor5:
+ 1259 0124 00000000 		.space	4
+ 1260              		.type	motor4, %object
+ 1261              		.size	motor4, 4
+ 1262              	motor4:
+ 1263 0128 00000000 		.space	4
+ 1264              		.type	motor3, %object
+ 1265              		.size	motor3, 4
+ 1266              	motor3:
+ 1267 012c 00000000 		.space	4
+ 1268              		.type	motor2, %object
+ 1269              		.size	motor2, 4
+ 1270              	motor2:
+ 1271 0130 00000000 		.space	4
+ 1272              		.type	motor1, %object
+ 1273              		.size	motor1, 4
+ 1274              	motor1:
+ 1275 0134 00000000 		.space	4
+ 1276              		.type	turnLock, %object
+ 1277              		.size	turnLock, 4
+ 1278              	turnLock:
+ 1279 0138 00000000 		.space	4
+ 1280              		.type	flag6, %object
+ 1281              		.size	flag6, 4
+ 1282              	flag6:
+ 1283 013c 00000000 		.space	4
+ 1284              		.type	flag5, %object
+ 1285              		.size	flag5, 4
+ 1286              	flag5:
+ 1287 0140 00000000 		.space	4
+ 1288              		.type	flag4, %object
+ 1289              		.size	flag4, 4
+ 1290              	flag4:
+ 1291 0144 00000000 		.space	4
+ 1292              		.type	flag3, %object
+ 1293              		.size	flag3, 4
+ 1294              	flag3:
+ 1295 0148 00000000 		.space	4
+ 1296              		.type	flag2, %object
+ 1297              		.size	flag2, 4
+ 1298              	flag2:
+ 1299 014c 00000000 		.space	4
+ 1300              		.type	flag, %object
+ 1301              		.size	flag, 4
+ 1302              	flag:
+ 1303 0150 00000000 		.space	4
+ 1304              		.text
+ 1305              	.Letext0:
+ 1306              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1307              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1308              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 1309              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+ 1310              		.file 6 "Generated_Source\\PSoC5/ADC_SAR_Seq_1.h"
+ 1311              		.file 7 "Generated_Source\\PSoC5/USBUART_1_cdc.h"
+ 1312              		.file 8 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1313              		.file 9 "Generated_Source\\PSoC5/PWM_leftmotor.h"
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 37
+
+
+ 1314              		.file 10 "Generated_Source\\PSoC5/PWM_rightmotor.h"
+ 1315              		.file 11 "Generated_Source\\PSoC5/isr_EOC_3.h"
+ 1316              		.file 12 "Generated_Source\\PSoC5/USBUART_1.h"
+ 1317              		.file 13 "Generated_Source\\PSoC5/Timer_2.h"
+ 1318              		.section	.debug_info,"",%progbits
+ 1319              	.Ldebug_info0:
+ 1320 0000 BA0B0000 		.4byte	0xbba
+ 1321 0004 0400     		.2byte	0x4
+ 1322 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1323 000a 04       		.byte	0x4
+ 1324 000b 01       		.uleb128 0x1
+ 1325 000c AD040000 		.4byte	.LASF108
+ 1326 0010 0C       		.byte	0xc
+ 1327 0011 BE030000 		.4byte	.LASF109
+ 1328 0015 4B030000 		.4byte	.LASF110
+ 1329 0019 30000000 		.4byte	.Ldebug_ranges0+0x30
+ 1330 001d 00000000 		.4byte	0
+ 1331 0021 00000000 		.4byte	.Ldebug_line0
+ 1332 0025 02       		.uleb128 0x2
+ 1333 0026 01       		.byte	0x1
+ 1334 0027 06       		.byte	0x6
+ 1335 0028 50010000 		.4byte	.LASF0
+ 1336 002c 02       		.uleb128 0x2
+ 1337 002d 01       		.byte	0x1
+ 1338 002e 08       		.byte	0x8
+ 1339 002f 5D020000 		.4byte	.LASF1
+ 1340 0033 02       		.uleb128 0x2
+ 1341 0034 02       		.byte	0x2
+ 1342 0035 05       		.byte	0x5
+ 1343 0036 89000000 		.4byte	.LASF2
+ 1344 003a 02       		.uleb128 0x2
+ 1345 003b 02       		.byte	0x2
+ 1346 003c 07       		.byte	0x7
+ 1347 003d D1020000 		.4byte	.LASF3
+ 1348 0041 03       		.uleb128 0x3
+ 1349 0042 18040000 		.4byte	.LASF9
+ 1350 0046 02       		.byte	0x2
+ 1351 0047 3F       		.byte	0x3f
+ 1352 0048 4C000000 		.4byte	0x4c
+ 1353 004c 02       		.uleb128 0x2
+ 1354 004d 04       		.byte	0x4
+ 1355 004e 05       		.byte	0x5
+ 1356 004f A6010000 		.4byte	.LASF4
+ 1357 0053 02       		.uleb128 0x2
+ 1358 0054 04       		.byte	0x4
+ 1359 0055 07       		.byte	0x7
+ 1360 0056 CD010000 		.4byte	.LASF5
+ 1361 005a 02       		.uleb128 0x2
+ 1362 005b 08       		.byte	0x8
+ 1363 005c 05       		.byte	0x5
+ 1364 005d 62010000 		.4byte	.LASF6
+ 1365 0061 02       		.uleb128 0x2
+ 1366 0062 08       		.byte	0x8
+ 1367 0063 07       		.byte	0x7
+ 1368 0064 81020000 		.4byte	.LASF7
+ 1369 0068 04       		.uleb128 0x4
+ 1370 0069 04       		.byte	0x4
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 38
+
+
+ 1371 006a 05       		.byte	0x5
+ 1372 006b 696E7400 		.ascii	"int\000"
+ 1373 006f 02       		.uleb128 0x2
+ 1374 0070 04       		.byte	0x4
+ 1375 0071 07       		.byte	0x7
+ 1376 0072 A1020000 		.4byte	.LASF8
+ 1377 0076 03       		.uleb128 0x3
+ 1378 0077 79020000 		.4byte	.LASF10
+ 1379 007b 03       		.byte	0x3
+ 1380 007c 2C       		.byte	0x2c
+ 1381 007d 41000000 		.4byte	0x41
+ 1382 0081 05       		.uleb128 0x5
+ 1383 0082 36030000 		.4byte	.LASF11
+ 1384 0086 04       		.byte	0x4
+ 1385 0087 E401     		.2byte	0x1e4
+ 1386 0089 2C000000 		.4byte	0x2c
+ 1387 008d 02       		.uleb128 0x2
+ 1388 008e 04       		.byte	0x4
+ 1389 008f 04       		.byte	0x4
+ 1390 0090 5C010000 		.4byte	.LASF12
+ 1391 0094 02       		.uleb128 0x2
+ 1392 0095 08       		.byte	0x8
+ 1393 0096 04       		.byte	0x4
+ 1394 0097 EC000000 		.4byte	.LASF13
+ 1395 009b 02       		.uleb128 0x2
+ 1396 009c 01       		.byte	0x1
+ 1397 009d 08       		.byte	0x8
+ 1398 009e 0C030000 		.4byte	.LASF14
+ 1399 00a2 02       		.uleb128 0x2
+ 1400 00a3 08       		.byte	0x8
+ 1401 00a4 04       		.byte	0x4
+ 1402 00a5 D4000000 		.4byte	.LASF15
+ 1403 00a9 02       		.uleb128 0x2
+ 1404 00aa 04       		.byte	0x4
+ 1405 00ab 07       		.byte	0x7
+ 1406 00ac A8000000 		.4byte	.LASF16
+ 1407 00b0 06       		.uleb128 0x6
+ 1408 00b1 04       		.byte	0x4
+ 1409 00b2 9B000000 		.4byte	0x9b
+ 1410 00b6 07       		.uleb128 0x7
+ 1411 00b7 B8020000 		.4byte	.LASF111
+ 1412 00bb 01       		.byte	0x1
+ 1413 00bc 2C000000 		.4byte	0x2c
+ 1414 00c0 01       		.byte	0x1
+ 1415 00c1 43       		.byte	0x43
+ 1416 00c2 EB000000 		.4byte	0xeb
+ 1417 00c6 08       		.uleb128 0x8
+ 1418 00c7 28010000 		.4byte	.LASF17
+ 1419 00cb 00       		.byte	0
+ 1420 00cc 08       		.uleb128 0x8
+ 1421 00cd 1C000000 		.4byte	.LASF18
+ 1422 00d1 01       		.byte	0x1
+ 1423 00d2 08       		.uleb128 0x8
+ 1424 00d3 79040000 		.4byte	.LASF19
+ 1425 00d7 02       		.byte	0x2
+ 1426 00d8 08       		.uleb128 0x8
+ 1427 00d9 07030000 		.4byte	.LASF20
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 39
+
+
+ 1428 00dd 03       		.byte	0x3
+ 1429 00de 08       		.uleb128 0x8
+ 1430 00df 00000000 		.4byte	.LASF21
+ 1431 00e3 04       		.byte	0x4
+ 1432 00e4 08       		.uleb128 0x8
+ 1433 00e5 5C040000 		.4byte	.LASF22
+ 1434 00e9 05       		.byte	0x5
+ 1435 00ea 00       		.byte	0
+ 1436 00eb 09       		.uleb128 0x9
+ 1437 00ec EB020000 		.4byte	.LASF41
+ 1438 00f0 01       		.byte	0x1
+ 1439 00f1 6B       		.byte	0x6b
+ 1440 00f2 00000000 		.4byte	.LFB67
+ 1441 00f6 18010000 		.4byte	.LFE67-.LFB67
+ 1442 00fa 01       		.uleb128 0x1
+ 1443 00fb 9C       		.byte	0x9c
+ 1444 00fc AD020000 		.4byte	0x2ad
+ 1445 0100 0A       		.uleb128 0xa
+ 1446 0101 0A000000 		.4byte	.LBB2
+ 1447 0105 18000000 		.4byte	.LBE2-.LBB2
+ 1448 0109 48010000 		.4byte	0x148
+ 1449 010d 0B       		.uleb128 0xb
+ 1450 010e 76616C00 		.ascii	"val\000"
+ 1451 0112 01       		.byte	0x1
+ 1452 0113 76       		.byte	0x76
+ 1453 0114 68000000 		.4byte	0x68
+ 1454 0118 00000000 		.4byte	.LLST0
+ 1455 011c 0C       		.uleb128 0xc
+ 1456 011d DF010000 		.4byte	.LASF23
+ 1457 0121 01       		.byte	0x1
+ 1458 0122 78       		.byte	0x78
+ 1459 0123 68000000 		.4byte	0x68
+ 1460 0127 19000000 		.4byte	.LLST1
+ 1461 012b 0D       		.uleb128 0xd
+ 1462 012c 10000000 		.4byte	.LVL0
+ 1463 0130 170B0000 		.4byte	0xb17
+ 1464 0134 3E010000 		.4byte	0x13e
+ 1465 0138 0E       		.uleb128 0xe
+ 1466 0139 01       		.uleb128 0x1
+ 1467 013a 50       		.byte	0x50
+ 1468 013b 01       		.uleb128 0x1
+ 1469 013c 30       		.byte	0x30
+ 1470 013d 00       		.byte	0
+ 1471 013e 0F       		.uleb128 0xf
+ 1472 013f 14000000 		.4byte	.LVL1
+ 1473 0143 220B0000 		.4byte	0xb22
+ 1474 0147 00       		.byte	0
+ 1475 0148 0A       		.uleb128 0xa
+ 1476 0149 32000000 		.4byte	.LBB3
+ 1477 014d 18000000 		.4byte	.LBE3-.LBB3
+ 1478 0151 90010000 		.4byte	0x190
+ 1479 0155 0C       		.uleb128 0xc
+ 1480 0156 AE020000 		.4byte	.LASF24
+ 1481 015a 01       		.byte	0x1
+ 1482 015b 82       		.byte	0x82
+ 1483 015c 68000000 		.4byte	0x68
+ 1484 0160 2C000000 		.4byte	.LLST2
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 40
+
+
+ 1485 0164 0C       		.uleb128 0xc
+ 1486 0165 4B050000 		.4byte	.LASF25
+ 1487 0169 01       		.byte	0x1
+ 1488 016a 83       		.byte	0x83
+ 1489 016b 68000000 		.4byte	0x68
+ 1490 016f 45000000 		.4byte	.LLST3
+ 1491 0173 0D       		.uleb128 0xd
+ 1492 0174 38000000 		.4byte	.LVL3
+ 1493 0178 170B0000 		.4byte	0xb17
+ 1494 017c 86010000 		.4byte	0x186
+ 1495 0180 0E       		.uleb128 0xe
+ 1496 0181 01       		.uleb128 0x1
+ 1497 0182 50       		.byte	0x50
+ 1498 0183 01       		.uleb128 0x1
+ 1499 0184 31       		.byte	0x31
+ 1500 0185 00       		.byte	0
+ 1501 0186 0F       		.uleb128 0xf
+ 1502 0187 3C000000 		.4byte	.LVL4
+ 1503 018b 220B0000 		.4byte	0xb22
+ 1504 018f 00       		.byte	0
+ 1505 0190 0A       		.uleb128 0xa
+ 1506 0191 5A000000 		.4byte	.LBB4
+ 1507 0195 18000000 		.4byte	.LBE4-.LBB4
+ 1508 0199 D8010000 		.4byte	0x1d8
+ 1509 019d 0C       		.uleb128 0xc
+ 1510 019e B3020000 		.4byte	.LASF26
+ 1511 01a2 01       		.byte	0x1
+ 1512 01a3 8E       		.byte	0x8e
+ 1513 01a4 68000000 		.4byte	0x68
+ 1514 01a8 58000000 		.4byte	.LLST4
+ 1515 01ac 0C       		.uleb128 0xc
+ 1516 01ad 53050000 		.4byte	.LASF27
+ 1517 01b1 01       		.byte	0x1
+ 1518 01b2 8F       		.byte	0x8f
+ 1519 01b3 68000000 		.4byte	0x68
+ 1520 01b7 71000000 		.4byte	.LLST5
+ 1521 01bb 0D       		.uleb128 0xd
+ 1522 01bc 60000000 		.4byte	.LVL6
+ 1523 01c0 170B0000 		.4byte	0xb17
+ 1524 01c4 CE010000 		.4byte	0x1ce
+ 1525 01c8 0E       		.uleb128 0xe
+ 1526 01c9 01       		.uleb128 0x1
+ 1527 01ca 50       		.byte	0x50
+ 1528 01cb 01       		.uleb128 0x1
+ 1529 01cc 32       		.byte	0x32
+ 1530 01cd 00       		.byte	0
+ 1531 01ce 0F       		.uleb128 0xf
+ 1532 01cf 64000000 		.4byte	.LVL7
+ 1533 01d3 220B0000 		.4byte	0xb22
+ 1534 01d7 00       		.byte	0
+ 1535 01d8 0A       		.uleb128 0xa
+ 1536 01d9 84000000 		.4byte	.LBB5
+ 1537 01dd 1E000000 		.4byte	.LBE5-.LBB5
+ 1538 01e1 20020000 		.4byte	0x220
+ 1539 01e5 0C       		.uleb128 0xc
+ 1540 01e6 3B050000 		.4byte	.LASF28
+ 1541 01ea 01       		.byte	0x1
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 41
+
+
+ 1542 01eb 99       		.byte	0x99
+ 1543 01ec 68000000 		.4byte	0x68
+ 1544 01f0 84000000 		.4byte	.LLST6
+ 1545 01f4 0C       		.uleb128 0xc
+ 1546 01f5 5B050000 		.4byte	.LASF29
+ 1547 01f9 01       		.byte	0x1
+ 1548 01fa 9A       		.byte	0x9a
+ 1549 01fb 68000000 		.4byte	0x68
+ 1550 01ff 9D000000 		.4byte	.LLST7
+ 1551 0203 0D       		.uleb128 0xd
+ 1552 0204 8A000000 		.4byte	.LVL9
+ 1553 0208 170B0000 		.4byte	0xb17
+ 1554 020c 16020000 		.4byte	0x216
+ 1555 0210 0E       		.uleb128 0xe
+ 1556 0211 01       		.uleb128 0x1
+ 1557 0212 50       		.byte	0x50
+ 1558 0213 01       		.uleb128 0x1
+ 1559 0214 33       		.byte	0x33
+ 1560 0215 00       		.byte	0
+ 1561 0216 0F       		.uleb128 0xf
+ 1562 0217 8E000000 		.4byte	.LVL10
+ 1563 021b 220B0000 		.4byte	0xb22
+ 1564 021f 00       		.byte	0
+ 1565 0220 0A       		.uleb128 0xa
+ 1566 0221 B6000000 		.4byte	.LBB6
+ 1567 0225 1E000000 		.4byte	.LBE6-.LBB6
+ 1568 0229 68020000 		.4byte	0x268
+ 1569 022d 0C       		.uleb128 0xc
+ 1570 022e BF020000 		.4byte	.LASF30
+ 1571 0232 01       		.byte	0x1
+ 1572 0233 A5       		.byte	0xa5
+ 1573 0234 68000000 		.4byte	0x68
+ 1574 0238 B0000000 		.4byte	.LLST8
+ 1575 023c 0C       		.uleb128 0xc
+ 1576 023d 63050000 		.4byte	.LASF31
+ 1577 0241 01       		.byte	0x1
+ 1578 0242 A6       		.byte	0xa6
+ 1579 0243 68000000 		.4byte	0x68
+ 1580 0247 C9000000 		.4byte	.LLST9
+ 1581 024b 0D       		.uleb128 0xd
+ 1582 024c BC000000 		.4byte	.LVL12
+ 1583 0250 170B0000 		.4byte	0xb17
+ 1584 0254 5E020000 		.4byte	0x25e
+ 1585 0258 0E       		.uleb128 0xe
+ 1586 0259 01       		.uleb128 0x1
+ 1587 025a 50       		.byte	0x50
+ 1588 025b 01       		.uleb128 0x1
+ 1589 025c 34       		.byte	0x34
+ 1590 025d 00       		.byte	0
+ 1591 025e 0F       		.uleb128 0xf
+ 1592 025f C0000000 		.4byte	.LVL13
+ 1593 0263 220B0000 		.4byte	0xb22
+ 1594 0267 00       		.byte	0
+ 1595 0268 10       		.uleb128 0x10
+ 1596 0269 E8000000 		.4byte	.LBB7
+ 1597 026d 1E000000 		.4byte	.LBE7-.LBB7
+ 1598 0271 0C       		.uleb128 0xc
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 42
+
+
+ 1599 0272 C4020000 		.4byte	.LASF32
+ 1600 0276 01       		.byte	0x1
+ 1601 0277 B1       		.byte	0xb1
+ 1602 0278 68000000 		.4byte	0x68
+ 1603 027c DC000000 		.4byte	.LLST10
+ 1604 0280 0C       		.uleb128 0xc
+ 1605 0281 6B050000 		.4byte	.LASF33
+ 1606 0285 01       		.byte	0x1
+ 1607 0286 B2       		.byte	0xb2
+ 1608 0287 68000000 		.4byte	0x68
+ 1609 028b F5000000 		.4byte	.LLST11
+ 1610 028f 0D       		.uleb128 0xd
+ 1611 0290 EE000000 		.4byte	.LVL15
+ 1612 0294 170B0000 		.4byte	0xb17
+ 1613 0298 A2020000 		.4byte	0x2a2
+ 1614 029c 0E       		.uleb128 0xe
+ 1615 029d 01       		.uleb128 0x1
+ 1616 029e 50       		.byte	0x50
+ 1617 029f 01       		.uleb128 0x1
+ 1618 02a0 35       		.byte	0x35
+ 1619 02a1 00       		.byte	0
+ 1620 02a2 0F       		.uleb128 0xf
+ 1621 02a3 F2000000 		.4byte	.LVL16
+ 1622 02a7 220B0000 		.4byte	0xb22
+ 1623 02ab 00       		.byte	0
+ 1624 02ac 00       		.byte	0
+ 1625 02ad 11       		.uleb128 0x11
+ 1626 02ae 22040000 		.4byte	.LASF35
+ 1627 02b2 01       		.byte	0x1
+ 1628 02b3 47       		.byte	0x47
+ 1629 02b4 68000000 		.4byte	0x68
+ 1630 02b8 00000000 		.4byte	.LFB64
+ 1631 02bc 1A000000 		.4byte	.LFE64-.LFB64
+ 1632 02c0 01       		.uleb128 0x1
+ 1633 02c1 9C       		.byte	0x9c
+ 1634 02c2 F8020000 		.4byte	0x2f8
+ 1635 02c6 12       		.uleb128 0x12
+ 1636 02c7 FA030000 		.4byte	.LASF37
+ 1637 02cb 01       		.byte	0x1
+ 1638 02cc 47       		.byte	0x47
+ 1639 02cd F8020000 		.4byte	0x2f8
+ 1640 02d1 08010000 		.4byte	.LLST12
+ 1641 02d5 0C       		.uleb128 0xc
+ 1642 02d6 6B000000 		.4byte	.LASF34
+ 1643 02da 01       		.byte	0x1
+ 1644 02db 48       		.byte	0x48
+ 1645 02dc 68000000 		.4byte	0x68
+ 1646 02e0 29010000 		.4byte	.LLST13
+ 1647 02e4 13       		.uleb128 0x13
+ 1648 02e5 00000000 		.4byte	.Ldebug_ranges0+0
+ 1649 02e9 0B       		.uleb128 0xb
+ 1650 02ea 6900     		.ascii	"i\000"
+ 1651 02ec 01       		.byte	0x1
+ 1652 02ed 49       		.byte	0x49
+ 1653 02ee 68000000 		.4byte	0x68
+ 1654 02f2 48010000 		.4byte	.LLST14
+ 1655 02f6 00       		.byte	0
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 43
+
+
+ 1656 02f7 00       		.byte	0
+ 1657 02f8 06       		.uleb128 0x6
+ 1658 02f9 04       		.byte	0x4
+ 1659 02fa 68000000 		.4byte	0x68
+ 1660 02fe 11       		.uleb128 0x11
+ 1661 02ff E0000000 		.4byte	.LASF36
+ 1662 0303 01       		.byte	0x1
+ 1663 0304 51       		.byte	0x51
+ 1664 0305 68000000 		.4byte	0x68
+ 1665 0309 00000000 		.4byte	.LFB65
+ 1666 030d 1C000000 		.4byte	.LFE65-.LFB65
+ 1667 0311 01       		.uleb128 0x1
+ 1668 0312 9C       		.byte	0x9c
+ 1669 0313 49030000 		.4byte	0x349
+ 1670 0317 12       		.uleb128 0x12
+ 1671 0318 FA030000 		.4byte	.LASF37
+ 1672 031c 01       		.byte	0x1
+ 1673 031d 51       		.byte	0x51
+ 1674 031e F8020000 		.4byte	0x2f8
+ 1675 0322 67010000 		.4byte	.LLST15
+ 1676 0326 0C       		.uleb128 0xc
+ 1677 0327 F2030000 		.4byte	.LASF38
+ 1678 032b 01       		.byte	0x1
+ 1679 032c 52       		.byte	0x52
+ 1680 032d 68000000 		.4byte	0x68
+ 1681 0331 88010000 		.4byte	.LLST16
+ 1682 0335 13       		.uleb128 0x13
+ 1683 0336 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 1684 033a 0B       		.uleb128 0xb
+ 1685 033b 6900     		.ascii	"i\000"
+ 1686 033d 01       		.byte	0x1
+ 1687 033e 53       		.byte	0x53
+ 1688 033f 68000000 		.4byte	0x68
+ 1689 0343 A9010000 		.4byte	.LLST17
+ 1690 0347 00       		.byte	0
+ 1691 0348 00       		.byte	0
+ 1692 0349 11       		.uleb128 0x11
+ 1693 034a 93000000 		.4byte	.LASF39
+ 1694 034e 01       		.byte	0x1
+ 1695 034f 5B       		.byte	0x5b
+ 1696 0350 68000000 		.4byte	0x68
+ 1697 0354 00000000 		.4byte	.LFB66
+ 1698 0358 0C000000 		.4byte	.LFE66-.LFB66
+ 1699 035c 01       		.uleb128 0x1
+ 1700 035d 9C       		.byte	0x9c
+ 1701 035e 72030000 		.4byte	0x372
+ 1702 0362 12       		.uleb128 0x12
+ 1703 0363 15000000 		.4byte	.LASF40
+ 1704 0367 01       		.byte	0x1
+ 1705 0368 5B       		.byte	0x5b
+ 1706 0369 68000000 		.4byte	0x68
+ 1707 036d C8010000 		.4byte	.LLST18
+ 1708 0371 00       		.byte	0
+ 1709 0372 09       		.uleb128 0x9
+ 1710 0373 70010000 		.4byte	.LASF42
+ 1711 0377 01       		.byte	0x1
+ 1712 0378 C1       		.byte	0xc1
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 44
+
+
+ 1713 0379 00000000 		.4byte	.LFB68
+ 1714 037d 28000000 		.4byte	.LFE68-.LFB68
+ 1715 0381 01       		.uleb128 0x1
+ 1716 0382 9C       		.byte	0x9c
+ 1717 0383 C2030000 		.4byte	0x3c2
+ 1718 0387 14       		.uleb128 0x14
+ 1719 0388 7300     		.ascii	"s\000"
+ 1720 038a 01       		.byte	0x1
+ 1721 038b C1       		.byte	0xc1
+ 1722 038c B0000000 		.4byte	0xb0
+ 1723 0390 02020000 		.4byte	.LLST19
+ 1724 0394 0F       		.uleb128 0xf
+ 1725 0395 08000000 		.4byte	.LVL34
+ 1726 0399 2D0B0000 		.4byte	0xb2d
+ 1727 039d 0D       		.uleb128 0xd
+ 1728 039e 1E000000 		.4byte	.LVL35
+ 1729 03a2 380B0000 		.4byte	0xb38
+ 1730 03a6 B1030000 		.4byte	0x3b1
+ 1731 03aa 0E       		.uleb128 0xe
+ 1732 03ab 01       		.uleb128 0x1
+ 1733 03ac 50       		.byte	0x50
+ 1734 03ad 02       		.uleb128 0x2
+ 1735 03ae 74       		.byte	0x74
+ 1736 03af 00       		.sleb128 0
+ 1737 03b0 00       		.byte	0
+ 1738 03b1 15       		.uleb128 0x15
+ 1739 03b2 26000000 		.4byte	.LVL36
+ 1740 03b6 430B0000 		.4byte	0xb43
+ 1741 03ba 0E       		.uleb128 0xe
+ 1742 03bb 01       		.uleb128 0x1
+ 1743 03bc 50       		.byte	0x50
+ 1744 03bd 02       		.uleb128 0x2
+ 1745 03be 74       		.byte	0x74
+ 1746 03bf 00       		.sleb128 0
+ 1747 03c0 00       		.byte	0
+ 1748 03c1 00       		.byte	0
+ 1749 03c2 16       		.uleb128 0x16
+ 1750 03c3 27000000 		.4byte	.LASF43
+ 1751 03c7 01       		.byte	0x1
+ 1752 03c8 CE       		.byte	0xce
+ 1753 03c9 00000000 		.4byte	.LFB69
+ 1754 03cd 24000000 		.4byte	.LFE69-.LFB69
+ 1755 03d1 01       		.uleb128 0x1
+ 1756 03d2 9C       		.byte	0x9c
+ 1757 03d3 34040000 		.4byte	0x434
+ 1758 03d7 0F       		.uleb128 0xf
+ 1759 03d8 06000000 		.4byte	.LVL37
+ 1760 03dc 4E0B0000 		.4byte	0xb4e
+ 1761 03e0 0F       		.uleb128 0xf
+ 1762 03e1 0A000000 		.4byte	.LVL38
+ 1763 03e5 590B0000 		.4byte	0xb59
+ 1764 03e9 0D       		.uleb128 0xd
+ 1765 03ea 10000000 		.4byte	.LVL39
+ 1766 03ee 640B0000 		.4byte	0xb64
+ 1767 03f2 FD030000 		.4byte	0x3fd
+ 1768 03f6 0E       		.uleb128 0xe
+ 1769 03f7 01       		.uleb128 0x1
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 45
+
+
+ 1770 03f8 50       		.byte	0x50
+ 1771 03f9 02       		.uleb128 0x2
+ 1772 03fa 09       		.byte	0x9
+ 1773 03fb B4       		.byte	0xb4
+ 1774 03fc 00       		.byte	0
+ 1775 03fd 0D       		.uleb128 0xd
+ 1776 03fe 16000000 		.4byte	.LVL40
+ 1777 0402 6F0B0000 		.4byte	0xb6f
+ 1778 0406 10040000 		.4byte	0x410
+ 1779 040a 0E       		.uleb128 0xe
+ 1780 040b 01       		.uleb128 0x1
+ 1781 040c 50       		.byte	0x50
+ 1782 040d 01       		.uleb128 0x1
+ 1783 040e 30       		.byte	0x30
+ 1784 040f 00       		.byte	0
+ 1785 0410 0D       		.uleb128 0xd
+ 1786 0411 1C000000 		.4byte	.LVL41
+ 1787 0415 7A0B0000 		.4byte	0xb7a
+ 1788 0419 24040000 		.4byte	0x424
+ 1789 041d 0E       		.uleb128 0xe
+ 1790 041e 01       		.uleb128 0x1
+ 1791 041f 50       		.byte	0x50
+ 1792 0420 02       		.uleb128 0x2
+ 1793 0421 09       		.byte	0x9
+ 1794 0422 B4       		.byte	0xb4
+ 1795 0423 00       		.byte	0
+ 1796 0424 15       		.uleb128 0x15
+ 1797 0425 22000000 		.4byte	.LVL42
+ 1798 0429 850B0000 		.4byte	0xb85
+ 1799 042d 0E       		.uleb128 0xe
+ 1800 042e 01       		.uleb128 0x1
+ 1801 042f 50       		.byte	0x50
+ 1802 0430 01       		.uleb128 0x1
+ 1803 0431 30       		.byte	0x30
+ 1804 0432 00       		.byte	0
+ 1805 0433 00       		.byte	0
+ 1806 0434 16       		.uleb128 0x16
+ 1807 0435 FD000000 		.4byte	.LASF44
+ 1808 0439 01       		.byte	0x1
+ 1809 043a DC       		.byte	0xdc
+ 1810 043b 00000000 		.4byte	.LFB70
+ 1811 043f 24000000 		.4byte	.LFE70-.LFB70
+ 1812 0443 01       		.uleb128 0x1
+ 1813 0444 9C       		.byte	0x9c
+ 1814 0445 A6040000 		.4byte	0x4a6
+ 1815 0449 0F       		.uleb128 0xf
+ 1816 044a 06000000 		.4byte	.LVL43
+ 1817 044e 4E0B0000 		.4byte	0xb4e
+ 1818 0452 0F       		.uleb128 0xf
+ 1819 0453 0A000000 		.4byte	.LVL44
+ 1820 0457 590B0000 		.4byte	0xb59
+ 1821 045b 0D       		.uleb128 0xd
+ 1822 045c 10000000 		.4byte	.LVL45
+ 1823 0460 640B0000 		.4byte	0xb64
+ 1824 0464 6E040000 		.4byte	0x46e
+ 1825 0468 0E       		.uleb128 0xe
+ 1826 0469 01       		.uleb128 0x1
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 46
+
+
+ 1827 046a 50       		.byte	0x50
+ 1828 046b 01       		.uleb128 0x1
+ 1829 046c 30       		.byte	0x30
+ 1830 046d 00       		.byte	0
+ 1831 046e 0D       		.uleb128 0xd
+ 1832 046f 16000000 		.4byte	.LVL46
+ 1833 0473 6F0B0000 		.4byte	0xb6f
+ 1834 0477 82040000 		.4byte	0x482
+ 1835 047b 0E       		.uleb128 0xe
+ 1836 047c 01       		.uleb128 0x1
+ 1837 047d 50       		.byte	0x50
+ 1838 047e 02       		.uleb128 0x2
+ 1839 047f 09       		.byte	0x9
+ 1840 0480 C8       		.byte	0xc8
+ 1841 0481 00       		.byte	0
+ 1842 0482 0D       		.uleb128 0xd
+ 1843 0483 1C000000 		.4byte	.LVL47
+ 1844 0487 7A0B0000 		.4byte	0xb7a
+ 1845 048b 95040000 		.4byte	0x495
+ 1846 048f 0E       		.uleb128 0xe
+ 1847 0490 01       		.uleb128 0x1
+ 1848 0491 50       		.byte	0x50
+ 1849 0492 01       		.uleb128 0x1
+ 1850 0493 30       		.byte	0x30
+ 1851 0494 00       		.byte	0
+ 1852 0495 15       		.uleb128 0x15
+ 1853 0496 22000000 		.4byte	.LVL48
+ 1854 049a 850B0000 		.4byte	0xb85
+ 1855 049e 0E       		.uleb128 0xe
+ 1856 049f 01       		.uleb128 0x1
+ 1857 04a0 50       		.byte	0x50
+ 1858 04a1 02       		.uleb128 0x2
+ 1859 04a2 09       		.byte	0x9
+ 1860 04a3 C8       		.byte	0xc8
+ 1861 04a4 00       		.byte	0
+ 1862 04a5 00       		.byte	0
+ 1863 04a6 16       		.uleb128 0x16
+ 1864 04a7 40050000 		.4byte	.LASF45
+ 1865 04ab 01       		.byte	0x1
+ 1866 04ac F8       		.byte	0xf8
+ 1867 04ad 00000000 		.4byte	.LFB71
+ 1868 04b1 24000000 		.4byte	.LFE71-.LFB71
+ 1869 04b5 01       		.uleb128 0x1
+ 1870 04b6 9C       		.byte	0x9c
+ 1871 04b7 18050000 		.4byte	0x518
+ 1872 04bb 0F       		.uleb128 0xf
+ 1873 04bc 06000000 		.4byte	.LVL49
+ 1874 04c0 4E0B0000 		.4byte	0xb4e
+ 1875 04c4 0F       		.uleb128 0xf
+ 1876 04c5 0A000000 		.4byte	.LVL50
+ 1877 04c9 590B0000 		.4byte	0xb59
+ 1878 04cd 0D       		.uleb128 0xd
+ 1879 04ce 10000000 		.4byte	.LVL51
+ 1880 04d2 640B0000 		.4byte	0xb64
+ 1881 04d6 E0040000 		.4byte	0x4e0
+ 1882 04da 0E       		.uleb128 0xe
+ 1883 04db 01       		.uleb128 0x1
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 47
+
+
+ 1884 04dc 50       		.byte	0x50
+ 1885 04dd 01       		.uleb128 0x1
+ 1886 04de 30       		.byte	0x30
+ 1887 04df 00       		.byte	0
+ 1888 04e0 0D       		.uleb128 0xd
+ 1889 04e1 16000000 		.4byte	.LVL52
+ 1890 04e5 6F0B0000 		.4byte	0xb6f
+ 1891 04e9 F4040000 		.4byte	0x4f4
+ 1892 04ed 0E       		.uleb128 0xe
+ 1893 04ee 01       		.uleb128 0x1
+ 1894 04ef 50       		.byte	0x50
+ 1895 04f0 02       		.uleb128 0x2
+ 1896 04f1 08       		.byte	0x8
+ 1897 04f2 61       		.byte	0x61
+ 1898 04f3 00       		.byte	0
+ 1899 04f4 0D       		.uleb128 0xd
+ 1900 04f5 1C000000 		.4byte	.LVL53
+ 1901 04f9 7A0B0000 		.4byte	0xb7a
+ 1902 04fd 08050000 		.4byte	0x508
+ 1903 0501 0E       		.uleb128 0xe
+ 1904 0502 01       		.uleb128 0x1
+ 1905 0503 50       		.byte	0x50
+ 1906 0504 02       		.uleb128 0x2
+ 1907 0505 08       		.byte	0x8
+ 1908 0506 5A       		.byte	0x5a
+ 1909 0507 00       		.byte	0
+ 1910 0508 15       		.uleb128 0x15
+ 1911 0509 22000000 		.4byte	.LVL54
+ 1912 050d 850B0000 		.4byte	0xb85
+ 1913 0511 0E       		.uleb128 0xe
+ 1914 0512 01       		.uleb128 0x1
+ 1915 0513 50       		.byte	0x50
+ 1916 0514 01       		.uleb128 0x1
+ 1917 0515 30       		.byte	0x30
+ 1918 0516 00       		.byte	0
+ 1919 0517 00       		.byte	0
+ 1920 0518 17       		.uleb128 0x17
+ 1921 0519 6B020000 		.4byte	.LASF46
+ 1922 051d 01       		.byte	0x1
+ 1923 051e 0101     		.2byte	0x101
+ 1924 0520 00000000 		.4byte	.LFB72
+ 1925 0524 1C000000 		.4byte	.LFE72-.LFB72
+ 1926 0528 01       		.uleb128 0x1
+ 1927 0529 9C       		.byte	0x9c
+ 1928 052a 7B050000 		.4byte	0x57b
+ 1929 052e 0D       		.uleb128 0xd
+ 1930 052f 08000000 		.4byte	.LVL55
+ 1931 0533 640B0000 		.4byte	0xb64
+ 1932 0537 42050000 		.4byte	0x542
+ 1933 053b 0E       		.uleb128 0xe
+ 1934 053c 01       		.uleb128 0x1
+ 1935 053d 50       		.byte	0x50
+ 1936 053e 02       		.uleb128 0x2
+ 1937 053f 09       		.byte	0x9
+ 1938 0540 8C       		.byte	0x8c
+ 1939 0541 00       		.byte	0
+ 1940 0542 0D       		.uleb128 0xd
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 48
+
+
+ 1941 0543 0E000000 		.4byte	.LVL56
+ 1942 0547 6F0B0000 		.4byte	0xb6f
+ 1943 054b 56050000 		.4byte	0x556
+ 1944 054f 0E       		.uleb128 0xe
+ 1945 0550 01       		.uleb128 0x1
+ 1946 0551 50       		.byte	0x50
+ 1947 0552 02       		.uleb128 0x2
+ 1948 0553 09       		.byte	0x9
+ 1949 0554 8C       		.byte	0x8c
+ 1950 0555 00       		.byte	0
+ 1951 0556 0D       		.uleb128 0xd
+ 1952 0557 14000000 		.4byte	.LVL57
+ 1953 055b 7A0B0000 		.4byte	0xb7a
+ 1954 055f 6A050000 		.4byte	0x56a
+ 1955 0563 0E       		.uleb128 0xe
+ 1956 0564 01       		.uleb128 0x1
+ 1957 0565 50       		.byte	0x50
+ 1958 0566 02       		.uleb128 0x2
+ 1959 0567 09       		.byte	0x9
+ 1960 0568 8C       		.byte	0x8c
+ 1961 0569 00       		.byte	0
+ 1962 056a 15       		.uleb128 0x15
+ 1963 056b 1A000000 		.4byte	.LVL58
+ 1964 056f 850B0000 		.4byte	0xb85
+ 1965 0573 0E       		.uleb128 0xe
+ 1966 0574 01       		.uleb128 0x1
+ 1967 0575 50       		.byte	0x50
+ 1968 0576 02       		.uleb128 0x2
+ 1969 0577 09       		.byte	0x9
+ 1970 0578 8C       		.byte	0x8c
+ 1971 0579 00       		.byte	0
+ 1972 057a 00       		.byte	0
+ 1973 057b 17       		.uleb128 0x17
+ 1974 057c 32000000 		.4byte	.LASF47
+ 1975 0580 01       		.byte	0x1
+ 1976 0581 0901     		.2byte	0x109
+ 1977 0583 00000000 		.4byte	.LFB73
+ 1978 0587 44000000 		.4byte	.LFE73-.LFB73
+ 1979 058b 01       		.uleb128 0x1
+ 1980 058c 9C       		.byte	0x9c
+ 1981 058d D2050000 		.4byte	0x5d2
+ 1982 0591 0F       		.uleb128 0xf
+ 1983 0592 06000000 		.4byte	.LVL59
+ 1984 0596 4E0B0000 		.4byte	0xb4e
+ 1985 059a 0F       		.uleb128 0xf
+ 1986 059b 0A000000 		.4byte	.LVL60
+ 1987 059f 590B0000 		.4byte	0xb59
+ 1988 05a3 0D       		.uleb128 0xd
+ 1989 05a4 10000000 		.4byte	.LVL61
+ 1990 05a8 640B0000 		.4byte	0xb64
+ 1991 05ac B6050000 		.4byte	0x5b6
+ 1992 05b0 0E       		.uleb128 0xe
+ 1993 05b1 01       		.uleb128 0x1
+ 1994 05b2 50       		.byte	0x50
+ 1995 05b3 01       		.uleb128 0x1
+ 1996 05b4 30       		.byte	0x30
+ 1997 05b5 00       		.byte	0
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 49
+
+
+ 1998 05b6 0F       		.uleb128 0xf
+ 1999 05b7 20000000 		.4byte	.LVL62
+ 2000 05bb 6F0B0000 		.4byte	0xb6f
+ 2001 05bf 0F       		.uleb128 0xf
+ 2002 05c0 26000000 		.4byte	.LVL63
+ 2003 05c4 7A0B0000 		.4byte	0xb7a
+ 2004 05c8 0F       		.uleb128 0xf
+ 2005 05c9 3A000000 		.4byte	.LVL64
+ 2006 05cd 850B0000 		.4byte	0xb85
+ 2007 05d1 00       		.byte	0
+ 2008 05d2 17       		.uleb128 0x17
+ 2009 05d3 7A000000 		.4byte	.LASF48
+ 2010 05d7 01       		.byte	0x1
+ 2011 05d8 1801     		.2byte	0x118
+ 2012 05da 00000000 		.4byte	.LFB74
+ 2013 05de 30000000 		.4byte	.LFE74-.LFB74
+ 2014 05e2 01       		.uleb128 0x1
+ 2015 05e3 9C       		.byte	0x9c
+ 2016 05e4 25060000 		.4byte	0x625
+ 2017 05e8 0F       		.uleb128 0xf
+ 2018 05e9 06000000 		.4byte	.LVL65
+ 2019 05ed 4E0B0000 		.4byte	0xb4e
+ 2020 05f1 0F       		.uleb128 0xf
+ 2021 05f2 0A000000 		.4byte	.LVL66
+ 2022 05f6 590B0000 		.4byte	0xb59
+ 2023 05fa 0F       		.uleb128 0xf
+ 2024 05fb 12000000 		.4byte	.LVL67
+ 2025 05ff 640B0000 		.4byte	0xb64
+ 2026 0603 0F       		.uleb128 0xf
+ 2027 0604 18000000 		.4byte	.LVL68
+ 2028 0608 6F0B0000 		.4byte	0xb6f
+ 2029 060c 0F       		.uleb128 0xf
+ 2030 060d 24000000 		.4byte	.LVL69
+ 2031 0611 7A0B0000 		.4byte	0xb7a
+ 2032 0615 15       		.uleb128 0x15
+ 2033 0616 2A000000 		.4byte	.LVL70
+ 2034 061a 850B0000 		.4byte	0xb85
+ 2035 061e 0E       		.uleb128 0xe
+ 2036 061f 01       		.uleb128 0x1
+ 2037 0620 50       		.byte	0x50
+ 2038 0621 01       		.uleb128 0x1
+ 2039 0622 30       		.byte	0x30
+ 2040 0623 00       		.byte	0
+ 2041 0624 00       		.byte	0
+ 2042 0625 18       		.uleb128 0x18
+ 2043 0626 F0020000 		.4byte	.LASF49
+ 2044 062a 01       		.byte	0x1
+ 2045 062b 2201     		.2byte	0x122
+ 2046 062d 00000000 		.4byte	.LFB75
+ 2047 0631 14000000 		.4byte	.LFE75-.LFB75
+ 2048 0635 01       		.uleb128 0x1
+ 2049 0636 9C       		.byte	0x9c
+ 2050 0637 71060000 		.4byte	0x671
+ 2051 063b 19       		.uleb128 0x19
+ 2052 063c 92010000 		.4byte	.LASF50
+ 2053 0640 01       		.byte	0x1
+ 2054 0641 2201     		.2byte	0x122
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 50
+
+
+ 2055 0643 68000000 		.4byte	0x68
+ 2056 0647 20020000 		.4byte	.LLST20
+ 2057 064b 0D       		.uleb128 0xd
+ 2058 064c 0C000000 		.4byte	.LVL73
+ 2059 0650 7A0B0000 		.4byte	0xb7a
+ 2060 0654 60060000 		.4byte	0x660
+ 2061 0658 0E       		.uleb128 0xe
+ 2062 0659 01       		.uleb128 0x1
+ 2063 065a 50       		.byte	0x50
+ 2064 065b 03       		.uleb128 0x3
+ 2065 065c 74       		.byte	0x74
+ 2066 065d 00       		.sleb128 0
+ 2067 065e 20       		.byte	0x20
+ 2068 065f 00       		.byte	0
+ 2069 0660 15       		.uleb128 0x15
+ 2070 0661 12000000 		.4byte	.LVL74
+ 2071 0665 850B0000 		.4byte	0xb85
+ 2072 0669 0E       		.uleb128 0xe
+ 2073 066a 01       		.uleb128 0x1
+ 2074 066b 50       		.byte	0x50
+ 2075 066c 02       		.uleb128 0x2
+ 2076 066d 74       		.byte	0x74
+ 2077 066e 00       		.sleb128 0
+ 2078 066f 00       		.byte	0
+ 2079 0670 00       		.byte	0
+ 2080 0671 18       		.uleb128 0x18
+ 2081 0672 47020000 		.4byte	.LASF51
+ 2082 0676 01       		.byte	0x1
+ 2083 0677 2701     		.2byte	0x127
+ 2084 0679 00000000 		.4byte	.LFB76
+ 2085 067d 14000000 		.4byte	.LFE76-.LFB76
+ 2086 0681 01       		.uleb128 0x1
+ 2087 0682 9C       		.byte	0x9c
+ 2088 0683 BD060000 		.4byte	0x6bd
+ 2089 0687 19       		.uleb128 0x19
+ 2090 0688 92010000 		.4byte	.LASF50
+ 2091 068c 01       		.byte	0x1
+ 2092 068d 2701     		.2byte	0x127
+ 2093 068f 68000000 		.4byte	0x68
+ 2094 0693 41020000 		.4byte	.LLST21
+ 2095 0697 0D       		.uleb128 0xd
+ 2096 0698 0C000000 		.4byte	.LVL77
+ 2097 069c 6F0B0000 		.4byte	0xb6f
+ 2098 06a0 AC060000 		.4byte	0x6ac
+ 2099 06a4 0E       		.uleb128 0xe
+ 2100 06a5 01       		.uleb128 0x1
+ 2101 06a6 50       		.byte	0x50
+ 2102 06a7 03       		.uleb128 0x3
+ 2103 06a8 74       		.byte	0x74
+ 2104 06a9 00       		.sleb128 0
+ 2105 06aa 20       		.byte	0x20
+ 2106 06ab 00       		.byte	0
+ 2107 06ac 15       		.uleb128 0x15
+ 2108 06ad 12000000 		.4byte	.LVL78
+ 2109 06b1 640B0000 		.4byte	0xb64
+ 2110 06b5 0E       		.uleb128 0xe
+ 2111 06b6 01       		.uleb128 0x1
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 51
+
+
+ 2112 06b7 50       		.byte	0x50
+ 2113 06b8 02       		.uleb128 0x2
+ 2114 06b9 74       		.byte	0x74
+ 2115 06ba 00       		.sleb128 0
+ 2116 06bb 00       		.byte	0
+ 2117 06bc 00       		.byte	0
+ 2118 06bd 18       		.uleb128 0x18
+ 2119 06be C5030000 		.4byte	.LASF52
+ 2120 06c2 01       		.byte	0x1
+ 2121 06c3 2C01     		.2byte	0x12c
+ 2122 06c5 00000000 		.4byte	.LFB77
+ 2123 06c9 10000000 		.4byte	.LFE77-.LFB77
+ 2124 06cd 01       		.uleb128 0x1
+ 2125 06ce 9C       		.byte	0x9c
+ 2126 06cf 08070000 		.4byte	0x708
+ 2127 06d3 19       		.uleb128 0x19
+ 2128 06d4 92010000 		.4byte	.LASF50
+ 2129 06d8 01       		.byte	0x1
+ 2130 06d9 2C01     		.2byte	0x12c
+ 2131 06db 68000000 		.4byte	0x68
+ 2132 06df 62020000 		.4byte	.LLST22
+ 2133 06e3 0D       		.uleb128 0xd
+ 2134 06e4 08000000 		.4byte	.LVL80
+ 2135 06e8 25060000 		.4byte	0x625
+ 2136 06ec F7060000 		.4byte	0x6f7
+ 2137 06f0 0E       		.uleb128 0xe
+ 2138 06f1 01       		.uleb128 0x1
+ 2139 06f2 50       		.byte	0x50
+ 2140 06f3 02       		.uleb128 0x2
+ 2141 06f4 74       		.byte	0x74
+ 2142 06f5 00       		.sleb128 0
+ 2143 06f6 00       		.byte	0
+ 2144 06f7 15       		.uleb128 0x15
+ 2145 06f8 0E000000 		.4byte	.LVL81
+ 2146 06fc 71060000 		.4byte	0x671
+ 2147 0700 0E       		.uleb128 0xe
+ 2148 0701 01       		.uleb128 0x1
+ 2149 0702 50       		.byte	0x50
+ 2150 0703 02       		.uleb128 0x2
+ 2151 0704 74       		.byte	0x74
+ 2152 0705 00       		.sleb128 0
+ 2153 0706 00       		.byte	0
+ 2154 0707 00       		.byte	0
+ 2155 0708 1A       		.uleb128 0x1a
+ 2156 0709 25030000 		.4byte	.LASF112
+ 2157 070d 01       		.byte	0x1
+ 2158 070e 3101     		.2byte	0x131
+ 2159 0710 68000000 		.4byte	0x68
+ 2160 0714 00000000 		.4byte	.LFB78
+ 2161 0718 BC010000 		.4byte	.LFE78-.LFB78
+ 2162 071c 01       		.uleb128 0x1
+ 2163 071d 9C       		.byte	0x9c
+ 2164 071e B4080000 		.4byte	0x8b4
+ 2165 0722 1B       		.uleb128 0x1b
+ 2166 0723 46534D00 		.ascii	"FSM\000"
+ 2167 0727 01       		.byte	0x1
+ 2168 0728 4B01     		.2byte	0x14b
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 52
+
+
+ 2169 072a B6000000 		.4byte	0xb6
+ 2170 072e 80020000 		.4byte	.LLST23
+ 2171 0732 0A       		.uleb128 0xa
+ 2172 0733 1C000000 		.4byte	.LBB12
+ 2173 0737 A0010000 		.4byte	.LBE12-.LBB12
+ 2174 073b 72080000 		.4byte	0x872
+ 2175 073f 1C       		.uleb128 0x1c
+ 2176 0740 3C040000 		.4byte	.LASF53
+ 2177 0744 01       		.byte	0x1
+ 2178 0745 8001     		.2byte	0x180
+ 2179 0747 68000000 		.4byte	0x68
+ 2180 074b 67030000 		.4byte	.LLST24
+ 2181 074f 1C       		.uleb128 0x1c
+ 2182 0750 31030000 		.4byte	.LASF54
+ 2183 0754 01       		.byte	0x1
+ 2184 0755 8101     		.2byte	0x181
+ 2185 0757 68000000 		.4byte	0x68
+ 2186 075b 85030000 		.4byte	.LLST25
+ 2187 075f 1C       		.uleb128 0x1c
+ 2188 0760 40000000 		.4byte	.LASF55
+ 2189 0764 01       		.byte	0x1
+ 2190 0765 8201     		.2byte	0x182
+ 2191 0767 68000000 		.4byte	0x68
+ 2192 076b A3030000 		.4byte	.LLST26
+ 2193 076f 1C       		.uleb128 0x1c
+ 2194 0770 AF010000 		.4byte	.LASF56
+ 2195 0774 01       		.byte	0x1
+ 2196 0775 8301     		.2byte	0x183
+ 2197 0777 68000000 		.4byte	0x68
+ 2198 077b C1030000 		.4byte	.LLST27
+ 2199 077f 1C       		.uleb128 0x1c
+ 2200 0780 00040000 		.4byte	.LASF57
+ 2201 0784 01       		.byte	0x1
+ 2202 0785 8401     		.2byte	0x184
+ 2203 0787 68000000 		.4byte	0x68
+ 2204 078b DF030000 		.4byte	.LLST28
+ 2205 078f 1C       		.uleb128 0x1c
+ 2206 0790 46030000 		.4byte	.LASF58
+ 2207 0794 01       		.byte	0x1
+ 2208 0795 8501     		.2byte	0x185
+ 2209 0797 68000000 		.4byte	0x68
+ 2210 079b FD030000 		.4byte	.LLST29
+ 2211 079f 1D       		.uleb128 0x1d
+ 2212 07a0 C9020000 		.4byte	.LASF59
+ 2213 07a4 01       		.byte	0x1
+ 2214 07a5 8701     		.2byte	0x187
+ 2215 07a7 68000000 		.4byte	0x68
+ 2216 07ab F401     		.2byte	0x1f4
+ 2217 07ad 0D       		.uleb128 0xd
+ 2218 07ae 24000000 		.4byte	.LVL86
+ 2219 07b2 AD020000 		.4byte	0x2ad
+ 2220 07b6 C1070000 		.4byte	0x7c1
+ 2221 07ba 0E       		.uleb128 0xe
+ 2222 07bb 01       		.uleb128 0x1
+ 2223 07bc 50       		.byte	0x50
+ 2224 07bd 02       		.uleb128 0x2
+ 2225 07be 74       		.byte	0x74
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 53
+
+
+ 2226 07bf 04       		.sleb128 4
+ 2227 07c0 00       		.byte	0
+ 2228 07c1 0D       		.uleb128 0xd
+ 2229 07c2 2E000000 		.4byte	.LVL89
+ 2230 07c6 AD020000 		.4byte	0x2ad
+ 2231 07ca D5070000 		.4byte	0x7d5
+ 2232 07ce 0E       		.uleb128 0xe
+ 2233 07cf 01       		.uleb128 0x1
+ 2234 07d0 50       		.byte	0x50
+ 2235 07d1 02       		.uleb128 0x2
+ 2236 07d2 74       		.byte	0x74
+ 2237 07d3 30       		.sleb128 48
+ 2238 07d4 00       		.byte	0
+ 2239 07d5 0D       		.uleb128 0xd
+ 2240 07d6 38000000 		.4byte	.LVL92
+ 2241 07da AD020000 		.4byte	0x2ad
+ 2242 07de EA070000 		.4byte	0x7ea
+ 2243 07e2 0E       		.uleb128 0xe
+ 2244 07e3 01       		.uleb128 0x1
+ 2245 07e4 50       		.byte	0x50
+ 2246 07e5 03       		.uleb128 0x3
+ 2247 07e6 74       		.byte	0x74
+ 2248 07e7 DC00     		.sleb128 92
+ 2249 07e9 00       		.byte	0
+ 2250 07ea 0D       		.uleb128 0xd
+ 2251 07eb 42000000 		.4byte	.LVL95
+ 2252 07ef AD020000 		.4byte	0x2ad
+ 2253 07f3 FF070000 		.4byte	0x7ff
+ 2254 07f7 0E       		.uleb128 0xe
+ 2255 07f8 01       		.uleb128 0x1
+ 2256 07f9 50       		.byte	0x50
+ 2257 07fa 03       		.uleb128 0x3
+ 2258 07fb 74       		.byte	0x74
+ 2259 07fc 8801     		.sleb128 136
+ 2260 07fe 00       		.byte	0
+ 2261 07ff 0D       		.uleb128 0xd
+ 2262 0800 4C000000 		.4byte	.LVL98
+ 2263 0804 AD020000 		.4byte	0x2ad
+ 2264 0808 14080000 		.4byte	0x814
+ 2265 080c 0E       		.uleb128 0xe
+ 2266 080d 01       		.uleb128 0x1
+ 2267 080e 50       		.byte	0x50
+ 2268 080f 03       		.uleb128 0x3
+ 2269 0810 74       		.byte	0x74
+ 2270 0811 B401     		.sleb128 180
+ 2271 0813 00       		.byte	0
+ 2272 0814 0D       		.uleb128 0xd
+ 2273 0815 56000000 		.4byte	.LVL101
+ 2274 0819 AD020000 		.4byte	0x2ad
+ 2275 081d 29080000 		.4byte	0x829
+ 2276 0821 0E       		.uleb128 0xe
+ 2277 0822 01       		.uleb128 0x1
+ 2278 0823 50       		.byte	0x50
+ 2279 0824 03       		.uleb128 0x3
+ 2280 0825 74       		.byte	0x74
+ 2281 0826 E001     		.sleb128 224
+ 2282 0828 00       		.byte	0
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 54
+
+
+ 2283 0829 0F       		.uleb128 0xf
+ 2284 082a 72010000 		.4byte	.LVL136
+ 2285 082e A6040000 		.4byte	0x4a6
+ 2286 0832 0F       		.uleb128 0xf
+ 2287 0833 78010000 		.4byte	.LVL138
+ 2288 0837 7B050000 		.4byte	0x57b
+ 2289 083b 0F       		.uleb128 0xf
+ 2290 083c 7E010000 		.4byte	.LVL140
+ 2291 0840 D2050000 		.4byte	0x5d2
+ 2292 0844 0F       		.uleb128 0xf
+ 2293 0845 8E010000 		.4byte	.LVL142
+ 2294 0849 C2030000 		.4byte	0x3c2
+ 2295 084d 0F       		.uleb128 0xf
+ 2296 084e 94010000 		.4byte	.LVL144
+ 2297 0852 A6040000 		.4byte	0x4a6
+ 2298 0856 0F       		.uleb128 0xf
+ 2299 0857 A4010000 		.4byte	.LVL146
+ 2300 085b 34040000 		.4byte	0x434
+ 2301 085f 0F       		.uleb128 0xf
+ 2302 0860 AA010000 		.4byte	.LVL148
+ 2303 0864 A6040000 		.4byte	0x4a6
+ 2304 0868 0F       		.uleb128 0xf
+ 2305 0869 B0010000 		.4byte	.LVL150
+ 2306 086d 18050000 		.4byte	0x518
+ 2307 0871 00       		.byte	0
+ 2308 0872 0D       		.uleb128 0xd
+ 2309 0873 0A000000 		.4byte	.LVL82
+ 2310 0877 900B0000 		.4byte	0xb90
+ 2311 087b 89080000 		.4byte	0x889
+ 2312 087f 0E       		.uleb128 0xe
+ 2313 0880 01       		.uleb128 0x1
+ 2314 0881 50       		.byte	0x50
+ 2315 0882 05       		.uleb128 0x5
+ 2316 0883 03       		.byte	0x3
+ 2317 0884 00000000 		.4byte	eoc1
+ 2318 0888 00       		.byte	0
+ 2319 0889 0D       		.uleb128 0xd
+ 2320 088a 14000000 		.4byte	.LVL83
+ 2321 088e 9B0B0000 		.4byte	0xb9b
+ 2322 0892 A1080000 		.4byte	0x8a1
+ 2323 0896 0E       		.uleb128 0xe
+ 2324 0897 01       		.uleb128 0x1
+ 2325 0898 50       		.byte	0x50
+ 2326 0899 01       		.uleb128 0x1
+ 2327 089a 30       		.byte	0x30
+ 2328 089b 0E       		.uleb128 0xe
+ 2329 089c 01       		.uleb128 0x1
+ 2330 089d 51       		.byte	0x51
+ 2331 089e 01       		.uleb128 0x1
+ 2332 089f 31       		.byte	0x31
+ 2333 08a0 00       		.byte	0
+ 2334 08a1 0F       		.uleb128 0xf
+ 2335 08a2 18000000 		.4byte	.LVL84
+ 2336 08a6 A70B0000 		.4byte	0xba7
+ 2337 08aa 0F       		.uleb128 0xf
+ 2338 08ab 1C000000 		.4byte	.LVL85
+ 2339 08af B20B0000 		.4byte	0xbb2
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 55
+
+
+ 2340 08b3 00       		.byte	0
+ 2341 08b4 1E       		.uleb128 0x1e
+ 2342 08b5 A0040000 		.4byte	.LASF60
+ 2343 08b9 05       		.byte	0x5
+ 2344 08ba 1207     		.2byte	0x712
+ 2345 08bc C0080000 		.4byte	0x8c0
+ 2346 08c0 1F       		.uleb128 0x1f
+ 2347 08c1 76000000 		.4byte	0x76
+ 2348 08c5 20       		.uleb128 0x20
+ 2349 08c6 89040000 		.4byte	.LASF61
+ 2350 08ca 01       		.byte	0x1
+ 2351 08cb 13       		.byte	0x13
+ 2352 08cc 68000000 		.4byte	0x68
+ 2353 08d0 05       		.uleb128 0x5
+ 2354 08d1 03       		.byte	0x3
+ 2355 08d2 00000000 		.4byte	flag
+ 2356 08d6 20       		.uleb128 0x20
+ 2357 08d7 32010000 		.4byte	.LASF62
+ 2358 08db 01       		.byte	0x1
+ 2359 08dc 14       		.byte	0x14
+ 2360 08dd 68000000 		.4byte	0x68
+ 2361 08e1 05       		.uleb128 0x5
+ 2362 08e2 03       		.byte	0x3
+ 2363 08e3 00000000 		.4byte	flag2
+ 2364 08e7 20       		.uleb128 0x20
+ 2365 08e8 38010000 		.4byte	.LASF63
+ 2366 08ec 01       		.byte	0x1
+ 2367 08ed 15       		.byte	0x15
+ 2368 08ee 68000000 		.4byte	0x68
+ 2369 08f2 05       		.uleb128 0x5
+ 2370 08f3 03       		.byte	0x3
+ 2371 08f4 00000000 		.4byte	flag3
+ 2372 08f8 20       		.uleb128 0x20
+ 2373 08f9 3E010000 		.4byte	.LASF64
+ 2374 08fd 01       		.byte	0x1
+ 2375 08fe 16       		.byte	0x16
+ 2376 08ff 68000000 		.4byte	0x68
+ 2377 0903 05       		.uleb128 0x5
+ 2378 0904 03       		.byte	0x3
+ 2379 0905 00000000 		.4byte	flag4
+ 2380 0909 20       		.uleb128 0x20
+ 2381 090a 44010000 		.4byte	.LASF65
+ 2382 090e 01       		.byte	0x1
+ 2383 090f 17       		.byte	0x17
+ 2384 0910 68000000 		.4byte	0x68
+ 2385 0914 05       		.uleb128 0x5
+ 2386 0915 03       		.byte	0x3
+ 2387 0916 00000000 		.4byte	flag5
+ 2388 091a 20       		.uleb128 0x20
+ 2389 091b 4A010000 		.4byte	.LASF66
+ 2390 091f 01       		.byte	0x1
+ 2391 0920 18       		.byte	0x18
+ 2392 0921 68000000 		.4byte	0x68
+ 2393 0925 05       		.uleb128 0x5
+ 2394 0926 03       		.byte	0x3
+ 2395 0927 00000000 		.4byte	flag6
+ 2396 092b 20       		.uleb128 0x20
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 56
+
+
+ 2397 092c 70020000 		.4byte	.LASF67
+ 2398 0930 01       		.byte	0x1
+ 2399 0931 1A       		.byte	0x1a
+ 2400 0932 68000000 		.4byte	0x68
+ 2401 0936 05       		.uleb128 0x5
+ 2402 0937 03       		.byte	0x3
+ 2403 0938 00000000 		.4byte	turnLock
+ 2404 093c 20       		.uleb128 0x20
+ 2405 093d 0A040000 		.4byte	.LASF68
+ 2406 0941 01       		.byte	0x1
+ 2407 0942 1C       		.byte	0x1c
+ 2408 0943 68000000 		.4byte	0x68
+ 2409 0947 05       		.uleb128 0x5
+ 2410 0948 03       		.byte	0x3
+ 2411 0949 00000000 		.4byte	count1
+ 2412 094d 20       		.uleb128 0x20
+ 2413 094e 11040000 		.4byte	.LASF69
+ 2414 0952 01       		.byte	0x1
+ 2415 0953 1D       		.byte	0x1d
+ 2416 0954 68000000 		.4byte	0x68
+ 2417 0958 05       		.uleb128 0x5
+ 2418 0959 03       		.byte	0x3
+ 2419 095a 00000000 		.4byte	count2
+ 2420 095e 20       		.uleb128 0x20
+ 2421 095f 64000000 		.4byte	.LASF70
+ 2422 0963 01       		.byte	0x1
+ 2423 0964 1E       		.byte	0x1e
+ 2424 0965 68000000 		.4byte	0x68
+ 2425 0969 05       		.uleb128 0x5
+ 2426 096a 03       		.byte	0x3
+ 2427 096b 00000000 		.4byte	count3
+ 2428 096f 20       		.uleb128 0x20
+ 2429 0970 73000000 		.4byte	.LASF71
+ 2430 0974 01       		.byte	0x1
+ 2431 0975 1F       		.byte	0x1f
+ 2432 0976 68000000 		.4byte	0x68
+ 2433 097a 05       		.uleb128 0x5
+ 2434 097b 03       		.byte	0x3
+ 2435 097c 00000000 		.4byte	count4
+ 2436 0980 20       		.uleb128 0x20
+ 2437 0981 2E040000 		.4byte	.LASF72
+ 2438 0985 01       		.byte	0x1
+ 2439 0986 20       		.byte	0x20
+ 2440 0987 68000000 		.4byte	0x68
+ 2441 098b 05       		.uleb128 0x5
+ 2442 098c 03       		.byte	0x3
+ 2443 098d 00000000 		.4byte	count5
+ 2444 0991 20       		.uleb128 0x20
+ 2445 0992 35040000 		.4byte	.LASF73
+ 2446 0996 01       		.byte	0x1
+ 2447 0997 21       		.byte	0x21
+ 2448 0998 68000000 		.4byte	0x68
+ 2449 099c 05       		.uleb128 0x5
+ 2450 099d 03       		.byte	0x3
+ 2451 099e 00000000 		.4byte	count6
+ 2452 09a2 21       		.uleb128 0x21
+ 2453 09a3 68000000 		.4byte	0x68
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 57
+
+
+ 2454 09a7 B2090000 		.4byte	0x9b2
+ 2455 09ab 22       		.uleb128 0x22
+ 2456 09ac A9000000 		.4byte	0xa9
+ 2457 09b0 09       		.byte	0x9
+ 2458 09b1 00       		.byte	0
+ 2459 09b2 20       		.uleb128 0x20
+ 2460 09b3 FA030000 		.4byte	.LASF37
+ 2461 09b7 01       		.byte	0x1
+ 2462 09b8 24       		.byte	0x24
+ 2463 09b9 A2090000 		.4byte	0x9a2
+ 2464 09bd 05       		.uleb128 0x5
+ 2465 09be 03       		.byte	0x3
+ 2466 09bf 00000000 		.4byte	array
+ 2467 09c3 20       		.uleb128 0x20
+ 2468 09c4 E6010000 		.4byte	.LASF74
+ 2469 09c8 01       		.byte	0x1
+ 2470 09c9 25       		.byte	0x25
+ 2471 09ca A2090000 		.4byte	0x9a2
+ 2472 09ce 05       		.uleb128 0x5
+ 2473 09cf 03       		.byte	0x3
+ 2474 09d0 00000000 		.4byte	array2
+ 2475 09d4 20       		.uleb128 0x20
+ 2476 09d5 72040000 		.4byte	.LASF75
+ 2477 09d9 01       		.byte	0x1
+ 2478 09da 26       		.byte	0x26
+ 2479 09db A2090000 		.4byte	0x9a2
+ 2480 09df 05       		.uleb128 0x5
+ 2481 09e0 03       		.byte	0x3
+ 2482 09e1 00000000 		.4byte	array3
+ 2483 09e5 20       		.uleb128 0x20
+ 2484 09e6 FF010000 		.4byte	.LASF76
+ 2485 09ea 01       		.byte	0x1
+ 2486 09eb 27       		.byte	0x27
+ 2487 09ec A2090000 		.4byte	0x9a2
+ 2488 09f0 05       		.uleb128 0x5
+ 2489 09f1 03       		.byte	0x3
+ 2490 09f2 00000000 		.4byte	array4
+ 2491 09f6 20       		.uleb128 0x20
+ 2492 09f7 06020000 		.4byte	.LASF77
+ 2493 09fb 01       		.byte	0x1
+ 2494 09fc 28       		.byte	0x28
+ 2495 09fd A2090000 		.4byte	0x9a2
+ 2496 0a01 05       		.uleb128 0x5
+ 2497 0a02 03       		.byte	0x3
+ 2498 0a03 00000000 		.4byte	array5
+ 2499 0a07 20       		.uleb128 0x20
+ 2500 0a08 82040000 		.4byte	.LASF78
+ 2501 0a0c 01       		.byte	0x1
+ 2502 0a0d 29       		.byte	0x29
+ 2503 0a0e A2090000 		.4byte	0x9a2
+ 2504 0a12 05       		.uleb128 0x5
+ 2505 0a13 03       		.byte	0x3
+ 2506 0a14 00000000 		.4byte	array6
+ 2507 0a18 20       		.uleb128 0x20
+ 2508 0a19 7D010000 		.4byte	.LASF79
+ 2509 0a1d 01       		.byte	0x1
+ 2510 0a1e 2C       		.byte	0x2c
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 58
+
+
+ 2511 0a1f 68000000 		.4byte	0x68
+ 2512 0a23 05       		.uleb128 0x5
+ 2513 0a24 03       		.byte	0x3
+ 2514 0a25 00000000 		.4byte	motor1
+ 2515 0a29 20       		.uleb128 0x20
+ 2516 0a2a 84010000 		.4byte	.LASF80
+ 2517 0a2e 01       		.byte	0x1
+ 2518 0a2f 2D       		.byte	0x2d
+ 2519 0a30 68000000 		.4byte	0x68
+ 2520 0a34 05       		.uleb128 0x5
+ 2521 0a35 03       		.byte	0x3
+ 2522 0a36 00000000 		.4byte	motor2
+ 2523 0a3a 20       		.uleb128 0x20
+ 2524 0a3b 8B010000 		.4byte	.LASF81
+ 2525 0a3f 01       		.byte	0x1
+ 2526 0a40 2E       		.byte	0x2e
+ 2527 0a41 68000000 		.4byte	0x68
+ 2528 0a45 05       		.uleb128 0x5
+ 2529 0a46 03       		.byte	0x3
+ 2530 0a47 00000000 		.4byte	motor3
+ 2531 0a4b 20       		.uleb128 0x20
+ 2532 0a4c B1000000 		.4byte	.LASF82
+ 2533 0a50 01       		.byte	0x1
+ 2534 0a51 2F       		.byte	0x2f
+ 2535 0a52 68000000 		.4byte	0x68
+ 2536 0a56 05       		.uleb128 0x5
+ 2537 0a57 03       		.byte	0x3
+ 2538 0a58 00000000 		.4byte	motor4
+ 2539 0a5c 20       		.uleb128 0x20
+ 2540 0a5d 98010000 		.4byte	.LASF83
+ 2541 0a61 01       		.byte	0x1
+ 2542 0a62 30       		.byte	0x30
+ 2543 0a63 68000000 		.4byte	0x68
+ 2544 0a67 05       		.uleb128 0x5
+ 2545 0a68 03       		.byte	0x3
+ 2546 0a69 00000000 		.4byte	motor5
+ 2547 0a6d 20       		.uleb128 0x20
+ 2548 0a6e 9F010000 		.4byte	.LASF84
+ 2549 0a72 01       		.byte	0x1
+ 2550 0a73 31       		.byte	0x31
+ 2551 0a74 68000000 		.4byte	0x68
+ 2552 0a78 05       		.uleb128 0x5
+ 2553 0a79 03       		.byte	0x3
+ 2554 0a7a 00000000 		.4byte	motor6
+ 2555 0a7e 20       		.uleb128 0x20
+ 2556 0a7f 92010000 		.4byte	.LASF50
+ 2557 0a83 01       		.byte	0x1
+ 2558 0a84 35       		.byte	0x35
+ 2559 0a85 68000000 		.4byte	0x68
+ 2560 0a89 05       		.uleb128 0x5
+ 2561 0a8a 03       		.byte	0x3
+ 2562 0a8b 00000000 		.4byte	speed
+ 2563 0a8f 20       		.uleb128 0x20
+ 2564 0a90 09010000 		.4byte	.LASF85
+ 2565 0a94 01       		.byte	0x1
+ 2566 0a95 36       		.byte	0x36
+ 2567 0a96 68000000 		.4byte	0x68
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 59
+
+
+ 2568 0a9a 05       		.uleb128 0x5
+ 2569 0a9b 03       		.byte	0x3
+ 2570 0a9c 00000000 		.4byte	flag33
+ 2571 0aa0 20       		.uleb128 0x20
+ 2572 0aa1 E4020000 		.4byte	.LASF86
+ 2573 0aa5 01       		.byte	0x1
+ 2574 0aa6 38       		.byte	0x38
+ 2575 0aa7 68000000 		.4byte	0x68
+ 2576 0aab 05       		.uleb128 0x5
+ 2577 0aac 03       		.byte	0x3
+ 2578 0aad 00000000 		.4byte	offset
+ 2579 0ab1 20       		.uleb128 0x20
+ 2580 0ab2 F3000000 		.4byte	.LASF87
+ 2581 0ab6 01       		.byte	0x1
+ 2582 0ab7 3A       		.byte	0x3a
+ 2583 0ab8 68000000 		.4byte	0x68
+ 2584 0abc 05       		.uleb128 0x5
+ 2585 0abd 03       		.byte	0x3
+ 2586 0abe 00000000 		.4byte	startDuty
+ 2587 0ac2 20       		.uleb128 0x20
+ 2588 0ac3 98020000 		.4byte	.LASF88
+ 2589 0ac7 01       		.byte	0x1
+ 2590 0ac8 3B       		.byte	0x3b
+ 2591 0ac9 68000000 		.4byte	0x68
+ 2592 0acd 05       		.uleb128 0x5
+ 2593 0ace 03       		.byte	0x3
+ 2594 0acf 00000000 		.4byte	leftDuty
+ 2595 0ad3 20       		.uleb128 0x20
+ 2596 0ad4 3C030000 		.4byte	.LASF89
+ 2597 0ad8 01       		.byte	0x1
+ 2598 0ad9 3C       		.byte	0x3c
+ 2599 0ada 68000000 		.4byte	0x68
+ 2600 0ade 05       		.uleb128 0x5
+ 2601 0adf 03       		.byte	0x3
+ 2602 0ae0 00000000 		.4byte	rightDuty
+ 2603 0ae4 20       		.uleb128 0x20
+ 2604 0ae5 B5030000 		.4byte	.LASF90
+ 2605 0ae9 01       		.byte	0x1
+ 2606 0aea 3F       		.byte	0x3f
+ 2607 0aeb 68000000 		.4byte	0x68
+ 2608 0aef 05       		.uleb128 0x5
+ 2609 0af0 03       		.byte	0x3
+ 2610 0af1 00000000 		.4byte	leftTurn
+ 2611 0af5 20       		.uleb128 0x20
+ 2612 0af6 1E010000 		.4byte	.LASF91
+ 2613 0afa 01       		.byte	0x1
+ 2614 0afb 40       		.byte	0x40
+ 2615 0afc 68000000 		.4byte	0x68
+ 2616 0b00 05       		.uleb128 0x5
+ 2617 0b01 03       		.byte	0x3
+ 2618 0b02 00000000 		.4byte	rightTurn
+ 2619 0b06 20       		.uleb128 0x20
+ 2620 0b07 9D000000 		.4byte	.LASF92
+ 2621 0b0b 01       		.byte	0x1
+ 2622 0b0c 41       		.byte	0x41
+ 2623 0b0d 68000000 		.4byte	0x68
+ 2624 0b11 05       		.uleb128 0x5
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 60
+
+
+ 2625 0b12 03       		.byte	0x3
+ 2626 0b13 00000000 		.4byte	finishTurn
+ 2627 0b17 23       		.uleb128 0x23
+ 2628 0b18 42040000 		.4byte	.LASF93
+ 2629 0b1c 42040000 		.4byte	.LASF93
+ 2630 0b20 06       		.byte	0x6
+ 2631 0b21 35       		.byte	0x35
+ 2632 0b22 23       		.uleb128 0x23
+ 2633 0b23 46000000 		.4byte	.LASF94
+ 2634 0b27 46000000 		.4byte	.LASF94
+ 2635 0b2b 06       		.byte	0x6
+ 2636 0b2c 3A       		.byte	0x3a
+ 2637 0b2d 23       		.uleb128 0x23
+ 2638 0b2e 97050000 		.4byte	.LASF95
+ 2639 0b32 97050000 		.4byte	.LASF95
+ 2640 0b36 07       		.byte	0x7
+ 2641 0b37 28       		.byte	0x28
+ 2642 0b38 23       		.uleb128 0x23
+ 2643 0b39 2A030000 		.4byte	.LASF96
+ 2644 0b3d 2A030000 		.4byte	.LASF96
+ 2645 0b41 08       		.byte	0x8
+ 2646 0b42 21       		.byte	0x21
+ 2647 0b43 23       		.uleb128 0x23
+ 2648 0b44 ED010000 		.4byte	.LASF97
+ 2649 0b48 ED010000 		.4byte	.LASF97
+ 2650 0b4c 07       		.byte	0x7
+ 2651 0b4d 23       		.byte	0x23
+ 2652 0b4e 23       		.uleb128 0x23
+ 2653 0b4f 11030000 		.4byte	.LASF98
+ 2654 0b53 11030000 		.4byte	.LASF98
+ 2655 0b57 09       		.byte	0x9
+ 2656 0b58 92       		.byte	0x92
+ 2657 0b59 23       		.uleb128 0x23
+ 2658 0b5a B8010000 		.4byte	.LASF99
+ 2659 0b5e B8010000 		.4byte	.LASF99
+ 2660 0b62 0A       		.byte	0xa
+ 2661 0b63 92       		.byte	0x92
+ 2662 0b64 23       		.uleb128 0x23
+ 2663 0b65 D6030000 		.4byte	.LASF100
+ 2664 0b69 D6030000 		.4byte	.LASF100
+ 2665 0b6d 09       		.byte	0x9
+ 2666 0b6e C7       		.byte	0xc7
+ 2667 0b6f 23       		.uleb128 0x23
+ 2668 0b70 B8000000 		.4byte	.LASF101
+ 2669 0b74 B8000000 		.4byte	.LASF101
+ 2670 0b78 09       		.byte	0x9
+ 2671 0b79 CA       		.byte	0xca
+ 2672 0b7a 23       		.uleb128 0x23
+ 2673 0b7b 0D020000 		.4byte	.LASF102
+ 2674 0b7f 0D020000 		.4byte	.LASF102
+ 2675 0b83 0A       		.byte	0xa
+ 2676 0b84 C7       		.byte	0xc7
+ 2677 0b85 23       		.uleb128 0x23
+ 2678 0b86 2A020000 		.4byte	.LASF103
+ 2679 0b8a 2A020000 		.4byte	.LASF103
+ 2680 0b8e 0A       		.byte	0xa
+ 2681 0b8f CA       		.byte	0xca
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 61
+
+
+ 2682 0b90 23       		.uleb128 0x23
+ 2683 0b91 8E040000 		.4byte	.LASF104
+ 2684 0b95 8E040000 		.4byte	.LASF104
+ 2685 0b99 0B       		.byte	0xb
+ 2686 0b9a 18       		.byte	0x18
+ 2687 0b9b 24       		.uleb128 0x24
+ 2688 0b9c 87050000 		.4byte	.LASF105
+ 2689 0ba0 87050000 		.4byte	.LASF105
+ 2690 0ba4 0C       		.byte	0xc
+ 2691 0ba5 2A01     		.2byte	0x12a
+ 2692 0ba7 23       		.uleb128 0x23
+ 2693 0ba8 73050000 		.4byte	.LASF106
+ 2694 0bac 73050000 		.4byte	.LASF106
+ 2695 0bb0 06       		.byte	0x6
+ 2696 0bb1 31       		.byte	0x31
+ 2697 0bb2 23       		.uleb128 0x23
+ 2698 0bb3 10010000 		.4byte	.LASF107
+ 2699 0bb7 10010000 		.4byte	.LASF107
+ 2700 0bbb 0D       		.byte	0xd
+ 2701 0bbc 5A       		.byte	0x5a
+ 2702 0bbd 00       		.byte	0
+ 2703              		.section	.debug_abbrev,"",%progbits
+ 2704              	.Ldebug_abbrev0:
+ 2705 0000 01       		.uleb128 0x1
+ 2706 0001 11       		.uleb128 0x11
+ 2707 0002 01       		.byte	0x1
+ 2708 0003 25       		.uleb128 0x25
+ 2709 0004 0E       		.uleb128 0xe
+ 2710 0005 13       		.uleb128 0x13
+ 2711 0006 0B       		.uleb128 0xb
+ 2712 0007 03       		.uleb128 0x3
+ 2713 0008 0E       		.uleb128 0xe
+ 2714 0009 1B       		.uleb128 0x1b
+ 2715 000a 0E       		.uleb128 0xe
+ 2716 000b 55       		.uleb128 0x55
+ 2717 000c 17       		.uleb128 0x17
+ 2718 000d 11       		.uleb128 0x11
+ 2719 000e 01       		.uleb128 0x1
+ 2720 000f 10       		.uleb128 0x10
+ 2721 0010 17       		.uleb128 0x17
+ 2722 0011 00       		.byte	0
+ 2723 0012 00       		.byte	0
+ 2724 0013 02       		.uleb128 0x2
+ 2725 0014 24       		.uleb128 0x24
+ 2726 0015 00       		.byte	0
+ 2727 0016 0B       		.uleb128 0xb
+ 2728 0017 0B       		.uleb128 0xb
+ 2729 0018 3E       		.uleb128 0x3e
+ 2730 0019 0B       		.uleb128 0xb
+ 2731 001a 03       		.uleb128 0x3
+ 2732 001b 0E       		.uleb128 0xe
+ 2733 001c 00       		.byte	0
+ 2734 001d 00       		.byte	0
+ 2735 001e 03       		.uleb128 0x3
+ 2736 001f 16       		.uleb128 0x16
+ 2737 0020 00       		.byte	0
+ 2738 0021 03       		.uleb128 0x3
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 62
+
+
+ 2739 0022 0E       		.uleb128 0xe
+ 2740 0023 3A       		.uleb128 0x3a
+ 2741 0024 0B       		.uleb128 0xb
+ 2742 0025 3B       		.uleb128 0x3b
+ 2743 0026 0B       		.uleb128 0xb
+ 2744 0027 49       		.uleb128 0x49
+ 2745 0028 13       		.uleb128 0x13
+ 2746 0029 00       		.byte	0
+ 2747 002a 00       		.byte	0
+ 2748 002b 04       		.uleb128 0x4
+ 2749 002c 24       		.uleb128 0x24
+ 2750 002d 00       		.byte	0
+ 2751 002e 0B       		.uleb128 0xb
+ 2752 002f 0B       		.uleb128 0xb
+ 2753 0030 3E       		.uleb128 0x3e
+ 2754 0031 0B       		.uleb128 0xb
+ 2755 0032 03       		.uleb128 0x3
+ 2756 0033 08       		.uleb128 0x8
+ 2757 0034 00       		.byte	0
+ 2758 0035 00       		.byte	0
+ 2759 0036 05       		.uleb128 0x5
+ 2760 0037 16       		.uleb128 0x16
+ 2761 0038 00       		.byte	0
+ 2762 0039 03       		.uleb128 0x3
+ 2763 003a 0E       		.uleb128 0xe
+ 2764 003b 3A       		.uleb128 0x3a
+ 2765 003c 0B       		.uleb128 0xb
+ 2766 003d 3B       		.uleb128 0x3b
+ 2767 003e 05       		.uleb128 0x5
+ 2768 003f 49       		.uleb128 0x49
+ 2769 0040 13       		.uleb128 0x13
+ 2770 0041 00       		.byte	0
+ 2771 0042 00       		.byte	0
+ 2772 0043 06       		.uleb128 0x6
+ 2773 0044 0F       		.uleb128 0xf
+ 2774 0045 00       		.byte	0
+ 2775 0046 0B       		.uleb128 0xb
+ 2776 0047 0B       		.uleb128 0xb
+ 2777 0048 49       		.uleb128 0x49
+ 2778 0049 13       		.uleb128 0x13
+ 2779 004a 00       		.byte	0
+ 2780 004b 00       		.byte	0
+ 2781 004c 07       		.uleb128 0x7
+ 2782 004d 04       		.uleb128 0x4
+ 2783 004e 01       		.byte	0x1
+ 2784 004f 03       		.uleb128 0x3
+ 2785 0050 0E       		.uleb128 0xe
+ 2786 0051 0B       		.uleb128 0xb
+ 2787 0052 0B       		.uleb128 0xb
+ 2788 0053 49       		.uleb128 0x49
+ 2789 0054 13       		.uleb128 0x13
+ 2790 0055 3A       		.uleb128 0x3a
+ 2791 0056 0B       		.uleb128 0xb
+ 2792 0057 3B       		.uleb128 0x3b
+ 2793 0058 0B       		.uleb128 0xb
+ 2794 0059 01       		.uleb128 0x1
+ 2795 005a 13       		.uleb128 0x13
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 63
+
+
+ 2796 005b 00       		.byte	0
+ 2797 005c 00       		.byte	0
+ 2798 005d 08       		.uleb128 0x8
+ 2799 005e 28       		.uleb128 0x28
+ 2800 005f 00       		.byte	0
+ 2801 0060 03       		.uleb128 0x3
+ 2802 0061 0E       		.uleb128 0xe
+ 2803 0062 1C       		.uleb128 0x1c
+ 2804 0063 0B       		.uleb128 0xb
+ 2805 0064 00       		.byte	0
+ 2806 0065 00       		.byte	0
+ 2807 0066 09       		.uleb128 0x9
+ 2808 0067 2E       		.uleb128 0x2e
+ 2809 0068 01       		.byte	0x1
+ 2810 0069 3F       		.uleb128 0x3f
+ 2811 006a 19       		.uleb128 0x19
+ 2812 006b 03       		.uleb128 0x3
+ 2813 006c 0E       		.uleb128 0xe
+ 2814 006d 3A       		.uleb128 0x3a
+ 2815 006e 0B       		.uleb128 0xb
+ 2816 006f 3B       		.uleb128 0x3b
+ 2817 0070 0B       		.uleb128 0xb
+ 2818 0071 27       		.uleb128 0x27
+ 2819 0072 19       		.uleb128 0x19
+ 2820 0073 11       		.uleb128 0x11
+ 2821 0074 01       		.uleb128 0x1
+ 2822 0075 12       		.uleb128 0x12
+ 2823 0076 06       		.uleb128 0x6
+ 2824 0077 40       		.uleb128 0x40
+ 2825 0078 18       		.uleb128 0x18
+ 2826 0079 9742     		.uleb128 0x2117
+ 2827 007b 19       		.uleb128 0x19
+ 2828 007c 01       		.uleb128 0x1
+ 2829 007d 13       		.uleb128 0x13
+ 2830 007e 00       		.byte	0
+ 2831 007f 00       		.byte	0
+ 2832 0080 0A       		.uleb128 0xa
+ 2833 0081 0B       		.uleb128 0xb
+ 2834 0082 01       		.byte	0x1
+ 2835 0083 11       		.uleb128 0x11
+ 2836 0084 01       		.uleb128 0x1
+ 2837 0085 12       		.uleb128 0x12
+ 2838 0086 06       		.uleb128 0x6
+ 2839 0087 01       		.uleb128 0x1
+ 2840 0088 13       		.uleb128 0x13
+ 2841 0089 00       		.byte	0
+ 2842 008a 00       		.byte	0
+ 2843 008b 0B       		.uleb128 0xb
+ 2844 008c 34       		.uleb128 0x34
+ 2845 008d 00       		.byte	0
+ 2846 008e 03       		.uleb128 0x3
+ 2847 008f 08       		.uleb128 0x8
+ 2848 0090 3A       		.uleb128 0x3a
+ 2849 0091 0B       		.uleb128 0xb
+ 2850 0092 3B       		.uleb128 0x3b
+ 2851 0093 0B       		.uleb128 0xb
+ 2852 0094 49       		.uleb128 0x49
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 64
+
+
+ 2853 0095 13       		.uleb128 0x13
+ 2854 0096 02       		.uleb128 0x2
+ 2855 0097 17       		.uleb128 0x17
+ 2856 0098 00       		.byte	0
+ 2857 0099 00       		.byte	0
+ 2858 009a 0C       		.uleb128 0xc
+ 2859 009b 34       		.uleb128 0x34
+ 2860 009c 00       		.byte	0
+ 2861 009d 03       		.uleb128 0x3
+ 2862 009e 0E       		.uleb128 0xe
+ 2863 009f 3A       		.uleb128 0x3a
+ 2864 00a0 0B       		.uleb128 0xb
+ 2865 00a1 3B       		.uleb128 0x3b
+ 2866 00a2 0B       		.uleb128 0xb
+ 2867 00a3 49       		.uleb128 0x49
+ 2868 00a4 13       		.uleb128 0x13
+ 2869 00a5 02       		.uleb128 0x2
+ 2870 00a6 17       		.uleb128 0x17
+ 2871 00a7 00       		.byte	0
+ 2872 00a8 00       		.byte	0
+ 2873 00a9 0D       		.uleb128 0xd
+ 2874 00aa 898201   		.uleb128 0x4109
+ 2875 00ad 01       		.byte	0x1
+ 2876 00ae 11       		.uleb128 0x11
+ 2877 00af 01       		.uleb128 0x1
+ 2878 00b0 31       		.uleb128 0x31
+ 2879 00b1 13       		.uleb128 0x13
+ 2880 00b2 01       		.uleb128 0x1
+ 2881 00b3 13       		.uleb128 0x13
+ 2882 00b4 00       		.byte	0
+ 2883 00b5 00       		.byte	0
+ 2884 00b6 0E       		.uleb128 0xe
+ 2885 00b7 8A8201   		.uleb128 0x410a
+ 2886 00ba 00       		.byte	0
+ 2887 00bb 02       		.uleb128 0x2
+ 2888 00bc 18       		.uleb128 0x18
+ 2889 00bd 9142     		.uleb128 0x2111
+ 2890 00bf 18       		.uleb128 0x18
+ 2891 00c0 00       		.byte	0
+ 2892 00c1 00       		.byte	0
+ 2893 00c2 0F       		.uleb128 0xf
+ 2894 00c3 898201   		.uleb128 0x4109
+ 2895 00c6 00       		.byte	0
+ 2896 00c7 11       		.uleb128 0x11
+ 2897 00c8 01       		.uleb128 0x1
+ 2898 00c9 31       		.uleb128 0x31
+ 2899 00ca 13       		.uleb128 0x13
+ 2900 00cb 00       		.byte	0
+ 2901 00cc 00       		.byte	0
+ 2902 00cd 10       		.uleb128 0x10
+ 2903 00ce 0B       		.uleb128 0xb
+ 2904 00cf 01       		.byte	0x1
+ 2905 00d0 11       		.uleb128 0x11
+ 2906 00d1 01       		.uleb128 0x1
+ 2907 00d2 12       		.uleb128 0x12
+ 2908 00d3 06       		.uleb128 0x6
+ 2909 00d4 00       		.byte	0
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 65
+
+
+ 2910 00d5 00       		.byte	0
+ 2911 00d6 11       		.uleb128 0x11
+ 2912 00d7 2E       		.uleb128 0x2e
+ 2913 00d8 01       		.byte	0x1
+ 2914 00d9 3F       		.uleb128 0x3f
+ 2915 00da 19       		.uleb128 0x19
+ 2916 00db 03       		.uleb128 0x3
+ 2917 00dc 0E       		.uleb128 0xe
+ 2918 00dd 3A       		.uleb128 0x3a
+ 2919 00de 0B       		.uleb128 0xb
+ 2920 00df 3B       		.uleb128 0x3b
+ 2921 00e0 0B       		.uleb128 0xb
+ 2922 00e1 27       		.uleb128 0x27
+ 2923 00e2 19       		.uleb128 0x19
+ 2924 00e3 49       		.uleb128 0x49
+ 2925 00e4 13       		.uleb128 0x13
+ 2926 00e5 11       		.uleb128 0x11
+ 2927 00e6 01       		.uleb128 0x1
+ 2928 00e7 12       		.uleb128 0x12
+ 2929 00e8 06       		.uleb128 0x6
+ 2930 00e9 40       		.uleb128 0x40
+ 2931 00ea 18       		.uleb128 0x18
+ 2932 00eb 9742     		.uleb128 0x2117
+ 2933 00ed 19       		.uleb128 0x19
+ 2934 00ee 01       		.uleb128 0x1
+ 2935 00ef 13       		.uleb128 0x13
+ 2936 00f0 00       		.byte	0
+ 2937 00f1 00       		.byte	0
+ 2938 00f2 12       		.uleb128 0x12
+ 2939 00f3 05       		.uleb128 0x5
+ 2940 00f4 00       		.byte	0
+ 2941 00f5 03       		.uleb128 0x3
+ 2942 00f6 0E       		.uleb128 0xe
+ 2943 00f7 3A       		.uleb128 0x3a
+ 2944 00f8 0B       		.uleb128 0xb
+ 2945 00f9 3B       		.uleb128 0x3b
+ 2946 00fa 0B       		.uleb128 0xb
+ 2947 00fb 49       		.uleb128 0x49
+ 2948 00fc 13       		.uleb128 0x13
+ 2949 00fd 02       		.uleb128 0x2
+ 2950 00fe 17       		.uleb128 0x17
+ 2951 00ff 00       		.byte	0
+ 2952 0100 00       		.byte	0
+ 2953 0101 13       		.uleb128 0x13
+ 2954 0102 0B       		.uleb128 0xb
+ 2955 0103 01       		.byte	0x1
+ 2956 0104 55       		.uleb128 0x55
+ 2957 0105 17       		.uleb128 0x17
+ 2958 0106 00       		.byte	0
+ 2959 0107 00       		.byte	0
+ 2960 0108 14       		.uleb128 0x14
+ 2961 0109 05       		.uleb128 0x5
+ 2962 010a 00       		.byte	0
+ 2963 010b 03       		.uleb128 0x3
+ 2964 010c 08       		.uleb128 0x8
+ 2965 010d 3A       		.uleb128 0x3a
+ 2966 010e 0B       		.uleb128 0xb
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 66
+
+
+ 2967 010f 3B       		.uleb128 0x3b
+ 2968 0110 0B       		.uleb128 0xb
+ 2969 0111 49       		.uleb128 0x49
+ 2970 0112 13       		.uleb128 0x13
+ 2971 0113 02       		.uleb128 0x2
+ 2972 0114 17       		.uleb128 0x17
+ 2973 0115 00       		.byte	0
+ 2974 0116 00       		.byte	0
+ 2975 0117 15       		.uleb128 0x15
+ 2976 0118 898201   		.uleb128 0x4109
+ 2977 011b 01       		.byte	0x1
+ 2978 011c 11       		.uleb128 0x11
+ 2979 011d 01       		.uleb128 0x1
+ 2980 011e 31       		.uleb128 0x31
+ 2981 011f 13       		.uleb128 0x13
+ 2982 0120 00       		.byte	0
+ 2983 0121 00       		.byte	0
+ 2984 0122 16       		.uleb128 0x16
+ 2985 0123 2E       		.uleb128 0x2e
+ 2986 0124 01       		.byte	0x1
+ 2987 0125 3F       		.uleb128 0x3f
+ 2988 0126 19       		.uleb128 0x19
+ 2989 0127 03       		.uleb128 0x3
+ 2990 0128 0E       		.uleb128 0xe
+ 2991 0129 3A       		.uleb128 0x3a
+ 2992 012a 0B       		.uleb128 0xb
+ 2993 012b 3B       		.uleb128 0x3b
+ 2994 012c 0B       		.uleb128 0xb
+ 2995 012d 11       		.uleb128 0x11
+ 2996 012e 01       		.uleb128 0x1
+ 2997 012f 12       		.uleb128 0x12
+ 2998 0130 06       		.uleb128 0x6
+ 2999 0131 40       		.uleb128 0x40
+ 3000 0132 18       		.uleb128 0x18
+ 3001 0133 9742     		.uleb128 0x2117
+ 3002 0135 19       		.uleb128 0x19
+ 3003 0136 01       		.uleb128 0x1
+ 3004 0137 13       		.uleb128 0x13
+ 3005 0138 00       		.byte	0
+ 3006 0139 00       		.byte	0
+ 3007 013a 17       		.uleb128 0x17
+ 3008 013b 2E       		.uleb128 0x2e
+ 3009 013c 01       		.byte	0x1
+ 3010 013d 3F       		.uleb128 0x3f
+ 3011 013e 19       		.uleb128 0x19
+ 3012 013f 03       		.uleb128 0x3
+ 3013 0140 0E       		.uleb128 0xe
+ 3014 0141 3A       		.uleb128 0x3a
+ 3015 0142 0B       		.uleb128 0xb
+ 3016 0143 3B       		.uleb128 0x3b
+ 3017 0144 05       		.uleb128 0x5
+ 3018 0145 11       		.uleb128 0x11
+ 3019 0146 01       		.uleb128 0x1
+ 3020 0147 12       		.uleb128 0x12
+ 3021 0148 06       		.uleb128 0x6
+ 3022 0149 40       		.uleb128 0x40
+ 3023 014a 18       		.uleb128 0x18
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 67
+
+
+ 3024 014b 9742     		.uleb128 0x2117
+ 3025 014d 19       		.uleb128 0x19
+ 3026 014e 01       		.uleb128 0x1
+ 3027 014f 13       		.uleb128 0x13
+ 3028 0150 00       		.byte	0
+ 3029 0151 00       		.byte	0
+ 3030 0152 18       		.uleb128 0x18
+ 3031 0153 2E       		.uleb128 0x2e
+ 3032 0154 01       		.byte	0x1
+ 3033 0155 3F       		.uleb128 0x3f
+ 3034 0156 19       		.uleb128 0x19
+ 3035 0157 03       		.uleb128 0x3
+ 3036 0158 0E       		.uleb128 0xe
+ 3037 0159 3A       		.uleb128 0x3a
+ 3038 015a 0B       		.uleb128 0xb
+ 3039 015b 3B       		.uleb128 0x3b
+ 3040 015c 05       		.uleb128 0x5
+ 3041 015d 27       		.uleb128 0x27
+ 3042 015e 19       		.uleb128 0x19
+ 3043 015f 11       		.uleb128 0x11
+ 3044 0160 01       		.uleb128 0x1
+ 3045 0161 12       		.uleb128 0x12
+ 3046 0162 06       		.uleb128 0x6
+ 3047 0163 40       		.uleb128 0x40
+ 3048 0164 18       		.uleb128 0x18
+ 3049 0165 9742     		.uleb128 0x2117
+ 3050 0167 19       		.uleb128 0x19
+ 3051 0168 01       		.uleb128 0x1
+ 3052 0169 13       		.uleb128 0x13
+ 3053 016a 00       		.byte	0
+ 3054 016b 00       		.byte	0
+ 3055 016c 19       		.uleb128 0x19
+ 3056 016d 05       		.uleb128 0x5
+ 3057 016e 00       		.byte	0
+ 3058 016f 03       		.uleb128 0x3
+ 3059 0170 0E       		.uleb128 0xe
+ 3060 0171 3A       		.uleb128 0x3a
+ 3061 0172 0B       		.uleb128 0xb
+ 3062 0173 3B       		.uleb128 0x3b
+ 3063 0174 05       		.uleb128 0x5
+ 3064 0175 49       		.uleb128 0x49
+ 3065 0176 13       		.uleb128 0x13
+ 3066 0177 02       		.uleb128 0x2
+ 3067 0178 17       		.uleb128 0x17
+ 3068 0179 00       		.byte	0
+ 3069 017a 00       		.byte	0
+ 3070 017b 1A       		.uleb128 0x1a
+ 3071 017c 2E       		.uleb128 0x2e
+ 3072 017d 01       		.byte	0x1
+ 3073 017e 3F       		.uleb128 0x3f
+ 3074 017f 19       		.uleb128 0x19
+ 3075 0180 03       		.uleb128 0x3
+ 3076 0181 0E       		.uleb128 0xe
+ 3077 0182 3A       		.uleb128 0x3a
+ 3078 0183 0B       		.uleb128 0xb
+ 3079 0184 3B       		.uleb128 0x3b
+ 3080 0185 05       		.uleb128 0x5
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 68
+
+
+ 3081 0186 27       		.uleb128 0x27
+ 3082 0187 19       		.uleb128 0x19
+ 3083 0188 49       		.uleb128 0x49
+ 3084 0189 13       		.uleb128 0x13
+ 3085 018a 8701     		.uleb128 0x87
+ 3086 018c 19       		.uleb128 0x19
+ 3087 018d 11       		.uleb128 0x11
+ 3088 018e 01       		.uleb128 0x1
+ 3089 018f 12       		.uleb128 0x12
+ 3090 0190 06       		.uleb128 0x6
+ 3091 0191 40       		.uleb128 0x40
+ 3092 0192 18       		.uleb128 0x18
+ 3093 0193 9742     		.uleb128 0x2117
+ 3094 0195 19       		.uleb128 0x19
+ 3095 0196 01       		.uleb128 0x1
+ 3096 0197 13       		.uleb128 0x13
+ 3097 0198 00       		.byte	0
+ 3098 0199 00       		.byte	0
+ 3099 019a 1B       		.uleb128 0x1b
+ 3100 019b 34       		.uleb128 0x34
+ 3101 019c 00       		.byte	0
+ 3102 019d 03       		.uleb128 0x3
+ 3103 019e 08       		.uleb128 0x8
+ 3104 019f 3A       		.uleb128 0x3a
+ 3105 01a0 0B       		.uleb128 0xb
+ 3106 01a1 3B       		.uleb128 0x3b
+ 3107 01a2 05       		.uleb128 0x5
+ 3108 01a3 49       		.uleb128 0x49
+ 3109 01a4 13       		.uleb128 0x13
+ 3110 01a5 02       		.uleb128 0x2
+ 3111 01a6 17       		.uleb128 0x17
+ 3112 01a7 00       		.byte	0
+ 3113 01a8 00       		.byte	0
+ 3114 01a9 1C       		.uleb128 0x1c
+ 3115 01aa 34       		.uleb128 0x34
+ 3116 01ab 00       		.byte	0
+ 3117 01ac 03       		.uleb128 0x3
+ 3118 01ad 0E       		.uleb128 0xe
+ 3119 01ae 3A       		.uleb128 0x3a
+ 3120 01af 0B       		.uleb128 0xb
+ 3121 01b0 3B       		.uleb128 0x3b
+ 3122 01b1 05       		.uleb128 0x5
+ 3123 01b2 49       		.uleb128 0x49
+ 3124 01b3 13       		.uleb128 0x13
+ 3125 01b4 02       		.uleb128 0x2
+ 3126 01b5 17       		.uleb128 0x17
+ 3127 01b6 00       		.byte	0
+ 3128 01b7 00       		.byte	0
+ 3129 01b8 1D       		.uleb128 0x1d
+ 3130 01b9 34       		.uleb128 0x34
+ 3131 01ba 00       		.byte	0
+ 3132 01bb 03       		.uleb128 0x3
+ 3133 01bc 0E       		.uleb128 0xe
+ 3134 01bd 3A       		.uleb128 0x3a
+ 3135 01be 0B       		.uleb128 0xb
+ 3136 01bf 3B       		.uleb128 0x3b
+ 3137 01c0 05       		.uleb128 0x5
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 69
+
+
+ 3138 01c1 49       		.uleb128 0x49
+ 3139 01c2 13       		.uleb128 0x13
+ 3140 01c3 1C       		.uleb128 0x1c
+ 3141 01c4 05       		.uleb128 0x5
+ 3142 01c5 00       		.byte	0
+ 3143 01c6 00       		.byte	0
+ 3144 01c7 1E       		.uleb128 0x1e
+ 3145 01c8 34       		.uleb128 0x34
+ 3146 01c9 00       		.byte	0
+ 3147 01ca 03       		.uleb128 0x3
+ 3148 01cb 0E       		.uleb128 0xe
+ 3149 01cc 3A       		.uleb128 0x3a
+ 3150 01cd 0B       		.uleb128 0xb
+ 3151 01ce 3B       		.uleb128 0x3b
+ 3152 01cf 05       		.uleb128 0x5
+ 3153 01d0 49       		.uleb128 0x49
+ 3154 01d1 13       		.uleb128 0x13
+ 3155 01d2 3F       		.uleb128 0x3f
+ 3156 01d3 19       		.uleb128 0x19
+ 3157 01d4 3C       		.uleb128 0x3c
+ 3158 01d5 19       		.uleb128 0x19
+ 3159 01d6 00       		.byte	0
+ 3160 01d7 00       		.byte	0
+ 3161 01d8 1F       		.uleb128 0x1f
+ 3162 01d9 35       		.uleb128 0x35
+ 3163 01da 00       		.byte	0
+ 3164 01db 49       		.uleb128 0x49
+ 3165 01dc 13       		.uleb128 0x13
+ 3166 01dd 00       		.byte	0
+ 3167 01de 00       		.byte	0
+ 3168 01df 20       		.uleb128 0x20
+ 3169 01e0 34       		.uleb128 0x34
+ 3170 01e1 00       		.byte	0
+ 3171 01e2 03       		.uleb128 0x3
+ 3172 01e3 0E       		.uleb128 0xe
+ 3173 01e4 3A       		.uleb128 0x3a
+ 3174 01e5 0B       		.uleb128 0xb
+ 3175 01e6 3B       		.uleb128 0x3b
+ 3176 01e7 0B       		.uleb128 0xb
+ 3177 01e8 49       		.uleb128 0x49
+ 3178 01e9 13       		.uleb128 0x13
+ 3179 01ea 3F       		.uleb128 0x3f
+ 3180 01eb 19       		.uleb128 0x19
+ 3181 01ec 02       		.uleb128 0x2
+ 3182 01ed 18       		.uleb128 0x18
+ 3183 01ee 00       		.byte	0
+ 3184 01ef 00       		.byte	0
+ 3185 01f0 21       		.uleb128 0x21
+ 3186 01f1 01       		.uleb128 0x1
+ 3187 01f2 01       		.byte	0x1
+ 3188 01f3 49       		.uleb128 0x49
+ 3189 01f4 13       		.uleb128 0x13
+ 3190 01f5 01       		.uleb128 0x1
+ 3191 01f6 13       		.uleb128 0x13
+ 3192 01f7 00       		.byte	0
+ 3193 01f8 00       		.byte	0
+ 3194 01f9 22       		.uleb128 0x22
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 70
+
+
+ 3195 01fa 21       		.uleb128 0x21
+ 3196 01fb 00       		.byte	0
+ 3197 01fc 49       		.uleb128 0x49
+ 3198 01fd 13       		.uleb128 0x13
+ 3199 01fe 2F       		.uleb128 0x2f
+ 3200 01ff 0B       		.uleb128 0xb
+ 3201 0200 00       		.byte	0
+ 3202 0201 00       		.byte	0
+ 3203 0202 23       		.uleb128 0x23
+ 3204 0203 2E       		.uleb128 0x2e
+ 3205 0204 00       		.byte	0
+ 3206 0205 3F       		.uleb128 0x3f
+ 3207 0206 19       		.uleb128 0x19
+ 3208 0207 3C       		.uleb128 0x3c
+ 3209 0208 19       		.uleb128 0x19
+ 3210 0209 6E       		.uleb128 0x6e
+ 3211 020a 0E       		.uleb128 0xe
+ 3212 020b 03       		.uleb128 0x3
+ 3213 020c 0E       		.uleb128 0xe
+ 3214 020d 3A       		.uleb128 0x3a
+ 3215 020e 0B       		.uleb128 0xb
+ 3216 020f 3B       		.uleb128 0x3b
+ 3217 0210 0B       		.uleb128 0xb
+ 3218 0211 00       		.byte	0
+ 3219 0212 00       		.byte	0
+ 3220 0213 24       		.uleb128 0x24
+ 3221 0214 2E       		.uleb128 0x2e
+ 3222 0215 00       		.byte	0
+ 3223 0216 3F       		.uleb128 0x3f
+ 3224 0217 19       		.uleb128 0x19
+ 3225 0218 3C       		.uleb128 0x3c
+ 3226 0219 19       		.uleb128 0x19
+ 3227 021a 6E       		.uleb128 0x6e
+ 3228 021b 0E       		.uleb128 0xe
+ 3229 021c 03       		.uleb128 0x3
+ 3230 021d 0E       		.uleb128 0xe
+ 3231 021e 3A       		.uleb128 0x3a
+ 3232 021f 0B       		.uleb128 0xb
+ 3233 0220 3B       		.uleb128 0x3b
+ 3234 0221 05       		.uleb128 0x5
+ 3235 0222 00       		.byte	0
+ 3236 0223 00       		.byte	0
+ 3237 0224 00       		.byte	0
+ 3238              		.section	.debug_loc,"",%progbits
+ 3239              	.Ldebug_loc0:
+ 3240              	.LLST0:
+ 3241 0000 10000000 		.4byte	.LVL0
+ 3242 0004 13000000 		.4byte	.LVL1-1
+ 3243 0008 0700     		.2byte	0x7
+ 3244 000a 70       		.byte	0x70
+ 3245 000b 00       		.sleb128 0
+ 3246 000c 40       		.byte	0x40
+ 3247 000d 24       		.byte	0x24
+ 3248 000e 40       		.byte	0x40
+ 3249 000f 26       		.byte	0x26
+ 3250 0010 9F       		.byte	0x9f
+ 3251 0011 00000000 		.4byte	0
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 71
+
+
+ 3252 0015 00000000 		.4byte	0
+ 3253              	.LLST1:
+ 3254 0019 14000000 		.4byte	.LVL1
+ 3255 001d 24000000 		.4byte	.LVL2
+ 3256 0021 0100     		.2byte	0x1
+ 3257 0023 50       		.byte	0x50
+ 3258 0024 00000000 		.4byte	0
+ 3259 0028 00000000 		.4byte	0
+ 3260              	.LLST2:
+ 3261 002c 38000000 		.4byte	.LVL3
+ 3262 0030 3B000000 		.4byte	.LVL4-1
+ 3263 0034 0700     		.2byte	0x7
+ 3264 0036 70       		.byte	0x70
+ 3265 0037 00       		.sleb128 0
+ 3266 0038 40       		.byte	0x40
+ 3267 0039 24       		.byte	0x24
+ 3268 003a 40       		.byte	0x40
+ 3269 003b 26       		.byte	0x26
+ 3270 003c 9F       		.byte	0x9f
+ 3271 003d 00000000 		.4byte	0
+ 3272 0041 00000000 		.4byte	0
+ 3273              	.LLST3:
+ 3274 0045 3C000000 		.4byte	.LVL4
+ 3275 0049 4C000000 		.4byte	.LVL5
+ 3276 004d 0100     		.2byte	0x1
+ 3277 004f 50       		.byte	0x50
+ 3278 0050 00000000 		.4byte	0
+ 3279 0054 00000000 		.4byte	0
+ 3280              	.LLST4:
+ 3281 0058 60000000 		.4byte	.LVL6
+ 3282 005c 63000000 		.4byte	.LVL7-1
+ 3283 0060 0700     		.2byte	0x7
+ 3284 0062 70       		.byte	0x70
+ 3285 0063 00       		.sleb128 0
+ 3286 0064 40       		.byte	0x40
+ 3287 0065 24       		.byte	0x24
+ 3288 0066 40       		.byte	0x40
+ 3289 0067 26       		.byte	0x26
+ 3290 0068 9F       		.byte	0x9f
+ 3291 0069 00000000 		.4byte	0
+ 3292 006d 00000000 		.4byte	0
+ 3293              	.LLST5:
+ 3294 0071 64000000 		.4byte	.LVL7
+ 3295 0075 74000000 		.4byte	.LVL8
+ 3296 0079 0100     		.2byte	0x1
+ 3297 007b 50       		.byte	0x50
+ 3298 007c 00000000 		.4byte	0
+ 3299 0080 00000000 		.4byte	0
+ 3300              	.LLST6:
+ 3301 0084 8A000000 		.4byte	.LVL9
+ 3302 0088 8D000000 		.4byte	.LVL10-1
+ 3303 008c 0700     		.2byte	0x7
+ 3304 008e 70       		.byte	0x70
+ 3305 008f 00       		.sleb128 0
+ 3306 0090 40       		.byte	0x40
+ 3307 0091 24       		.byte	0x24
+ 3308 0092 40       		.byte	0x40
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 72
+
+
+ 3309 0093 26       		.byte	0x26
+ 3310 0094 9F       		.byte	0x9f
+ 3311 0095 00000000 		.4byte	0
+ 3312 0099 00000000 		.4byte	0
+ 3313              	.LLST7:
+ 3314 009d 8E000000 		.4byte	.LVL10
+ 3315 00a1 A4000000 		.4byte	.LVL11
+ 3316 00a5 0100     		.2byte	0x1
+ 3317 00a7 50       		.byte	0x50
+ 3318 00a8 00000000 		.4byte	0
+ 3319 00ac 00000000 		.4byte	0
+ 3320              	.LLST8:
+ 3321 00b0 BC000000 		.4byte	.LVL12
+ 3322 00b4 BF000000 		.4byte	.LVL13-1
+ 3323 00b8 0700     		.2byte	0x7
+ 3324 00ba 70       		.byte	0x70
+ 3325 00bb 00       		.sleb128 0
+ 3326 00bc 40       		.byte	0x40
+ 3327 00bd 24       		.byte	0x24
+ 3328 00be 40       		.byte	0x40
+ 3329 00bf 26       		.byte	0x26
+ 3330 00c0 9F       		.byte	0x9f
+ 3331 00c1 00000000 		.4byte	0
+ 3332 00c5 00000000 		.4byte	0
+ 3333              	.LLST9:
+ 3334 00c9 C0000000 		.4byte	.LVL13
+ 3335 00cd D6000000 		.4byte	.LVL14
+ 3336 00d1 0100     		.2byte	0x1
+ 3337 00d3 50       		.byte	0x50
+ 3338 00d4 00000000 		.4byte	0
+ 3339 00d8 00000000 		.4byte	0
+ 3340              	.LLST10:
+ 3341 00dc EE000000 		.4byte	.LVL15
+ 3342 00e0 F1000000 		.4byte	.LVL16-1
+ 3343 00e4 0700     		.2byte	0x7
+ 3344 00e6 70       		.byte	0x70
+ 3345 00e7 00       		.sleb128 0
+ 3346 00e8 40       		.byte	0x40
+ 3347 00e9 24       		.byte	0x24
+ 3348 00ea 40       		.byte	0x40
+ 3349 00eb 26       		.byte	0x26
+ 3350 00ec 9F       		.byte	0x9f
+ 3351 00ed 00000000 		.4byte	0
+ 3352 00f1 00000000 		.4byte	0
+ 3353              	.LLST11:
+ 3354 00f5 F2000000 		.4byte	.LVL16
+ 3355 00f9 08010000 		.4byte	.LVL17
+ 3356 00fd 0100     		.2byte	0x1
+ 3357 00ff 50       		.byte	0x50
+ 3358 0100 00000000 		.4byte	0
+ 3359 0104 00000000 		.4byte	0
+ 3360              	.LLST12:
+ 3361 0108 00000000 		.4byte	.LVL18
+ 3362 010c 18000000 		.4byte	.LVL22
+ 3363 0110 0100     		.2byte	0x1
+ 3364 0112 50       		.byte	0x50
+ 3365 0113 18000000 		.4byte	.LVL22
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 73
+
+
+ 3366 0117 1A000000 		.4byte	.LFE64
+ 3367 011b 0400     		.2byte	0x4
+ 3368 011d F3       		.byte	0xf3
+ 3369 011e 01       		.uleb128 0x1
+ 3370 011f 50       		.byte	0x50
+ 3371 0120 9F       		.byte	0x9f
+ 3372 0121 00000000 		.4byte	0
+ 3373 0125 00000000 		.4byte	0
+ 3374              	.LLST13:
+ 3375 0129 00000000 		.4byte	.LVL18
+ 3376 012d 06000000 		.4byte	.LVL19
+ 3377 0131 0200     		.2byte	0x2
+ 3378 0133 30       		.byte	0x30
+ 3379 0134 9F       		.byte	0x9f
+ 3380 0135 06000000 		.4byte	.LVL19
+ 3381 0139 1A000000 		.4byte	.LFE64
+ 3382 013d 0100     		.2byte	0x1
+ 3383 013f 51       		.byte	0x51
+ 3384 0140 00000000 		.4byte	0
+ 3385 0144 00000000 		.4byte	0
+ 3386              	.LLST14:
+ 3387 0148 00000000 		.4byte	.LVL18
+ 3388 014c 06000000 		.4byte	.LVL19
+ 3389 0150 0200     		.2byte	0x2
+ 3390 0152 30       		.byte	0x30
+ 3391 0153 9F       		.byte	0x9f
+ 3392 0154 06000000 		.4byte	.LVL19
+ 3393 0158 1A000000 		.4byte	.LFE64
+ 3394 015c 0100     		.2byte	0x1
+ 3395 015e 53       		.byte	0x53
+ 3396 015f 00000000 		.4byte	0
+ 3397 0163 00000000 		.4byte	0
+ 3398              	.LLST15:
+ 3399 0167 00000000 		.4byte	.LVL23
+ 3400 016b 1A000000 		.4byte	.LVL27
+ 3401 016f 0100     		.2byte	0x1
+ 3402 0171 50       		.byte	0x50
+ 3403 0172 1A000000 		.4byte	.LVL27
+ 3404 0176 1C000000 		.4byte	.LFE65
+ 3405 017a 0400     		.2byte	0x4
+ 3406 017c F3       		.byte	0xf3
+ 3407 017d 01       		.uleb128 0x1
+ 3408 017e 50       		.byte	0x50
+ 3409 017f 9F       		.byte	0x9f
+ 3410 0180 00000000 		.4byte	0
+ 3411 0184 00000000 		.4byte	0
+ 3412              	.LLST16:
+ 3413 0188 00000000 		.4byte	.LVL23
+ 3414 018c 08000000 		.4byte	.LVL24
+ 3415 0190 0400     		.2byte	0x4
+ 3416 0192 0A       		.byte	0xa
+ 3417 0193 1027     		.2byte	0x2710
+ 3418 0195 9F       		.byte	0x9f
+ 3419 0196 08000000 		.4byte	.LVL24
+ 3420 019a 1C000000 		.4byte	.LFE65
+ 3421 019e 0100     		.2byte	0x1
+ 3422 01a0 51       		.byte	0x51
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 74
+
+
+ 3423 01a1 00000000 		.4byte	0
+ 3424 01a5 00000000 		.4byte	0
+ 3425              	.LLST17:
+ 3426 01a9 00000000 		.4byte	.LVL23
+ 3427 01ad 08000000 		.4byte	.LVL24
+ 3428 01b1 0200     		.2byte	0x2
+ 3429 01b3 30       		.byte	0x30
+ 3430 01b4 9F       		.byte	0x9f
+ 3431 01b5 08000000 		.4byte	.LVL24
+ 3432 01b9 1C000000 		.4byte	.LFE65
+ 3433 01bd 0100     		.2byte	0x1
+ 3434 01bf 53       		.byte	0x53
+ 3435 01c0 00000000 		.4byte	0
+ 3436 01c4 00000000 		.4byte	0
+ 3437              	.LLST18:
+ 3438 01c8 00000000 		.4byte	.LVL28
+ 3439 01cc 06000000 		.4byte	.LVL29
+ 3440 01d0 0100     		.2byte	0x1
+ 3441 01d2 50       		.byte	0x50
+ 3442 01d3 06000000 		.4byte	.LVL29
+ 3443 01d7 08000000 		.4byte	.LVL30
+ 3444 01db 0400     		.2byte	0x4
+ 3445 01dd F3       		.byte	0xf3
+ 3446 01de 01       		.uleb128 0x1
+ 3447 01df 50       		.byte	0x50
+ 3448 01e0 9F       		.byte	0x9f
+ 3449 01e1 08000000 		.4byte	.LVL30
+ 3450 01e5 0A000000 		.4byte	.LVL31
+ 3451 01e9 0100     		.2byte	0x1
+ 3452 01eb 50       		.byte	0x50
+ 3453 01ec 0A000000 		.4byte	.LVL31
+ 3454 01f0 0C000000 		.4byte	.LFE66
+ 3455 01f4 0400     		.2byte	0x4
+ 3456 01f6 F3       		.byte	0xf3
+ 3457 01f7 01       		.uleb128 0x1
+ 3458 01f8 50       		.byte	0x50
+ 3459 01f9 9F       		.byte	0x9f
+ 3460 01fa 00000000 		.4byte	0
+ 3461 01fe 00000000 		.4byte	0
+ 3462              	.LLST19:
+ 3463 0202 00000000 		.4byte	.LVL32
+ 3464 0206 04000000 		.4byte	.LVL33
+ 3465 020a 0100     		.2byte	0x1
+ 3466 020c 50       		.byte	0x50
+ 3467 020d 04000000 		.4byte	.LVL33
+ 3468 0211 28000000 		.4byte	.LFE68
+ 3469 0215 0100     		.2byte	0x1
+ 3470 0217 54       		.byte	0x54
+ 3471 0218 00000000 		.4byte	0
+ 3472 021c 00000000 		.4byte	0
+ 3473              	.LLST20:
+ 3474 0220 00000000 		.4byte	.LVL71
+ 3475 0224 06000000 		.4byte	.LVL72
+ 3476 0228 0100     		.2byte	0x1
+ 3477 022a 50       		.byte	0x50
+ 3478 022b 06000000 		.4byte	.LVL72
+ 3479 022f 14000000 		.4byte	.LFE75
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 75
+
+
+ 3480 0233 0400     		.2byte	0x4
+ 3481 0235 F3       		.byte	0xf3
+ 3482 0236 01       		.uleb128 0x1
+ 3483 0237 50       		.byte	0x50
+ 3484 0238 9F       		.byte	0x9f
+ 3485 0239 00000000 		.4byte	0
+ 3486 023d 00000000 		.4byte	0
+ 3487              	.LLST21:
+ 3488 0241 00000000 		.4byte	.LVL75
+ 3489 0245 06000000 		.4byte	.LVL76
+ 3490 0249 0100     		.2byte	0x1
+ 3491 024b 50       		.byte	0x50
+ 3492 024c 06000000 		.4byte	.LVL76
+ 3493 0250 14000000 		.4byte	.LFE76
+ 3494 0254 0400     		.2byte	0x4
+ 3495 0256 F3       		.byte	0xf3
+ 3496 0257 01       		.uleb128 0x1
+ 3497 0258 50       		.byte	0x50
+ 3498 0259 9F       		.byte	0x9f
+ 3499 025a 00000000 		.4byte	0
+ 3500 025e 00000000 		.4byte	0
+ 3501              	.LLST22:
+ 3502 0262 00000000 		.4byte	.LVL79
+ 3503 0266 07000000 		.4byte	.LVL80-1
+ 3504 026a 0100     		.2byte	0x1
+ 3505 026c 50       		.byte	0x50
+ 3506 026d 07000000 		.4byte	.LVL80-1
+ 3507 0271 10000000 		.4byte	.LFE77
+ 3508 0275 0100     		.2byte	0x1
+ 3509 0277 54       		.byte	0x54
+ 3510 0278 00000000 		.4byte	0
+ 3511 027c 00000000 		.4byte	0
+ 3512              	.LLST23:
+ 3513 0280 1C000000 		.4byte	.LVL85
+ 3514 0284 62000000 		.4byte	.LVL102
+ 3515 0288 0100     		.2byte	0x1
+ 3516 028a 55       		.byte	0x55
+ 3517 028b 62000000 		.4byte	.LVL102
+ 3518 028f 66000000 		.4byte	.LVL103
+ 3519 0293 0200     		.2byte	0x2
+ 3520 0295 30       		.byte	0x30
+ 3521 0296 9F       		.byte	0x9f
+ 3522 0297 66000000 		.4byte	.LVL103
+ 3523 029b 6E000000 		.4byte	.LVL104
+ 3524 029f 0100     		.2byte	0x1
+ 3525 02a1 55       		.byte	0x55
+ 3526 02a2 74000000 		.4byte	.LVL105
+ 3527 02a6 76000000 		.4byte	.LVL106
+ 3528 02aa 0200     		.2byte	0x2
+ 3529 02ac 31       		.byte	0x31
+ 3530 02ad 9F       		.byte	0x9f
+ 3531 02ae 76000000 		.4byte	.LVL106
+ 3532 02b2 1C010000 		.4byte	.LVL107
+ 3533 02b6 0100     		.2byte	0x1
+ 3534 02b8 55       		.byte	0x55
+ 3535 02b9 1C010000 		.4byte	.LVL107
+ 3536 02bd 20010000 		.4byte	.LVL108
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 76
+
+
+ 3537 02c1 0200     		.2byte	0x2
+ 3538 02c3 32       		.byte	0x32
+ 3539 02c4 9F       		.byte	0x9f
+ 3540 02c5 20010000 		.4byte	.LVL108
+ 3541 02c9 2A010000 		.4byte	.LVL109
+ 3542 02cd 0100     		.2byte	0x1
+ 3543 02cf 55       		.byte	0x55
+ 3544 02d0 2C010000 		.4byte	.LVL110
+ 3545 02d4 2E010000 		.4byte	.LVL111
+ 3546 02d8 0100     		.2byte	0x1
+ 3547 02da 55       		.byte	0x55
+ 3548 02db 30010000 		.4byte	.LVL112
+ 3549 02df 32010000 		.4byte	.LVL113
+ 3550 02e3 0100     		.2byte	0x1
+ 3551 02e5 55       		.byte	0x55
+ 3552 02e6 34010000 		.4byte	.LVL114
+ 3553 02ea 36010000 		.4byte	.LVL115
+ 3554 02ee 0100     		.2byte	0x1
+ 3555 02f0 55       		.byte	0x55
+ 3556 02f1 38010000 		.4byte	.LVL116
+ 3557 02f5 3A010000 		.4byte	.LVL117
+ 3558 02f9 0100     		.2byte	0x1
+ 3559 02fb 55       		.byte	0x55
+ 3560 02fc 3C010000 		.4byte	.LVL118
+ 3561 0300 3E010000 		.4byte	.LVL119
+ 3562 0304 0100     		.2byte	0x1
+ 3563 0306 55       		.byte	0x55
+ 3564 0307 40010000 		.4byte	.LVL120
+ 3565 030b 42010000 		.4byte	.LVL121
+ 3566 030f 0100     		.2byte	0x1
+ 3567 0311 55       		.byte	0x55
+ 3568 0312 44010000 		.4byte	.LVL122
+ 3569 0316 46010000 		.4byte	.LVL123
+ 3570 031a 0100     		.2byte	0x1
+ 3571 031c 55       		.byte	0x55
+ 3572 031d 48010000 		.4byte	.LVL124
+ 3573 0321 4A010000 		.4byte	.LVL125
+ 3574 0325 0100     		.2byte	0x1
+ 3575 0327 55       		.byte	0x55
+ 3576 0328 4C010000 		.4byte	.LVL126
+ 3577 032c 4E010000 		.4byte	.LVL127
+ 3578 0330 0100     		.2byte	0x1
+ 3579 0332 55       		.byte	0x55
+ 3580 0333 50010000 		.4byte	.LVL128
+ 3581 0337 52010000 		.4byte	.LVL129
+ 3582 033b 0100     		.2byte	0x1
+ 3583 033d 55       		.byte	0x55
+ 3584 033e 54010000 		.4byte	.LVL130
+ 3585 0342 56010000 		.4byte	.LVL131
+ 3586 0346 0100     		.2byte	0x1
+ 3587 0348 55       		.byte	0x55
+ 3588 0349 58010000 		.4byte	.LVL132
+ 3589 034d 5A010000 		.4byte	.LVL133
+ 3590 0351 0100     		.2byte	0x1
+ 3591 0353 55       		.byte	0x55
+ 3592 0354 5C010000 		.4byte	.LVL134
+ 3593 0358 BC010000 		.4byte	.LFE78
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 77
+
+
+ 3594 035c 0100     		.2byte	0x1
+ 3595 035e 55       		.byte	0x55
+ 3596 035f 00000000 		.4byte	0
+ 3597 0363 00000000 		.4byte	0
+ 3598              	.LLST24:
+ 3599 0367 26000000 		.4byte	.LVL87
+ 3600 036b 2A000000 		.4byte	.LVL88
+ 3601 036f 0100     		.2byte	0x1
+ 3602 0371 50       		.byte	0x50
+ 3603 0372 2A000000 		.4byte	.LVL88
+ 3604 0376 BC010000 		.4byte	.LFE78
+ 3605 037a 0100     		.2byte	0x1
+ 3606 037c 5A       		.byte	0x5a
+ 3607 037d 00000000 		.4byte	0
+ 3608 0381 00000000 		.4byte	0
+ 3609              	.LLST25:
+ 3610 0385 30000000 		.4byte	.LVL90
+ 3611 0389 34000000 		.4byte	.LVL91
+ 3612 038d 0100     		.2byte	0x1
+ 3613 038f 50       		.byte	0x50
+ 3614 0390 34000000 		.4byte	.LVL91
+ 3615 0394 BC010000 		.4byte	.LFE78
+ 3616 0398 0100     		.2byte	0x1
+ 3617 039a 57       		.byte	0x57
+ 3618 039b 00000000 		.4byte	0
+ 3619 039f 00000000 		.4byte	0
+ 3620              	.LLST26:
+ 3621 03a3 3A000000 		.4byte	.LVL93
+ 3622 03a7 3E000000 		.4byte	.LVL94
+ 3623 03ab 0100     		.2byte	0x1
+ 3624 03ad 50       		.byte	0x50
+ 3625 03ae 3E000000 		.4byte	.LVL94
+ 3626 03b2 BC010000 		.4byte	.LFE78
+ 3627 03b6 0100     		.2byte	0x1
+ 3628 03b8 59       		.byte	0x59
+ 3629 03b9 00000000 		.4byte	0
+ 3630 03bd 00000000 		.4byte	0
+ 3631              	.LLST27:
+ 3632 03c1 44000000 		.4byte	.LVL96
+ 3633 03c5 48000000 		.4byte	.LVL97
+ 3634 03c9 0100     		.2byte	0x1
+ 3635 03cb 50       		.byte	0x50
+ 3636 03cc 48000000 		.4byte	.LVL97
+ 3637 03d0 BC010000 		.4byte	.LFE78
+ 3638 03d4 0100     		.2byte	0x1
+ 3639 03d6 56       		.byte	0x56
+ 3640 03d7 00000000 		.4byte	0
+ 3641 03db 00000000 		.4byte	0
+ 3642              	.LLST28:
+ 3643 03df 4E000000 		.4byte	.LVL99
+ 3644 03e3 52000000 		.4byte	.LVL100
+ 3645 03e7 0100     		.2byte	0x1
+ 3646 03e9 50       		.byte	0x50
+ 3647 03ea 52000000 		.4byte	.LVL100
+ 3648 03ee BC010000 		.4byte	.LFE78
+ 3649 03f2 0100     		.2byte	0x1
+ 3650 03f4 58       		.byte	0x58
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 78
+
+
+ 3651 03f5 00000000 		.4byte	0
+ 3652 03f9 00000000 		.4byte	0
+ 3653              	.LLST29:
+ 3654 03fd 56000000 		.4byte	.LVL101
+ 3655 0401 71010000 		.4byte	.LVL136-1
+ 3656 0405 0100     		.2byte	0x1
+ 3657 0407 50       		.byte	0x50
+ 3658 0408 74010000 		.4byte	.LVL137
+ 3659 040c 77010000 		.4byte	.LVL138-1
+ 3660 0410 0100     		.2byte	0x1
+ 3661 0412 50       		.byte	0x50
+ 3662 0413 7A010000 		.4byte	.LVL139
+ 3663 0417 7D010000 		.4byte	.LVL140-1
+ 3664 041b 0100     		.2byte	0x1
+ 3665 041d 50       		.byte	0x50
+ 3666 041e 80010000 		.4byte	.LVL141
+ 3667 0422 8D010000 		.4byte	.LVL142-1
+ 3668 0426 0100     		.2byte	0x1
+ 3669 0428 50       		.byte	0x50
+ 3670 0429 90010000 		.4byte	.LVL143
+ 3671 042d 93010000 		.4byte	.LVL144-1
+ 3672 0431 0100     		.2byte	0x1
+ 3673 0433 50       		.byte	0x50
+ 3674 0434 96010000 		.4byte	.LVL145
+ 3675 0438 A3010000 		.4byte	.LVL146-1
+ 3676 043c 0100     		.2byte	0x1
+ 3677 043e 50       		.byte	0x50
+ 3678 043f A6010000 		.4byte	.LVL147
+ 3679 0443 A9010000 		.4byte	.LVL148-1
+ 3680 0447 0100     		.2byte	0x1
+ 3681 0449 50       		.byte	0x50
+ 3682 044a AC010000 		.4byte	.LVL149
+ 3683 044e AF010000 		.4byte	.LVL150-1
+ 3684 0452 0100     		.2byte	0x1
+ 3685 0454 50       		.byte	0x50
+ 3686 0455 00000000 		.4byte	0
+ 3687 0459 00000000 		.4byte	0
+ 3688              		.section	.debug_aranges,"",%progbits
+ 3689 0000 8C000000 		.4byte	0x8c
+ 3690 0004 0200     		.2byte	0x2
+ 3691 0006 00000000 		.4byte	.Ldebug_info0
+ 3692 000a 04       		.byte	0x4
+ 3693 000b 00       		.byte	0
+ 3694 000c 0000     		.2byte	0
+ 3695 000e 0000     		.2byte	0
+ 3696 0010 00000000 		.4byte	.LFB67
+ 3697 0014 18010000 		.4byte	.LFE67-.LFB67
+ 3698 0018 00000000 		.4byte	.LFB64
+ 3699 001c 1A000000 		.4byte	.LFE64-.LFB64
+ 3700 0020 00000000 		.4byte	.LFB65
+ 3701 0024 1C000000 		.4byte	.LFE65-.LFB65
+ 3702 0028 00000000 		.4byte	.LFB66
+ 3703 002c 0C000000 		.4byte	.LFE66-.LFB66
+ 3704 0030 00000000 		.4byte	.LFB68
+ 3705 0034 28000000 		.4byte	.LFE68-.LFB68
+ 3706 0038 00000000 		.4byte	.LFB69
+ 3707 003c 24000000 		.4byte	.LFE69-.LFB69
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 79
+
+
+ 3708 0040 00000000 		.4byte	.LFB70
+ 3709 0044 24000000 		.4byte	.LFE70-.LFB70
+ 3710 0048 00000000 		.4byte	.LFB71
+ 3711 004c 24000000 		.4byte	.LFE71-.LFB71
+ 3712 0050 00000000 		.4byte	.LFB72
+ 3713 0054 1C000000 		.4byte	.LFE72-.LFB72
+ 3714 0058 00000000 		.4byte	.LFB73
+ 3715 005c 44000000 		.4byte	.LFE73-.LFB73
+ 3716 0060 00000000 		.4byte	.LFB74
+ 3717 0064 30000000 		.4byte	.LFE74-.LFB74
+ 3718 0068 00000000 		.4byte	.LFB75
+ 3719 006c 14000000 		.4byte	.LFE75-.LFB75
+ 3720 0070 00000000 		.4byte	.LFB76
+ 3721 0074 14000000 		.4byte	.LFE76-.LFB76
+ 3722 0078 00000000 		.4byte	.LFB77
+ 3723 007c 10000000 		.4byte	.LFE77-.LFB77
+ 3724 0080 00000000 		.4byte	.LFB78
+ 3725 0084 BC010000 		.4byte	.LFE78-.LFB78
+ 3726 0088 00000000 		.4byte	0
+ 3727 008c 00000000 		.4byte	0
+ 3728              		.section	.debug_ranges,"",%progbits
+ 3729              	.Ldebug_ranges0:
+ 3730 0000 00000000 		.4byte	.LBB8
+ 3731 0004 02000000 		.4byte	.LBE8
+ 3732 0008 04000000 		.4byte	.LBB9
+ 3733 000c 16000000 		.4byte	.LBE9
+ 3734 0010 00000000 		.4byte	0
+ 3735 0014 00000000 		.4byte	0
+ 3736 0018 00000000 		.4byte	.LBB10
+ 3737 001c 02000000 		.4byte	.LBE10
+ 3738 0020 06000000 		.4byte	.LBB11
+ 3739 0024 18000000 		.4byte	.LBE11
+ 3740 0028 00000000 		.4byte	0
+ 3741 002c 00000000 		.4byte	0
+ 3742 0030 00000000 		.4byte	.LFB67
+ 3743 0034 18010000 		.4byte	.LFE67
+ 3744 0038 00000000 		.4byte	.LFB64
+ 3745 003c 1A000000 		.4byte	.LFE64
+ 3746 0040 00000000 		.4byte	.LFB65
+ 3747 0044 1C000000 		.4byte	.LFE65
+ 3748 0048 00000000 		.4byte	.LFB66
+ 3749 004c 0C000000 		.4byte	.LFE66
+ 3750 0050 00000000 		.4byte	.LFB68
+ 3751 0054 28000000 		.4byte	.LFE68
+ 3752 0058 00000000 		.4byte	.LFB69
+ 3753 005c 24000000 		.4byte	.LFE69
+ 3754 0060 00000000 		.4byte	.LFB70
+ 3755 0064 24000000 		.4byte	.LFE70
+ 3756 0068 00000000 		.4byte	.LFB71
+ 3757 006c 24000000 		.4byte	.LFE71
+ 3758 0070 00000000 		.4byte	.LFB72
+ 3759 0074 1C000000 		.4byte	.LFE72
+ 3760 0078 00000000 		.4byte	.LFB73
+ 3761 007c 44000000 		.4byte	.LFE73
+ 3762 0080 00000000 		.4byte	.LFB74
+ 3763 0084 30000000 		.4byte	.LFE74
+ 3764 0088 00000000 		.4byte	.LFB75
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 80
+
+
+ 3765 008c 14000000 		.4byte	.LFE75
+ 3766 0090 00000000 		.4byte	.LFB76
+ 3767 0094 14000000 		.4byte	.LFE76
+ 3768 0098 00000000 		.4byte	.LFB77
+ 3769 009c 10000000 		.4byte	.LFE77
+ 3770 00a0 00000000 		.4byte	.LFB78
+ 3771 00a4 BC010000 		.4byte	.LFE78
+ 3772 00a8 00000000 		.4byte	0
+ 3773 00ac 00000000 		.4byte	0
+ 3774              		.section	.debug_line,"",%progbits
+ 3775              	.Ldebug_line0:
+ 3776 0000 61040000 		.section	.debug_str,"MS",%progbits,1
+ 3776      02003802 
+ 3776      00000201 
+ 3776      FB0E0D00 
+ 3776      01010101 
+ 3777              	.LASF21:
+ 3778 0000 73747261 		.ascii	"straight_left_adjust\000"
+ 3778      69676874 
+ 3778      5F6C6566 
+ 3778      745F6164 
+ 3778      6A757374 
+ 3779              	.LASF40:
+ 3780 0015 72657375 		.ascii	"result\000"
+ 3780      6C7400
+ 3781              	.LASF18:
+ 3782 001c 72696768 		.ascii	"right_turn\000"
+ 3782      745F7475 
+ 3782      726E00
+ 3783              	.LASF43:
+ 3784 0027 446F4C65 		.ascii	"DoLeftTurn\000"
+ 3784      66745475 
+ 3784      726E00
+ 3785              	.LASF47:
+ 3786 0032 41727261 		.ascii	"ArrangeToLeft\000"
+ 3786      6E676554 
+ 3786      6F4C6566 
+ 3786      7400
+ 3787              	.LASF55:
+ 3788 0040 72696768 		.ascii	"right\000"
+ 3788      7400
+ 3789              	.LASF94:
+ 3790 0046 4144435F 		.ascii	"ADC_SAR_Seq_1_CountsTo_mVolts\000"
+ 3790      5341525F 
+ 3790      5365715F 
+ 3790      315F436F 
+ 3790      756E7473 
+ 3791              	.LASF70:
+ 3792 0064 636F756E 		.ascii	"count3\000"
+ 3792      743300
+ 3793              	.LASF34:
+ 3794 006b 6D617869 		.ascii	"maximum\000"
+ 3794      6D756D00 
+ 3795              	.LASF71:
+ 3796 0073 636F756E 		.ascii	"count4\000"
+ 3796      743400
+ 3797              	.LASF48:
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 81
+
+
+ 3798 007a 41727261 		.ascii	"ArrangeToRight\000"
+ 3798      6E676554 
+ 3798      6F526967 
+ 3798      687400
+ 3799              	.LASF2:
+ 3800 0089 73686F72 		.ascii	"short int\000"
+ 3800      7420696E 
+ 3800      7400
+ 3801              	.LASF39:
+ 3802 0093 67657453 		.ascii	"getSensor\000"
+ 3802      656E736F 
+ 3802      7200
+ 3803              	.LASF92:
+ 3804 009d 66696E69 		.ascii	"finishTurn\000"
+ 3804      73685475 
+ 3804      726E00
+ 3805              	.LASF16:
+ 3806 00a8 73697A65 		.ascii	"sizetype\000"
+ 3806      74797065 
+ 3806      00
+ 3807              	.LASF82:
+ 3808 00b1 6D6F746F 		.ascii	"motor4\000"
+ 3808      723400
+ 3809              	.LASF101:
+ 3810 00b8 50574D5F 		.ascii	"PWM_leftmotor_WriteCompare2\000"
+ 3810      6C656674 
+ 3810      6D6F746F 
+ 3810      725F5772 
+ 3810      69746543 
+ 3811              	.LASF15:
+ 3812 00d4 6C6F6E67 		.ascii	"long double\000"
+ 3812      20646F75 
+ 3812      626C6500 
+ 3813              	.LASF36:
+ 3814 00e0 66696E64 		.ascii	"findMinimum\000"
+ 3814      4D696E69 
+ 3814      6D756D00 
+ 3815              	.LASF13:
+ 3816 00ec 646F7562 		.ascii	"double\000"
+ 3816      6C6500
+ 3817              	.LASF87:
+ 3818 00f3 73746172 		.ascii	"startDuty\000"
+ 3818      74447574 
+ 3818      7900
+ 3819              	.LASF44:
+ 3820 00fd 446F5269 		.ascii	"DoRightTurn\000"
+ 3820      67687454 
+ 3820      75726E00 
+ 3821              	.LASF85:
+ 3822 0109 666C6167 		.ascii	"flag33\000"
+ 3822      333300
+ 3823              	.LASF107:
+ 3824 0110 54696D65 		.ascii	"Timer_2_Start\000"
+ 3824      725F325F 
+ 3824      53746172 
+ 3824      7400
+ 3825              	.LASF91:
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 82
+
+
+ 3826 011e 72696768 		.ascii	"rightTurn\000"
+ 3826      74547572 
+ 3826      6E00
+ 3827              	.LASF17:
+ 3828 0128 6C656674 		.ascii	"left_turn\000"
+ 3828      5F747572 
+ 3828      6E00
+ 3829              	.LASF62:
+ 3830 0132 666C6167 		.ascii	"flag2\000"
+ 3830      3200
+ 3831              	.LASF63:
+ 3832 0138 666C6167 		.ascii	"flag3\000"
+ 3832      3300
+ 3833              	.LASF64:
+ 3834 013e 666C6167 		.ascii	"flag4\000"
+ 3834      3400
+ 3835              	.LASF65:
+ 3836 0144 666C6167 		.ascii	"flag5\000"
+ 3836      3500
+ 3837              	.LASF66:
+ 3838 014a 666C6167 		.ascii	"flag6\000"
+ 3838      3600
+ 3839              	.LASF0:
+ 3840 0150 7369676E 		.ascii	"signed char\000"
+ 3840      65642063 
+ 3840      68617200 
+ 3841              	.LASF12:
+ 3842 015c 666C6F61 		.ascii	"float\000"
+ 3842      7400
+ 3843              	.LASF6:
+ 3844 0162 6C6F6E67 		.ascii	"long long int\000"
+ 3844      206C6F6E 
+ 3844      6720696E 
+ 3844      7400
+ 3845              	.LASF42:
+ 3846 0170 75736250 		.ascii	"usbPutString\000"
+ 3846      75745374 
+ 3846      72696E67 
+ 3846      00
+ 3847              	.LASF79:
+ 3848 017d 6D6F746F 		.ascii	"motor1\000"
+ 3848      723100
+ 3849              	.LASF80:
+ 3850 0184 6D6F746F 		.ascii	"motor2\000"
+ 3850      723200
+ 3851              	.LASF81:
+ 3852 018b 6D6F746F 		.ascii	"motor3\000"
+ 3852      723300
+ 3853              	.LASF50:
+ 3854 0192 73706565 		.ascii	"speed\000"
+ 3854      6400
+ 3855              	.LASF83:
+ 3856 0198 6D6F746F 		.ascii	"motor5\000"
+ 3856      723500
+ 3857              	.LASF84:
+ 3858 019f 6D6F746F 		.ascii	"motor6\000"
+ 3858      723600
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 83
+
+
+ 3859              	.LASF4:
+ 3860 01a6 6C6F6E67 		.ascii	"long int\000"
+ 3860      20696E74 
+ 3860      00
+ 3861              	.LASF56:
+ 3862 01af 6661725F 		.ascii	"far_left\000"
+ 3862      6C656674 
+ 3862      00
+ 3863              	.LASF99:
+ 3864 01b8 50574D5F 		.ascii	"PWM_rightmotor_Start\000"
+ 3864      72696768 
+ 3864      746D6F74 
+ 3864      6F725F53 
+ 3864      74617274 
+ 3865              	.LASF5:
+ 3866 01cd 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3866      20756E73 
+ 3866      69676E65 
+ 3866      6420696E 
+ 3866      7400
+ 3867              	.LASF23:
+ 3868 01df 6D566F6C 		.ascii	"mVolts\000"
+ 3868      747300
+ 3869              	.LASF74:
+ 3870 01e6 61727261 		.ascii	"array2\000"
+ 3870      793200
+ 3871              	.LASF97:
+ 3872 01ed 55534255 		.ascii	"USBUART_1_PutData\000"
+ 3872      4152545F 
+ 3872      315F5075 
+ 3872      74446174 
+ 3872      6100
+ 3873              	.LASF76:
+ 3874 01ff 61727261 		.ascii	"array4\000"
+ 3874      793400
+ 3875              	.LASF77:
+ 3876 0206 61727261 		.ascii	"array5\000"
+ 3876      793500
+ 3877              	.LASF102:
+ 3878 020d 50574D5F 		.ascii	"PWM_rightmotor_WriteCompare1\000"
+ 3878      72696768 
+ 3878      746D6F74 
+ 3878      6F725F57 
+ 3878      72697465 
+ 3879              	.LASF103:
+ 3880 022a 50574D5F 		.ascii	"PWM_rightmotor_WriteCompare2\000"
+ 3880      72696768 
+ 3880      746D6F74 
+ 3880      6F725F57 
+ 3880      72697465 
+ 3881              	.LASF51:
+ 3882 0247 75706461 		.ascii	"updateMotorSpeed_Left\000"
+ 3882      74654D6F 
+ 3882      746F7253 
+ 3882      70656564 
+ 3882      5F4C6566 
+ 3883              	.LASF1:
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 84
+
+
+ 3884 025d 756E7369 		.ascii	"unsigned char\000"
+ 3884      676E6564 
+ 3884      20636861 
+ 3884      7200
+ 3885              	.LASF46:
+ 3886 026b 53746F70 		.ascii	"Stop\000"
+ 3886      00
+ 3887              	.LASF67:
+ 3888 0270 7475726E 		.ascii	"turnLock\000"
+ 3888      4C6F636B 
+ 3888      00
+ 3889              	.LASF10:
+ 3890 0279 696E7433 		.ascii	"int32_t\000"
+ 3890      325F7400 
+ 3891              	.LASF7:
+ 3892 0281 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3892      206C6F6E 
+ 3892      6720756E 
+ 3892      7369676E 
+ 3892      65642069 
+ 3893              	.LASF88:
+ 3894 0298 6C656674 		.ascii	"leftDuty\000"
+ 3894      44757479 
+ 3894      00
+ 3895              	.LASF8:
+ 3896 02a1 756E7369 		.ascii	"unsigned int\000"
+ 3896      676E6564 
+ 3896      20696E74 
+ 3896      00
+ 3897              	.LASF24:
+ 3898 02ae 76616C32 		.ascii	"val2\000"
+ 3898      00
+ 3899              	.LASF26:
+ 3900 02b3 76616C33 		.ascii	"val3\000"
+ 3900      00
+ 3901              	.LASF111:
+ 3902 02b8 53746174 		.ascii	"States\000"
+ 3902      657300
+ 3903              	.LASF30:
+ 3904 02bf 76616C35 		.ascii	"val5\000"
+ 3904      00
+ 3905              	.LASF32:
+ 3906 02c4 76616C36 		.ascii	"val6\000"
+ 3906      00
+ 3907              	.LASF59:
+ 3908 02c9 636D705F 		.ascii	"cmp_val\000"
+ 3908      76616C00 
+ 3909              	.LASF3:
+ 3910 02d1 73686F72 		.ascii	"short unsigned int\000"
+ 3910      7420756E 
+ 3910      7369676E 
+ 3910      65642069 
+ 3910      6E7400
+ 3911              	.LASF86:
+ 3912 02e4 6F666673 		.ascii	"offset\000"
+ 3912      657400
+ 3913              	.LASF41:
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 85
+
+
+ 3914 02eb 656F6331 		.ascii	"eoc1\000"
+ 3914      00
+ 3915              	.LASF49:
+ 3916 02f0 75706461 		.ascii	"updateMotorSpeed_Right\000"
+ 3916      74654D6F 
+ 3916      746F7253 
+ 3916      70656564 
+ 3916      5F526967 
+ 3917              	.LASF20:
+ 3918 0307 73746F70 		.ascii	"stop\000"
+ 3918      00
+ 3919              	.LASF14:
+ 3920 030c 63686172 		.ascii	"char\000"
+ 3920      00
+ 3921              	.LASF98:
+ 3922 0311 50574D5F 		.ascii	"PWM_leftmotor_Start\000"
+ 3922      6C656674 
+ 3922      6D6F746F 
+ 3922      725F5374 
+ 3922      61727400 
+ 3923              	.LASF112:
+ 3924 0325 6D61696E 		.ascii	"main\000"
+ 3924      00
+ 3925              	.LASF96:
+ 3926 032a 7374726C 		.ascii	"strlen\000"
+ 3926      656E00
+ 3927              	.LASF54:
+ 3928 0331 6C656674 		.ascii	"left\000"
+ 3928      00
+ 3929              	.LASF11:
+ 3930 0336 75696E74 		.ascii	"uint8\000"
+ 3930      3800
+ 3931              	.LASF89:
+ 3932 033c 72696768 		.ascii	"rightDuty\000"
+ 3932      74447574 
+ 3932      7900
+ 3933              	.LASF58:
+ 3934 0346 6261636B 		.ascii	"back\000"
+ 3934      00
+ 3935              	.LASF110:
+ 3936 034b 5C5C6669 		.ascii	"\\\\files.auckland.ac.nz\\myhome\\Documents\\GitHub"
+ 3936      6C65732E 
+ 3936      6175636B 
+ 3936      6C616E64 
+ 3936      2E61632E 
+ 3937 0379 5C70726F 		.ascii	"\\project-project_group_15\\WorkspacemotorBT1\\Hard"
+ 3937      6A656374 
+ 3937      2D70726F 
+ 3937      6A656374 
+ 3937      5F67726F 
+ 3938 03a9 77617265 		.ascii	"ware2.cydsn\000"
+ 3938      322E6379 
+ 3938      64736E00 
+ 3939              	.LASF90:
+ 3940 03b5 6C656674 		.ascii	"leftTurn\000"
+ 3940      5475726E 
+ 3940      00
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 86
+
+
+ 3941              	.LASF109:
+ 3942 03be 6D61696E 		.ascii	"main.c\000"
+ 3942      2E6300
+ 3943              	.LASF52:
+ 3944 03c5 75706461 		.ascii	"updateMotorSpeed\000"
+ 3944      74654D6F 
+ 3944      746F7253 
+ 3944      70656564 
+ 3944      00
+ 3945              	.LASF100:
+ 3946 03d6 50574D5F 		.ascii	"PWM_leftmotor_WriteCompare1\000"
+ 3946      6C656674 
+ 3946      6D6F746F 
+ 3946      725F5772 
+ 3946      69746543 
+ 3947              	.LASF38:
+ 3948 03f2 6D696E69 		.ascii	"minimum\000"
+ 3948      6D756D00 
+ 3949              	.LASF37:
+ 3950 03fa 61727261 		.ascii	"array\000"
+ 3950      7900
+ 3951              	.LASF57:
+ 3952 0400 6661725F 		.ascii	"far_right\000"
+ 3952      72696768 
+ 3952      7400
+ 3953              	.LASF68:
+ 3954 040a 636F756E 		.ascii	"count1\000"
+ 3954      743100
+ 3955              	.LASF69:
+ 3956 0411 636F756E 		.ascii	"count2\000"
+ 3956      743200
+ 3957              	.LASF9:
+ 3958 0418 5F5F696E 		.ascii	"__int32_t\000"
+ 3958      7433325F 
+ 3958      7400
+ 3959              	.LASF35:
+ 3960 0422 66696E64 		.ascii	"findMaximum\000"
+ 3960      4D617869 
+ 3960      6D756D00 
+ 3961              	.LASF72:
+ 3962 042e 636F756E 		.ascii	"count5\000"
+ 3962      743500
+ 3963              	.LASF73:
+ 3964 0435 636F756E 		.ascii	"count6\000"
+ 3964      743600
+ 3965              	.LASF53:
+ 3966 043c 66726F6E 		.ascii	"front\000"
+ 3966      7400
+ 3967              	.LASF93:
+ 3968 0442 4144435F 		.ascii	"ADC_SAR_Seq_1_GetResult16\000"
+ 3968      5341525F 
+ 3968      5365715F 
+ 3968      315F4765 
+ 3968      74526573 
+ 3969              	.LASF22:
+ 3970 045c 73747261 		.ascii	"straight_right_adjust\000"
+ 3970      69676874 
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 87
+
+
+ 3970      5F726967 
+ 3970      68745F61 
+ 3970      646A7573 
+ 3971              	.LASF75:
+ 3972 0472 61727261 		.ascii	"array3\000"
+ 3972      793300
+ 3973              	.LASF19:
+ 3974 0479 73747261 		.ascii	"straight\000"
+ 3974      69676874 
+ 3974      00
+ 3975              	.LASF78:
+ 3976 0482 61727261 		.ascii	"array6\000"
+ 3976      793600
+ 3977              	.LASF61:
+ 3978 0489 666C6167 		.ascii	"flag\000"
+ 3978      00
+ 3979              	.LASF104:
+ 3980 048e 6973725F 		.ascii	"isr_EOC_3_StartEx\000"
+ 3980      454F435F 
+ 3980      335F5374 
+ 3980      61727445 
+ 3980      7800
+ 3981              	.LASF60:
+ 3982 04a0 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 3982      52784275 
+ 3982      66666572 
+ 3982      00
+ 3983              	.LASF108:
+ 3984 04ad 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 3984      43313120 
+ 3984      352E342E 
+ 3984      31203230 
+ 3984      31363036 
+ 3985 04e0 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 3985      20726576 
+ 3985      6973696F 
+ 3985      6E203233 
+ 3985      37373135 
+ 3986 0513 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 3986      66756E63 
+ 3986      74696F6E 
+ 3986      2D736563 
+ 3986      74696F6E 
+ 3987              	.LASF28:
+ 3988 053b 76616C34 		.ascii	"val4\000"
+ 3988      00
+ 3989              	.LASF45:
+ 3990 0540 476F5374 		.ascii	"GoStraight\000"
+ 3990      72616967 
+ 3990      687400
+ 3991              	.LASF25:
+ 3992 054b 6D566F6C 		.ascii	"mVolts2\000"
+ 3992      74733200 
+ 3993              	.LASF27:
+ 3994 0553 6D566F6C 		.ascii	"mVolts3\000"
+ 3994      74733300 
+ 3995              	.LASF29:
+ARM GAS  C:\Users\fcho544\AppData\Local\Temp\ccoaNIzY.s 			page 88
+
+
+ 3996 055b 6D566F6C 		.ascii	"mVolts4\000"
+ 3996      74733400 
+ 3997              	.LASF31:
+ 3998 0563 6D566F6C 		.ascii	"mVolts5\000"
+ 3998      74733500 
+ 3999              	.LASF33:
+ 4000 056b 6D566F6C 		.ascii	"mVolts6\000"
+ 4000      74733600 
+ 4001              	.LASF106:
+ 4002 0573 4144435F 		.ascii	"ADC_SAR_Seq_1_Start\000"
+ 4002      5341525F 
+ 4002      5365715F 
+ 4002      315F5374 
+ 4002      61727400 
+ 4003              	.LASF105:
+ 4004 0587 55534255 		.ascii	"USBUART_1_Start\000"
+ 4004      4152545F 
+ 4004      315F5374 
+ 4004      61727400 
+ 4005              	.LASF95:
+ 4006 0597 55534255 		.ascii	"USBUART_1_CDCIsReady\000"
+ 4006      4152545F 
+ 4006      315F4344 
+ 4006      43497352 
+ 4006      65616479 
+ 4007              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
