@@ -1,0 +1,1019 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C6308",
+          "message": {
+            "text": "'realloc' might return null pointer: assigning null pointer to 'stops', which is passed as an argument to 'realloc', will cause the original memory block to be leaked."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                },
+                "region": {
+                  "startLine": 163,
+                  "startColumn": 39,
+                  "endLine": 163,
+                  "endColumn": 62
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6308",
+          "message": {
+            "text": "'realloc' might return null pointer: assigning null pointer to 'routes', which is passed as an argument to 'realloc', will cause the original memory block to be leaked."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                },
+                "region": {
+                  "startLine": 195,
+                  "startColumn": 53,
+                  "endLine": 195,
+                  "endColumn": 77
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6308",
+          "message": {
+            "text": "'realloc' might return null pointer: assigning null pointer to 'stops[routes[t].x].n', which is passed as an argument to 'realloc', will cause the original memory block to be leaked."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                },
+                "region": {
+                  "startLine": 201,
+                  "startColumn": 58,
+                  "endLine": 201,
+                  "endColumn": 115
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6308",
+          "message": {
+            "text": "'realloc' might return null pointer: assigning null pointer to 'path', which is passed as an argument to 'realloc', will cause the original memory block to be leaked."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                },
+                "region": {
+                  "startLine": 229,
+                  "startColumn": 26,
+                  "endLine": 229,
+                  "endColumn": 48
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6308",
+          "message": {
+            "text": "'realloc' might return null pointer: assigning null pointer to 'path', which is passed as an argument to 'realloc', will cause the original memory block to be leaked."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                },
+                "region": {
+                  "startLine": 234,
+                  "startColumn": 30,
+                  "endLine": 234,
+                  "endColumn": 52
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6308",
+          "message": {
+            "text": "'realloc' might return null pointer: assigning null pointer to 'open', which is passed as an argument to 'realloc', will cause the original memory block to be leaked."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                },
+                "region": {
+                  "startLine": 247,
+                  "startColumn": 30,
+                  "endLine": 247,
+                  "endColumn": 52
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6308",
+          "message": {
+            "text": "'realloc' might return null pointer: assigning null pointer to 'closed', which is passed as an argument to 'realloc', will cause the original memory block to be leaked."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                },
+                "region": {
+                  "startLine": 253,
+                  "startColumn": 24,
+                  "endLine": 253,
+                  "endColumn": 48
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6308",
+          "message": {
+            "text": "'realloc' might return null pointer: assigning null pointer to 'open', which is passed as an argument to 'realloc', will cause the original memory block to be leaked."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                },
+                "region": {
+                  "startLine": 288,
+                  "startColumn": 34,
+                  "endLine": 288,
+                  "endColumn": 56
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6064",
+          "message": {
+            "text": "Missing integer argument to 'fscanf_s' that corresponds to conversion specifier '2'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                },
+                "region": {
+                  "startLine": 112,
+                  "startColumn": 4,
+                  "endLine": 112,
+                  "endColumn": 43
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C6064",
+          "message": {
+            "text": "Missing integer argument to 'fscanf_s' that corresponds to conversion specifier '2'."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                },
+                "region": {
+                  "startLine": 118,
+                  "startColumn": 3,
+                  "endLine": 118,
+                  "endColumn": 29
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "ruleId": "C28182",
+          "message": {
+            "text": "Dereferencing NULL pointer. 'stops' contains the same NULL value as 'realloc()`163' did. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                },
+                "region": {
+                  "startLine": 165,
+                  "startColumn": 17,
+                  "endLine": 165,
+                  "endColumn": 32
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "main",
+                  "decoratedName": "main",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 86,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 88,
+                            "startColumn": 10
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 89,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 91,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 93,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 94,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 95,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 96,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 100,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 100,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 101,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 104,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 104,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 121,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 121,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 139,
+                            "startColumn": 2
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 142,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 142,
+                            "startColumn": 8
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 142,
+                            "startColumn": 11
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 142,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 142,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 142,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 143,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 144,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 145,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 146,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 147,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 148,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 149,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 149,
+                            "startColumn": 14
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 150,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 151,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 152,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 153,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 154,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 155,
+                            "startColumn": 6
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 156,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 159,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 159,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 160,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 160,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 161,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 162,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 163,
+                            "startColumn": 23
+                          }
+                        },
+                        "message": {
+                          "text": "'stops' may be NULL"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 164,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+                          },
+                          "region": {
+                            "startLine": 165,
+                            "startColumn": 30
+                          }
+                        },
+                        "message": {
+                          "text": "'stops' is dereferenced, but may still be NULL"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.33.31630.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///C:/Users/santa/Desktop/301/Astar.c/Astar/Astar/main.c"
+          },
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ],
+          "hashes": {
+            "sha-256": "3a98386651e9232b55ea7e8aa6b557d7995d07a7888b2796ed5e7bb349dae6d5"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/santa/desktop/301/astar.c/astar/astar/main.h"
+          },
+          "hashes": {
+            "sha-256": "14178abcd0f960b9805290497a7fdba689347f986fb4664291e7fe3bfd583f63"
+          }
+        }
+      ]
+    }
+  ]
+}
