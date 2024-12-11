@@ -1,4 +1,3 @@
-# Compsys301-Project-Path-Finding-Robot
 
 Compsys 301 group project 
 
